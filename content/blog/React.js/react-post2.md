@@ -1,5 +1,5 @@
 ---
-title: '[React] 자바 개발자의 리액트 블로그 개설 과정'
+title: '[React] 자바개발자의 리액트 블로그 개설 과정'
 date: 2020-11-03 23:55:48
 category: React.js
 thumbnail: { thumbnailSrc }
