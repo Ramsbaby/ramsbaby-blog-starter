@@ -2,7 +2,7 @@
 title: '[책소개] 코딩인터뷰 완전분석'
 date: 2020-11-10 23:29:49
 category: 책소개
-thumbnail: { thumbnailSrc }
+thumbnail: ''
 draft: false
 ---
 

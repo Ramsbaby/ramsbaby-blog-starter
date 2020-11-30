@@ -1,9 +1,9 @@
-import React, { useMemo } from 'react'
-import { graphql } from 'gatsby'
+import React, { useMemo } from 'react';
+import { graphql } from 'gatsby';
 
-import { ThumbnailContainer } from '../thumbnail-container'
-import { ThumbnailItem } from '../thumbnail-item'
-import { CATEGORY_TYPE } from '../../constants'
+import { ThumbnailContainer } from '../thumbnail-container';
+import { ThumbnailItem } from '../thumbnail-item';
+import { CATEGORY_TYPE } from '../../constants';
 
 export const Contents = ({
   posts,
@@ -18,16 +18,22 @@ export const Contents = ({
         searchWord.length == 0 || searchWord === undefined
           ? category === CATEGORY_TYPE.ALL ||
             node.frontmatter.category === category
-          : node.html.toString().match(new RegExp(searchWord, 'i')) != null
+          : node.html.toString().match(new RegExp(searchWord, 'i')) != null,
       )
-      .slice(0, count * countOfInitialPost)
-  )
+      .slice(0, count * countOfInitialPost),
+  );
 
   return (
     <ThumbnailContainer>
       {refinedPosts.map(({ node }, index) => (
-        <ThumbnailItem node={node} key={`item_${index}`} />
+        <div>
+          <ThumbnailItem
+            node={node}
+            key={`item_${index}`}
+            imagePath={node.frontmatter.thumbnail}
+          />
+        </div>
       ))}
     </ThumbnailContainer>
-  )
-}
+  );
+};

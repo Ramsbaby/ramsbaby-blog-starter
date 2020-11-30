@@ -2,7 +2,7 @@
 title: '[Etc] 블로그 개설 취지!'
 date: 2020-09-24 12:09:49
 category: Etc
-thumbnail: { thumbnailSrc }
+thumbnail: ''
 draft: false
 ---
 
@@ -36,7 +36,6 @@ draft: false
 그러한 분들께 도움도 될겸, <br>
 나 자신의 지식도 다듬을 겸 늦었지만 블로그를 개설하며, <br>
 앞으로 이 공간에 모두를 위한 **더 나은 코드, 노하우, 지식**들을 올려보도록 하겠습니다. :pray:
-
 
 <br>
 <br>

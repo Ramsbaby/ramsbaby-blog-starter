@@ -1,4 +1,5 @@
 const metaConfig = require('./gatsby-meta-config')
+const path = require('path')
 
 module.exports = {
   siteMetadata: metaConfig,
@@ -100,6 +101,12 @@ module.exports = {
         sitemap: 'https://ramsbaby.netlify.app/sitemap.xml',
         policy: [{ userAgent: '*', allow: '/' }],
       },
+    },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        blog: path.join(__dirname, 'content/blog')
+      }      
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

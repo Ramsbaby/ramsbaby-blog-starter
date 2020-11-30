@@ -2,7 +2,7 @@
 title: '[Etc] Arctic Code Vault Contributor'
 date: 2020-09-24 12:09:49
 category: Etc
-thumbnail: { thumbnailSrc }
+thumbnail: 'Etc/images/ramsbaby_github.png'
 draft: false
 ---
 
@@ -21,7 +21,7 @@ draft: false
 
 <br><br><br>
 
-![](/images/Github_top_projects.png)
+![](/Etc/images/Github_top_projects.png)
 
 <br><br><br>
 
@@ -31,7 +31,7 @@ draft: false
 
 <br><br>
 
-![](/images/ramsbaby_github.png)
+![](/Etc/images/ramsbaby_github.png)
 
 <br>
 <br>

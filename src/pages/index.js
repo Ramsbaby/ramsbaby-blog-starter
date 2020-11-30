@@ -94,6 +94,7 @@ export const pageQuery = graphql`
             title
             category
             draft
+            thumbnail
           }
           html
         }
