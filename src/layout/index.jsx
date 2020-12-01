@@ -6,6 +6,7 @@ import { ThemeSwitch } from '../components/theme-switch'
 import { Footer } from '../components/footer'
 import { rhythm } from '../utils/typography'
 import BackToTop from './back-to-top'
+import Sidebar from '../components/Sidebar'
 
 import './index.scss'
 
@@ -21,20 +22,25 @@ export const Layout = ({ location, title, children }) => {
   return (
     <React.Fragment>
       <Top title={title} location={location} rootPath={rootPath} />
+      {/* <div> */}
+      {/* <div className={'sidebar'} >
+          <Sidebar />
+        </div> */}
       <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
+      // style={{
+      //   marginLeft: `auto`,
+      //   marginRight: `auto`,
+      //   maxWidth: rhythm(75),
+      //   padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+      // }}
       >
         <ThemeSwitch />
-        <Header title={title} location={location} rootPath={rootPath} />
+        {/* <Header title={title} location={location} rootPath={rootPath} /> */}
         {children}
         {renderBackToTop()}
         <Footer />
       </div>
+      {/* </div> */}
     </React.Fragment>
   )
 }

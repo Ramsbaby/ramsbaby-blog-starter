@@ -4,6 +4,7 @@ date: 2020-11-03 23:55:48
 category: React.js
 thumbnail: 'React.js/images/Spring_jsp_env.png'
 draft: false
+tags: ['ReactJs']
 ---
 
 이번 블로그는 자바개발자인 제가 어떻게 리액트 블로그를 운용하게 되었는지에 대한 블로그입니다.

@@ -1,9 +1,8 @@
-import React, { useMemo } from 'react';
-import { graphql } from 'gatsby';
-
-import { ThumbnailContainer } from '../thumbnail-container';
-import { ThumbnailItem } from '../thumbnail-item';
-import { CATEGORY_TYPE } from '../../constants';
+import React, { useMemo } from 'react'
+import { graphql } from 'gatsby'
+import { ThumbnailContainer } from '../thumbnail-container'
+import { ThumbnailItem } from '../thumbnail-item'
+import { CATEGORY_TYPE } from '../../constants'
 
 export const Contents = ({
   posts,
@@ -11,17 +10,30 @@ export const Contents = ({
   count,
   category,
   searchWord,
+  clickTag,
+  exposureGb,
 }) => {
   const refinedPosts = useMemo(() =>
     posts
-      .filter(({ node }) =>
-        searchWord.length == 0 || searchWord === undefined
-          ? category === CATEGORY_TYPE.ALL ||
-            node.frontmatter.category === category
-          : node.html.toString().match(new RegExp(searchWord, 'i')) != null,
-      )
+      .filter(({ node }) => {
+        switch (exposureGb) {
+          case 'SEARCH':
+            return (
+              node.html.toString().match(new RegExp(searchWord, 'i')) != null
+            )
+          case 'CATE':
+            return (
+              category === CATEGORY_TYPE.ALL ||
+              node.frontmatter.category === category
+            )
+          case 'TAG':
+            return node.frontmatter.tags.includes(clickTag)
+          default:
+            return category === CATEGORY_TYPE.ALL
+        }
+      })
       .slice(0, count * countOfInitialPost),
-  );
+  )
 
   return (
     <ThumbnailContainer>
@@ -35,5 +47,5 @@ export const Contents = ({
         </div>
       ))}
     </ThumbnailContainer>
-  );
-};
+  )
+}

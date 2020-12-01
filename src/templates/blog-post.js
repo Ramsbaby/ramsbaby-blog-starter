@@ -18,6 +18,7 @@ import { Utterances } from '../components/utterances'
 import * as ScrollManager from '../utils/scroll'
 import { Link } from 'gatsby'
 import kebabCase from 'lodash/kebabCase'
+import { rhythm } from '../utils/typography'
 
 import '../styles/code.scss'
 import 'katex/dist/katex.min.css'
@@ -46,7 +47,7 @@ export default ({ data, pageContext, location }) => {
           >
             <Link
               to={`${location.pathname}#${encodeURI(
-                kebabCase(header.value.replace(regex, ''))
+                kebabCase(header.value.replace(regex, '')),
               )}`}
               // className="post-single__table_of_contents-list-item-link"
               activeClassName={{ color: 'red' }}
@@ -61,27 +62,36 @@ export default ({ data, pageContext, location }) => {
 
   return (
     <Layout location={location} title={title}>
-      <Head title={postTitle} description={post.excerpt} />
-      <PostTitle title={postTitle} />
-      <PostDate date={date} />
-      <div className="post-single__table_of_contents">{tableOfContents}</div>
-      <PostContainer html={post.html} />
-      <SocialShare title={postTitle} author={author} />
-      {!!sponsor.buyMeACoffeeId && (
-        <SponsorButton sponsorId={sponsor.buyMeACoffeeId} />
-      )}
-      <Elements.Hr />
-      <Bio />
-      <PostNavigator pageContext={pageContext} />
-      {!!disqusShortName && (
-        <Disqus
-          post={post}
-          shortName={disqusShortName}
-          siteUrl={siteUrl}
-          slug={pageContext.slug}
-        />
-      )}
-      {!!utterances && <Utterances repo={utterances} />}
+      <div
+        style={{
+          marginLeft: `auto`,
+          marginRight: `auto`,
+          maxWidth: rhythm(30),
+          padding: `${rhythm(1.5)} ${rhythm(0.75)}`,
+        }}
+      >
+        <Head title={postTitle} description={post.excerpt} />
+        <PostTitle title={postTitle} />
+        <PostDate date={date} />
+        <div className="post-single__table_of_contents">{tableOfContents}</div>
+        <PostContainer html={post.html} />
+        <SocialShare title={postTitle} author={author} />
+        {!!sponsor.buyMeACoffeeId && (
+          <SponsorButton sponsorId={sponsor.buyMeACoffeeId} />
+        )}
+        <Elements.Hr />
+        <Bio />
+        <PostNavigator pageContext={pageContext} />
+        {!!disqusShortName && (
+          <Disqus
+            post={post}
+            shortName={disqusShortName}
+            siteUrl={siteUrl}
+            slug={pageContext.slug}
+          />
+        )}
+        {!!utterances && <Utterances repo={utterances} />}
+      </div>
     </Layout>
   )
 }

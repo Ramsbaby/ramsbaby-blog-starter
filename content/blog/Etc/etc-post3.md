@@ -4,6 +4,7 @@ date: 2020-10-01 19:43:00
 category: Etc
 thumbnail: ''
 draft: false
+tags: ['열린개발자']
 ---
 
 <style>

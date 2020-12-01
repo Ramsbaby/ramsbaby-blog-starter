@@ -4,6 +4,7 @@ date: 2020-10-05 23:45:20
 category: React.js
 thumbnail: 'React.js/images/react_logo.png'
 draft: false
+tags: ['ReactJs', '자바개발자의 리액트 입문 과정']
 ---
 
 ![](/React.js/images/react_logo.png)

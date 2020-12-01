@@ -4,6 +4,7 @@ date: 2020-09-24 12:09:49
 category: Etc
 thumbnail: ''
 draft: false
+tags: ['리액트블로그', 'ReactJs', 'Gatsby', '블로그개설취지']
 ---
 
 ### **개발자들의 로망. 나만의 기술 블로그 갖추기.**

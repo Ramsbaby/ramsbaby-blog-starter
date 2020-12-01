@@ -4,6 +4,7 @@ date: 2020-09-24 12:09:49
 category: Git
 thumbnail: ''
 draft: false
+tags: ['github tip']
 ---
 
 ```sh
@@ -11,7 +12,6 @@ git fetch --all
 git reset --hard origin/master
 git pull origin master
 ```
-
 
 <br>
 <br>

@@ -20,8 +20,8 @@ export const Search = props => {
       })(
         (nameInput.current.state.innerValue = nameInput.current.state.innerValue.replace(
           /\\/gi,
-          ''
-        ))
+          '',
+        )),
       )
 
       e.preventDefault()
@@ -29,6 +29,7 @@ export const Search = props => {
     }
     setInput(e.target.value)
     props.inputSearchWord(e.target.value)
+    props.selectExposureGb('SEARCH')
   }
 
   const onFormSubmit = e => {
