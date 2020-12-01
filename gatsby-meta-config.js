@@ -16,6 +16,7 @@ module.exports = {
   configs: {
     countOfInitialPost: 10, // Config your initial count of post
   },
+
   sponsor: {
     buyMeACoffeeId: 'ramsbaby',
   },
