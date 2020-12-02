@@ -63,7 +63,7 @@ export default ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteMetadata.title}>
-      <div>
+      <div className={'sidebar-container'}>
         <div className={'sidebar'}>
           <Sidebar>
             <p>Tag Collection</p>
@@ -129,7 +129,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 200, truncate: true)
+          excerpt(pruneLength: 400, truncate: true)
           fields {
             slug
           }

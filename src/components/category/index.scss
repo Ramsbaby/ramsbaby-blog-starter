@@ -3,7 +3,7 @@
 .category-container {
   position: sticky;
   position: -webkit-sticky;
-  top: 0;
+  top: 0px;
   line-height: 0;
   white-space: nowrap;
   overflow-x: scroll;
@@ -63,4 +63,11 @@
 .scroll-menu-arrow {
   padding: 20px;
   cursor: pointer;
+}
+
+.ScrollMenu-container {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 100px;
+  background: white;
 }

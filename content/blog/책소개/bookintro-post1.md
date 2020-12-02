@@ -2,10 +2,12 @@
 title: '[책소개] 코딩인터뷰 완전분석'
 date: 2020-11-10 23:29:49
 category: 책소개
-thumbnail: ''
+thumbnail: '책소개/images/book1.jpg'
 draft: false
 tags: ['코딩인터뷰 완전분석', '책리뷰']
 ---
+
+![](/책소개/images/book1.jpg)
 
 본인이 공부할 목적으로 책인덱스를 짜보았으나, 공유차원에서 포스팅합니다.<br>
 현재는 간단히 목차소개와 영역별 저의 짧은 견해를 달아봅니다.<br><br>

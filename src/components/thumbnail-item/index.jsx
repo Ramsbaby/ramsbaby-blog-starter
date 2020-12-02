@@ -18,6 +18,8 @@ export const ThumbnailItem = ({ node, imagePath }) => {
     'flex-shrink': '1',
     'margin-right': '10px',
     'flex-basis': '300px',
+    height: '150px',
+    overflow: 'hidden',
   }
 
   const inRightStyle = {
