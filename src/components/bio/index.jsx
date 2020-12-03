@@ -24,7 +24,12 @@ export const Bio = () => (
               />
               <div className="author-name">
                 <span className="author-name-prefix">Written by</span>
-                <Link to={'/about'} className="author-name-content">
+                <Link
+                  to={
+                    'https://www.notion.so/Ramsbaby-13eb750380004cab9942867038d7e00f'
+                  }
+                  className="author-name-content"
+                >
                   <span>Ramsbaby</span>
                 </Link>
                 <div className="author-introduction">{introduction}</div>
@@ -32,7 +37,6 @@ export const Bio = () => (
                   {social.github && (
                     <a href={`https://github.com/${social.github}`}>GitHub</a>
                   )}
-                  
                 </p>
               </div>
             </div>
