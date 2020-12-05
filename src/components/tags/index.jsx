@@ -16,7 +16,7 @@ export const Tags = ({ tags, selectTag, selectExposureGb }) => {
           lineHeight: '1.5625rem',
           height: '25px',
         }}
-        href="javascript:void(0);"
+        href="#!"
         onClick={function() {
           selectTag(tag.fieldValue)
           selectExposureGb('TAG')

@@ -38,13 +38,11 @@ export const Contents = ({
   return (
     <ThumbnailContainer>
       {refinedPosts.map(({ node }, index) => (
-        <div>
-          <ThumbnailItem
-            node={node}
-            key={`item_${index}`}
-            imagePath={node.frontmatter.thumbnail}
-          />
-        </div>
+        <ThumbnailItem
+          node={node}
+          key={`item_${index}`}
+          imagePath={node.frontmatter.thumbnail}
+        />
       ))}
     </ThumbnailContainer>
   )

@@ -1,24 +1,45 @@
 @import '../styles/variables.scss';
 @import '../styles/light-theme.scss';
 @import '../styles/dark-theme.scss';
-@import './variables.scss';
-@import './mixins.scss';
+@import './_variables.scss';
+@import './_mixins.scss';
 
 @include mobile {
   .sidebar {
     width: 100%;
+    background-color: white;
+  }
+
+  .sidebar-container {
+    position: sticky;
+    top: 0;
+    top: 100px;
+    z-index: 9999999;
   }
 }
 
 @include tablet {
   .sidebar {
     width: 100%;
+    background-color: white;
+  }
+
+  .sidebar-container {
+    position: sticky;
+    top: 0;
+    top: 100px;
+    z-index: 9999999;
   }
 }
 
 @include desktop {
   .sidebar {
     width: 15%;
+  }
+
+  .sidebar-container {
+    position: sticky;
+    top: 0;
   }
 }
 

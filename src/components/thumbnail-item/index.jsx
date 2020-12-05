@@ -11,20 +11,20 @@ export const ThumbnailItem = ({ node, imagePath }) => {
   const outStyle = {
     display: 'flex',
     boder: '1px solid black',
-    'flex-direction': 'row',
+    flexDirection: 'row',
   }
 
   const inLeftStyle = {
-    'flex-shrink': '1',
-    'margin-right': '10px',
-    'flex-basis': '300px',
+    flexShrink: '1',
+    marginRight: '10px',
+    flexBasis: '300px',
     height: '150px',
     overflow: 'hidden',
   }
 
   const inRightStyle = {
-    'flex-shrink': '1',
-    'flex-basis': imagePath ? '600px' : '900px',
+    flexShrink: '1',
+    flexBasis: imagePath ? '600px' : '900px',
   }
 
   return (
