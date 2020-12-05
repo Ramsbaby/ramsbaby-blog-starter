@@ -37,6 +37,13 @@ export const Bio = () => (
                   {social.github && (
                     <a href={`https://github.com/${social.github}`}>GitHub</a>
                   )}
+                  {social.github && (
+                    <a
+                      href={`https://www.notion.so/Ramsbaby-13eb750380004cab9942867038d7e00f`}
+                    >
+                      Portpolio
+                    </a>
+                  )}
                 </p>
               </div>
             </div>
