@@ -41,7 +41,7 @@ export const Bio = () => (
                     <a
                       href={`https://www.notion.so/Ramsbaby-13eb750380004cab9942867038d7e00f`}
                     >
-                      Portpolio
+                      Portfolio
                     </a>
                   )}
                 </p>
