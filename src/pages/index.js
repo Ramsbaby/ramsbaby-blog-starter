@@ -67,8 +67,8 @@ export default ({ data, location }) => {
       <div className="site-wrapper">
         <Particles
           className="snow"
-          focusable="false"
-          aria-hidden="true"
+          focusable="true"
+          aria-hidden="false"
           params={{
             particles: {
               number: {
@@ -88,7 +88,7 @@ export default ({ data, location }) => {
                   color: '#000',
                 },
                 polygon: {
-                  nb_sides: 10,
+                  nb_sides: 5,
                 },
                 image: {
                   width: 100,
@@ -97,12 +97,12 @@ export default ({ data, location }) => {
               },
               opacity: {
                 value: 0.5,
-                random: false,
+                random: true,
                 anim: {
                   enable: true,
                   speed: 0.5,
                   opacity_min: 0.1,
-                  sync: false,
+                  sync: true,
                 },
               },
               size: {
