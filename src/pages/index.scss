@@ -55,3 +55,29 @@
   position: sticky;
   top: 0;
 }
+
+.site-wrapper {
+  padding: 3vw;
+  min-height: 100vh;
+  position: relative;
+}
+@media (max-width: 800px) {
+  .site-wrapper {
+    padding: 6vw;
+  }
+}
+
+.snow {
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  width: 125%;
+  margin-left: -20%;
+  top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .snow {
+    display: none;
+  }
+}

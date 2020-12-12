@@ -20,6 +20,7 @@ import { Header } from '../components/header'
 import Sidebar from '../components/Sidebar'
 import { rhythm } from '../utils/typography'
 import './index.scss'
+import Particles from '../components/react-particles-js'
 
 import * as Dom from '../utils/dom'
 import * as EventManager from '../utils/event-manager'
@@ -63,52 +64,170 @@ export default ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteMetadata.title}>
-      <div className={'sidebar-container'}>
-        <div className={'sidebar'}>
-          <Sidebar>
-            <p>Tag Collection</p>
-            <Tags
-              tags={tags}
-              selectTag={selectTag}
+      <div className="site-wrapper">
+        <Particles
+          className="snow"
+          focusable="false"
+          aria-hidden="true"
+          params={{
+            particles: {
+              number: {
+                value: 99,
+                density: {
+                  enable: true,
+                  value_area: 800,
+                },
+              },
+              color: {
+                value: '#FFE08C',
+              },
+              shape: {
+                type: 'circle',
+                stroke: {
+                  width: 0,
+                  color: '#000',
+                },
+                polygon: {
+                  nb_sides: 10,
+                },
+                image: {
+                  width: 100,
+                  height: 100,
+                },
+              },
+              opacity: {
+                value: 0.5,
+                random: false,
+                anim: {
+                  enable: true,
+                  speed: 0.5,
+                  opacity_min: 0.1,
+                  sync: false,
+                },
+              },
+              size: {
+                value: 10,
+                random: true,
+                anim: {
+                  enable: true,
+                  speed: 0,
+                  size_min: 0,
+                  sync: false,
+                },
+              },
+              line_linked: {
+                enable: false,
+                distance: 200,
+                color: '#ffffff',
+                opacity: 1,
+                width: 2,
+              },
+              move: {
+                enable: true,
+                speed: 0.5,
+                direction: 'none',
+                random: true,
+                straight: false,
+                out_mode: 'out',
+                bounce: false,
+                attract: {
+                  enable: true,
+                  rotateX: 600,
+                  rotateY: 1200,
+                },
+              },
+            },
+            interactivity: {
+              detect_on: 'canvas',
+              events: {
+                onhover: {
+                  enable: false,
+                  mode: 'repulse',
+                },
+                onclick: {
+                  enable: false,
+                  mode: 'push',
+                },
+                resize: true,
+              },
+              modes: {
+                grab: {
+                  distance: 400,
+                  line_linked: {
+                    opacity: 1,
+                  },
+                },
+                bubble: {
+                  distance: 400,
+                  size: 40,
+                  duration: 2,
+                  opacity: 8,
+                  speed: 3,
+                },
+                repulse: {
+                  distance: 200,
+                  duration: 0.4,
+                },
+                push: {
+                  particles_nb: 4,
+                },
+                remove: {
+                  particles_nb: 2,
+                },
+              },
+            },
+            retina_detect: false,
+          }}
+        ></Particles>
+        <div>
+          <div className={'sidebar-container'}>
+            <div className={'sidebar'}>
+              <Sidebar>
+                <p>Tag Collection</p>
+                <Tags
+                  tags={tags}
+                  selectTag={selectTag}
+                  selectExposureGb={selectExposureGb}
+                />
+              </Sidebar>
+            </div>
+          </div>
+          <div
+            style={{
+              marginLeft: `auto`,
+              marginRight: `auto`,
+              maxWidth: rhythm(45),
+              padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+            }}
+          >
+            <Header
+              title={siteMetadata.title}
+              location={location}
+              rootPath={rootPath}
+            />
+            <Head title={HOME_TITLE} keywords={siteMetadata.keywords} />
+            <Bio />
+            <Search
+              inputSearchWord={inputSearchWord}
               selectExposureGb={selectExposureGb}
             />
-          </Sidebar>
+            <Category
+              categories={categories}
+              category={category}
+              selectCategory={selectCategory}
+              selectExposureGb={selectExposureGb}
+            />
+            <Contents
+              posts={posts}
+              countOfInitialPost={countOfInitialPost}
+              count={count}
+              category={category}
+              searchWord={searchWord}
+              clickTag={clickTag}
+              exposureGb={exposureGb}
+            />
+          </div>
         </div>
-      </div>
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(45),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        <Header
-          title={siteMetadata.title}
-          location={location}
-          rootPath={rootPath}
-        />
-        <Head title={HOME_TITLE} keywords={siteMetadata.keywords} />
-        <Bio />
-        <Search
-          inputSearchWord={inputSearchWord}
-          selectExposureGb={selectExposureGb}
-        />
-        <Category
-          categories={categories}
-          category={category}
-          selectCategory={selectCategory}
-          selectExposureGb={selectExposureGb}
-        />
-        <Contents
-          posts={posts}
-          countOfInitialPost={countOfInitialPost}
-          count={count}
-          category={category}
-          searchWord={searchWord}
-          clickTag={clickTag}
-          exposureGb={exposureGb}
-        />
       </div>
     </Layout>
   )
