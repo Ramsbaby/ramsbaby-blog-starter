@@ -68,7 +68,7 @@ export default ({ data, location }) => {
         <Particles
           className="snow"
           focusable="true"
-          aria-hidden="false"
+          aria-hidden=""
           params={{
             particles: {
               number: {
