@@ -62,6 +62,23 @@ export default ({ data, location }) => {
     })()
   })
 
+  // particles: {
+  //   number: {
+  //     value: 100,
+  //   },
+  //   size: {
+  //     value: 3,
+  //   },
+  // },
+  // interactivity: {
+  //   events: {
+  //     onhover: {
+  //       enable: true,
+  //       mode: 'repulse',
+  //     },
+  //   },
+  // },
+
   return (
     <Layout location={location} title={siteMetadata.title}>
       <div className="site-wrapper">
@@ -72,7 +89,7 @@ export default ({ data, location }) => {
           params={{
             particles: {
               number: {
-                value: 99,
+                value: 30,
                 density: {
                   enable: true,
                   value_area: 800,
@@ -102,11 +119,11 @@ export default ({ data, location }) => {
                   enable: true,
                   speed: 0.5,
                   opacity_min: 0.1,
-                  sync: true,
+                  sync: false,
                 },
               },
               size: {
-                value: 10,
+                value: 1,
                 random: true,
                 anim: {
                   enable: true,
@@ -116,11 +133,11 @@ export default ({ data, location }) => {
                 },
               },
               line_linked: {
-                enable: false,
-                distance: 200,
-                color: '#ffffff',
-                opacity: 1,
-                width: 2,
+                enable: true,
+                distance: 300,
+                color: '#ff0000',
+                opacity: 0.2,
+                width: 1,
               },
               move: {
                 enable: true,
@@ -128,7 +145,7 @@ export default ({ data, location }) => {
                 direction: 'none',
                 random: true,
                 straight: false,
-                out_mode: 'out',
+                out_mode: 'bounce',
                 bounce: false,
                 attract: {
                   enable: true,

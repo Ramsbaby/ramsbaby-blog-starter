@@ -72,12 +72,13 @@
 }
 
 .snow {
-  height: 2500px;
+  height: 100%;
   position: absolute;
+  top: 0px;
   z-index: -1;
 
   width: 100%;
-  margin-left: -20%;
+  margin-left: 0%;
 }
 
 @media (prefers-reduced-motion: reduce) {
