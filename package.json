@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Ramsbaby[JungwooLee]<ms6698@naver.com>",
   "bugs": {
-    "url": "https://github.com/Ramsbaby/ramsbaby-blog-starter/issues"
+    "url": "https://github.com/LeeAndJang/L-J-gatsby-blog-starter/issues"
   },
   "dependencies": {
     "eslint-config-prettier": "^6.15.0",
@@ -92,7 +92,7 @@
       "browser": true
     }
   },
-  "homepage": "https://github.com/JaeYeopHan/gatsby-starter-bee#readme",
+  "homepage": "https://github.com/Ramsbaby/ramsbaby-blog-starter",
   "keywords": [
     "gatsby"
   ],
