@@ -36,9 +36,9 @@ export const Tags = ({ tags, selectTag, selectExposureGb }) => {
           padding: '0',
         }}
       >
-        <li style={{ display: 'inline-block' }} >
+        <li style={{ display: 'inline-block' }}>
           <a
-          className="tag-contents"
+            className="tag-contents"
             style={{
               display: 'inline-block',
               border: '1px solid #e6e6e6',
