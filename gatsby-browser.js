@@ -1,5 +1,5 @@
 // custom typefaces
-// require('typeface-noto-sans-kr')
+require('typeface-noto-sans-kr')
 require('typeface-catamaran')
 
 // polyfill
