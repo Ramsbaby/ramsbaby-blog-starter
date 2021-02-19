@@ -3,7 +3,7 @@ title: '[Etc] (작성중) 자바웹개발자로 성장하게 된 계기'
 date: 2020-12-10 01:05:32
 category: Etc
 thumbnail: ''
-draft: false
+draft: true
 tags: ['자바웹개발자성장계기']
 ---
 

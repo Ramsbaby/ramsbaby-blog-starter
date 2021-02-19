@@ -1,10 +1,10 @@
 ---
-title: '[Etc] (작성중) 주니어를 위한 초간단 스프링프레임워크 구조정리'
+title: '[Computer Science] (작성중) 운영체제 30분 요약'
 date: 2020-12-10 03:02:23
-category: Etc
+category: Computer Science
 thumbnail: ''
-draft: true
-tags: ['자바주니어', '초간단스프링구조정리']
+draft: false
+tags: ['컴퓨터사이언스', '운영체제']
 ---
 
 # 죄송합니다. 글마무리를 빠른시간안에 짓도록 하겠습니다.
