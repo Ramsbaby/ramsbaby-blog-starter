@@ -2,7 +2,7 @@
 title: '[React] 자바개발자의 리액트 블로그 개설 과정'
 date: 2020-11-03 23:55:48
 category: React.js
-thumbnail: 'React.js/images/Spring_jsp_env.png'
+thumbnail: 'thumbnail-images/React.js/images/Spring_jsp_env.png'
 draft: false
 tags: ['ReactJs']
 ---
@@ -29,7 +29,7 @@ Mybatis를 활용한 쿼리를 이용하여 관계형DB에서 데이터를 가�
 
 제가 기존에 해오던 스프링 웹개발 환경에서 JSP를 이용한 구성도는 다음과 같습니다. (발그림 ㅈㅅ)
 
-![](/React.js/images/Spring_jsp_env.png)
+![](./images/Spring_jsp_env.png)
 
 위의 방식은 프론트를 담당하는 JSP가 백엔드인 자바가 해석할 수 있는 언어이고, 이를 연결해주는 뷰컨트롤러라는 매개체가 있기에 가능합니다.
 
@@ -40,7 +40,7 @@ Mybatis를 활용한 쿼리를 이용하여 관계형DB에서 데이터를 가�
 하지만 리액트는 node.js위에서 움직이기 때문에 각각의 환경인 스프링과 node, 즉, 자바 백엔드 서비스의 엔트리포인트와 리액트사이에서 매개체가 필요해집니다.
 이를 간단하게 해결해주는 것이 REST API 입니다. REST API와 node.js환경의 proxy를 이용한 구성도는 다음과 같습니다.(네, 저는 그림에 영 소질이 없음을 이번 기회를 통해 또 깨닫습니다.)
 
-![](/React.js/images/spring_node_react_env.png)
+![](./images/spring_node_react_env.png)
 
 (이 도식도를 작성할 당시의 저는 next.js에 대한 개념이 없었기 때문에 위의 그림에서 사소한 논란은 넘어가도록 합니다.)
 
@@ -54,7 +54,7 @@ Mybatis를 활용한 쿼리를 이용하여 관계형DB에서 데이터를 가�
 하지만 기술 블로그를 운용하기에 이와 같은 환경구성은 너무 일이 커지는것 같았고, 저는 백엔드 역할의 축소에 대해 생각하게 되었습니다.
 이 때 저에게 힌트를 준 것이 바로 노마드코더, 니콜라스(개인적으로 존경하는 유튜버 겸 프론트엔드 개발자입니다 ^^)의 유튜브였습니다...
 
-![](/React.js/images/nicolas_youtube1.png)
+![](./images/nicolas_youtube1.png)
 
 니콜라스는 2020년에 주목할만한 웹기술 top5중 하나로 Gatsby.js를 소개하고 있습니다.
 Gatsby.js란 React기반의 정적 페이지 생성 프레임워크 (Static Web Generator)입니다.

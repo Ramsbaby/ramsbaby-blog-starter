@@ -2,7 +2,7 @@
 title: '[Etc] Arctic Code Vault Contributor'
 date: 2020-09-24 12:09:49
 category: Etc
-thumbnail: 'Etc/images/ramsbaby_github.png'
+thumbnail: 'thumbnail-images/Etc/images/ramsbaby_github.png'
 draft: false
 tags: ['Github Badge']
 ---
@@ -22,7 +22,7 @@ tags: ['Github Badge']
 
 <br><br><br>
 
-![](/Etc/images/Github_top_projects.png)
+![](./images/Github_top_projects.png)
 
 <br><br><br>
 
@@ -32,10 +32,10 @@ tags: ['Github Badge']
 
 <br><br>
 
-![](/Etc/images/ramsbaby_github.png)
+![](./images/ramsbaby_github.png)
 
 <br>
 <br>
 <br>
 
-####읽어주셔서 감사합니다.🖐
+#### 읽어주셔서 감사합니다.🖐

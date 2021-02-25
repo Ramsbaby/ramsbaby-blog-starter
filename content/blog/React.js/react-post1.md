@@ -2,12 +2,12 @@
 title: '[React] 자바개발자의 리액트 입문 과정'
 date: 2020-10-05 23:45:20
 category: React.js
-thumbnail: 'React.js/images/react_logo.png'
+thumbnail: 'thumbnail-images/React.js/images/react_logo.png'
 draft: false
 tags: ['ReactJs', '자바개발자의 리액트 입문 과정']
 ---
 
-![](/React.js/images/react_logo.png)
+![](./images/react_logo.png)
 <br><br>
 
 ## 리액트 간단 소개
