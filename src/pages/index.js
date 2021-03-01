@@ -81,7 +81,7 @@ export default ({ data, location }) => {
 
 
   return (
-    <Layout location={location} title={siteMetadata.title} data={data}>
+    <Layout location={location} title={siteMetadata.title} siteMetadata={siteMetadata}>
       <div className="site-wrapper">
         <Particles
           className="snow"

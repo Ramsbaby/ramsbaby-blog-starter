@@ -10,9 +10,9 @@ import Sidebar from '../components/Sidebar'
 
 import './index.scss'
 
-export const Layout = ({ data, location, title, children }) => {
+export const Layout = ({ siteMetadata, location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
-  const github_Id = data.site.siteMetadata.social.github
+  const github_Id = siteMetadata.social.github
 
   const renderBackToTop = () => {
     if (typeof window !== 'undefined') {
