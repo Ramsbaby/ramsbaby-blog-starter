@@ -61,7 +61,7 @@ export default ({ data, pageContext, location }) => {
   )
 
   return (
-    <Layout location={location} title={title} data={data}>
+    <Layout location={location} title={title} siteMetadata={metaData}>
       <div
         style={{
           marginLeft: `auto`,
