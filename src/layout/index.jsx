@@ -12,6 +12,7 @@ import './index.scss'
 
 export const Layout = ({ data, location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
+  const github_Id = data.site.siteMetadata.social.github
 
   const renderBackToTop = () => {
     if (typeof window !== 'undefined') {
@@ -21,7 +22,12 @@ export const Layout = ({ data, location, title, children }) => {
 
   return (
     <React.Fragment>
-      <Top title={title} location={location} rootPath={rootPath} data={data} />
+      <Top
+        title={title}
+        location={location}
+        rootPath={rootPath}
+        github_Id={github_Id}
+      />
       {/* <div> */}
       {/* <div className={'sidebar'} >
           <Sidebar />

@@ -79,7 +79,6 @@ export default ({ data, location }) => {
   //   },
   // },
 
-  console.log(data.allMarkdownRemark)
 
   return (
     <Layout location={location} title={siteMetadata.title} data={data}>
