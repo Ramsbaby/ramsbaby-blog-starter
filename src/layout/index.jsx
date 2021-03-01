@@ -44,7 +44,7 @@ export const Layout = ({ siteMetadata, location, title, children }) => {
         {/* <Header title={title} location={location} rootPath={rootPath} /> */}
         {children}
         {renderBackToTop()}
-        <Footer data={data} />
+        <Footer siteMetadata={siteMetadata} />
       </div>
       {/* </div> */}
     </React.Fragment>
