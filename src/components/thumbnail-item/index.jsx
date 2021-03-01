@@ -28,8 +28,6 @@ export const ThumbnailItem = ({ node, imagePath }) => {
     flexBasis: imagePath ? '600px' : '900px',
   }
 
-  console.log(node)
-
   return (
     <Link className={`thumbnail ${TARGET_CLASS}`} to={node.fields.slug}>
       <div key={node.fields.slug}>
