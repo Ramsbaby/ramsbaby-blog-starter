@@ -8,7 +8,7 @@ export const Bio = () => (
   <StaticQuery
     query={bioQuery}
     render={data => {
-      const { author, social, introduction } = data.site.siteMetadata
+      const { author, social, introduction, othersite } = data.site.siteMetadata
 
       return (
         <div className="bio">
@@ -24,26 +24,14 @@ export const Bio = () => (
               />
               <div className="author-name">
                 <span className="author-name-prefix">Written by</span>
-                <Link
-                  to={
-                    'https://www.notion.so/Ramsbaby-13eb750380004cab9942867038d7e00f'
-                  }
-                  className="author-name-content"
-                >
-                  <span>Ramsbaby</span>
+                <Link to={social.Portfolio} className="author-name-content">
+                  <span>{author}</span>
                 </Link>
                 <div className="author-introduction">{introduction}</div>
                 <p className="author-socials">
-                  {social.github && (
-                    <a href={`https://github.com/${social.github}`}>GitHub</a>
-                  )}
-                  {social.github && (
-                    <a
-                      href={`https://www.notion.so/Ramsbaby-13eb750380004cab9942867038d7e00f`}
-                    >
-                      Portfolio
-                    </a>
-                  )}
+                  {othersite.map((val, idx) => (
+                    <a href={val.url}>{`#` + val.name}</a>
+                  ))}
                 </p>
               </div>
             </div>
@@ -69,6 +57,10 @@ const bioQuery = graphql`
         introduction
         social {
           github
+        }
+        othersite {
+          name
+          url
         }
       }
     }

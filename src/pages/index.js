@@ -5,7 +5,6 @@ import { Bio } from '../components/bio'
 import { Category } from '../components/category'
 import { Contents } from '../components/contents'
 import { Head } from '../components/head'
-import { HOME_TITLE } from '../constants'
 import { useCategory } from '../hooks/useCategory'
 import { useSearchWord } from '../hooks/useSearchWord'
 import { useTag } from '../hooks/useTag'
@@ -189,7 +188,10 @@ export default ({ data, location }) => {
               location={location}
               rootPath={rootPath}
             />
-            <Head title={HOME_TITLE} keywords={siteMetadata.keywords} />
+            <Head
+              title={siteMetadata.hometitle}
+              keywords={siteMetadata.keywords}
+            />
             <Bio />
             <Search
               inputSearchWord={inputSearchWord}
@@ -220,6 +222,7 @@ export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
+        hometitle
         title
         social {
           github
