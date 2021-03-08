@@ -1,47 +1,46 @@
 import React, { useState, useEffect } from 'react'
 import GoogleLogin from 'react-google-login'
-import gapi from '../utils/gapi.js'
+
+var VIEW_ID = '229844781'
+
+// Query the API and print the results to the page.
+function queryReports() {
+  gapi.client
+    .request({
+      path: '/v4/reports:batchGet',
+      root: 'https://analyticsreporting.googleapis.com/',
+      method: 'POST',
+      body: {
+        reportRequests: [
+          {
+            viewId: VIEW_ID,
+            dateRanges: [
+              {
+                startDate: '2020-09-01',
+                endDate: 'today',
+              },
+            ],
+            metrics: [
+              {
+                expression: 'ga:users',
+              },
+            ],
+          },
+        ],
+      },
+    })
+    .then(this.displayResults, location.reload())
+}
+
+function displayResults(response) {
+  var formattedJson = JSON.stringify(response.result, null, 2)
+  document.getElementById('query-output').value = formattedJson
+}
 
 class Test extends React.Component {
   render() {
     const responseGoogle = response => {
       console.log(response)
-    }
-
-    var VIEW_ID = '229844781'
-
-    // Query the API and print the results to the page.
-    function queryReports() {
-      gapi.client
-        .request({
-          path: '/v4/reports:batchGet',
-          root: 'https://analyticsreporting.googleapis.com/',
-          method: 'POST',
-          body: {
-            reportRequests: [
-              {
-                viewId: VIEW_ID,
-                dateRanges: [
-                  {
-                    startDate: '2020-09-01',
-                    endDate: 'today',
-                  },
-                ],
-                metrics: [
-                  {
-                    expression: 'ga:users',
-                  },
-                ],
-              },
-            ],
-          },
-        })
-        .then(this.displayResults, location.reload())
-    }
-
-    function displayResults(response) {
-      var formattedJson = JSON.stringify(response.result, null, 2)
-      document.getElementById('query-output').value = formattedJson
     }
 
     return (
