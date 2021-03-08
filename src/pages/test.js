@@ -21,6 +21,22 @@ class Test extends React.Component {
           />
         </head>
         <body>
+          <h1>Hello Analytics Reporting API V4</h1>
+
+          {/* <!-- The Sign-in button. This will run `queryReports()` on success. --> */}
+          <p class="g-signin2" data-onsuccess="queryReports"></p>
+
+          {/* <GoogleLogin
+            clientId="1075573877493-1f6ev81d3v2aq4caf22qv3e9h9s78d9i.apps.googleusercontent.com"
+            buttonText="Login"
+            onSuccess={queryReports()}
+            onFailure={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+          /> */}
+
+          {/* <!-- The API response will be printed here. --> */}
+          <textarea cols="80" rows="20" id="query-output"></textarea>
+
           <script
             dangerouslySetInnerHTML={{
               __html: `
@@ -64,22 +80,6 @@ class Test extends React.Component {
       `,
             }}
           />
-
-          <h1>Hello Analytics Reporting API V4</h1>
-
-          {/* <!-- The Sign-in button. This will run `queryReports()` on success. --> */}
-          <p class="g-signin2" data-onsuccess="queryReports"></p>
-
-          <GoogleLogin
-            clientId="1075573877493-1f6ev81d3v2aq4caf22qv3e9h9s78d9i.apps.googleusercontent.com"
-            buttonText="Login"
-            onSuccess={queryReports()}
-            onFailure={responseGoogle}
-            cookiePolicy={'single_host_origin'}
-          />
-
-          {/* <!-- The API response will be printed here. --> */}
-          <textarea cols="80" rows="20" id="query-output"></textarea>
 
           {/* <!-- Load the JavaScript API client and Sign-in library. --> */}
           <script src="https://apis.google.com/js/client:platform.js"></script>
