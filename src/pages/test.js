@@ -22,7 +22,7 @@ class Test extends React.Component {
           <p class="g-signin2" data-onsuccess="queryReports"></p>
 
           {/* <!-- The API response will be printed here. --> */}
-          {/* <textarea cols="80" rows="20" id="query-output"></textarea> */}
+          <textarea cols="80" rows="20" id="query-output"></textarea>
 
           <script
             dangerouslySetInnerHTML={{
