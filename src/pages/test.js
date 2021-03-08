@@ -2,13 +2,6 @@ import React, { useState, useEffect } from 'react'
 
 class Test extends React.Component {
   render() {
-    // Replace with your view ID. */
-
-    function displayResults(response) {
-      var formattedJson = JSON.stringify(response.result, null, 2)
-      document.getElementById('query-output').value = formattedJson
-    }
-
     return (
       <html>
         <head>
@@ -63,6 +56,11 @@ class Test extends React.Component {
                     },
                   })
                   .then(displayResults, console.error.bind(console))
+              }
+              
+              function displayResults(response) {
+                var formattedJson = JSON.stringify(response.result, null, 2)
+                document.getElementById('query-output').value = formattedJson
               }
 
   
