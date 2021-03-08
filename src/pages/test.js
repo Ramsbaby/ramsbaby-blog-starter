@@ -62,7 +62,7 @@ class Test extends React.Component {
           {/* <!-- The API response will be printed here. --> */}
           <textarea cols="80" rows="20" id="query-output"></textarea>
 
-          <script>{this.queryReports()}</script>
+          <script>this.queryReports()</script>
           {/* {this.queryReports()} */}
 
           {/* <!-- Load the JavaScript API client and Sign-in library. --> */}
