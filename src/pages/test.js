@@ -4,7 +4,7 @@ import GoogleLogin from 'react-google-login'
 var VIEW_ID = '229844781'
 
 // Query the API and print the results to the page.
-function queryReports() {
+const queryReports = function() {
   gapi.client
     .request({
       path: '/v4/reports:batchGet',
@@ -32,7 +32,7 @@ function queryReports() {
     .then(this.displayResults, location.reload())
 }
 
-function displayResults(response) {
+const displayResults = function(response) {
   var formattedJson = JSON.stringify(response.result, null, 2)
   document.getElementById('query-output').value = formattedJson
 }
