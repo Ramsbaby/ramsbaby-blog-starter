@@ -5,6 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
+  const testPage = path.resolve(`./src/pages/test.js`)
 
   return graphql(
     `
@@ -28,7 +29,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
-    `
+    `,
   ).then(result => {
     if (result.errors) {
       throw result.errors
@@ -36,7 +37,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     // Create blog posts pages.
     const posts = result.data.allMarkdownRemark.edges.filter(
-      ({ node }) => !node.frontmatter.draft && !!node.frontmatter.category
+      ({ node }) => !node.frontmatter.draft && !!node.frontmatter.category,
     )
 
     posts.forEach((post, index) => {
@@ -53,10 +54,18 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
     })
+
+    createPage({
+      path: 'test',
+      component: testPage,
+      context: {
+        slug: 'test',
+      },
+    })
   })
 }
 
-exports.createSchemaCustomization = ({actions}) => {
+exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   const typeDefs = `
     type MarkdownRemark implements Node {
@@ -76,13 +85,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
 
-
-    createNodeField(
-    {
+    createNodeField({
       name: `slug`,
       node,
       value,
-    }
-    )
+    })
   }
 }
