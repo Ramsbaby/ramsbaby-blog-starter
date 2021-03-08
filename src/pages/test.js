@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 class Test extends React.Component {
   render() {
@@ -6,43 +6,14 @@ class Test extends React.Component {
 
     var VIEW_ID = '229844781'
 
-    // Query the API and print the results to the page. */
-    function queryReports() {
-      gapi.client
-        .request({
-          path: '/v4/reports:batchGet',
-          root: 'https://analyticsreporting.googleapis.com/',
-          method: 'POST',
-          body: {
-            reportRequests: [
-              {
-                viewId: VIEW_ID,
-                dateRanges: [
-                  {
-                    startDate: '7daysAgo',
-                    endDate: 'today',
-                  },
-                ],
-                metrics: [
-                  {
-                    expression: 'ga:sessions',
-                  },
-                ],
-              },
-            ],
-          },
-        })
-        .then(displayResults, console.error.bind(console))
-    }
-
     function displayResults(response) {
       var formattedJson = JSON.stringify(response.result, null, 2)
       document.getElementById('query-output').value = formattedJson
     }
+
     return (
       <html>
         <head>
-          <meta charset="utf-8" />
           <title>Hello Analytics Reporting API V4</title>
           <meta
             name="google-signin-client_id"
@@ -62,8 +33,43 @@ class Test extends React.Component {
           {/* <!-- The API response will be printed here. --> */}
           <textarea cols="80" rows="20" id="query-output"></textarea>
 
-          <script>this.queryReports()</script>
-          {/* {this.queryReports()} */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+
+  // Query the API and print the results to the page.
+  function queryReports() {
+    gapi.client
+      .request({
+        path: "/v4/reports:batchGet",
+        root: "https://analyticsreporting.googleapis.com/",
+        method: "POST",
+        body: {
+          reportRequests: [
+            {
+              viewId: VIEW_ID,
+              dateRanges: [
+                {
+                  startDate: "7daysAgo",
+                  endDate: "today",
+                },
+              ],
+              metrics: [
+                {
+                  expression: "ga:sessions",
+                },
+              ],
+            },
+          ],
+        },
+      })
+      .then(displayResults, console.error.bind(console))
+  }
+
+  
+      `,
+            }}
+          />
 
           {/* <!-- Load the JavaScript API client and Sign-in library. --> */}
           <script src="https://apis.google.com/js/client:platform.js"></script>

@@ -54,14 +54,6 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
     })
-
-    createPage({
-      path: 'test',
-      component: testPage,
-      context: {
-        slug: 'test',
-      },
-    })
   })
 }
 
