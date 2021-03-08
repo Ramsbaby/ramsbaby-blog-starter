@@ -22,7 +22,7 @@ class Test extends React.Component {
           <p class="g-signin2" data-onsuccess="queryReports"></p>
 
           {/* <!-- The API response will be printed here. --> */}
-          <textarea cols="80" rows="20" id="query-output"></textarea>
+          {/* <textarea cols="80" rows="20" id="query-output"></textarea> */}
 
           <script
             dangerouslySetInnerHTML={{
@@ -42,13 +42,13 @@ class Test extends React.Component {
                           viewId: VIEW_ID,
                           dateRanges: [
                             {
-                              startDate: "7daysAgo",
+                              startDate: "2020-09-01",
                               endDate: "today",
                             },
                           ],
                           metrics: [
                             {
-                              expression: "ga:sessions",
+                              expression: "ga:users",
                             },
                           ],
                         },
