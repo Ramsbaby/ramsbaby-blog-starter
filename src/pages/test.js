@@ -69,7 +69,8 @@ class Test extends React.Component {
                       ],
                     },
                   })
-                  .then(this.displayResults, console.error.bind(console))
+                  .then(this.displayResults, location.reload()
+                  )
               }
               
               function displayResults(response) {
