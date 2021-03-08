@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import GoogleLogin from 'react-google-login'
 
 class Test extends React.Component {
   render() {
+    const responseGoogle = response => {
+      console.log(response)
+    }
+
     return (
       <html>
         <head>
@@ -19,10 +24,15 @@ class Test extends React.Component {
           <h1>Hello Analytics Reporting API V4</h1>
 
           {/* <!-- The Sign-in button. This will run `queryReports()` on success. --> */}
-          <p class="g-signin2" data-onsuccess="queryReports"></p>
+          {/* <p class="g-signin2" data-onsuccess="queryReports"></p> */}
 
-          {/* <!-- The API response will be printed here. --> */}
-          <textarea cols="80" rows="20" id="query-output"></textarea>
+          <GoogleLogin
+            clientId="1075573877493-1f6ev81d3v2aq4caf22qv3e9h9s78d9i.apps.googleusercontent.com"
+            buttonText="Login"
+            onSuccess={queryReports()}
+            onFailure={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+          />
 
           <script
             dangerouslySetInnerHTML={{
@@ -67,6 +77,9 @@ class Test extends React.Component {
       `,
             }}
           />
+
+          {/* <!-- The API response will be printed here. --> */}
+          <textarea cols="80" rows="20" id="query-output"></textarea>
 
           {/* <!-- Load the JavaScript API client and Sign-in library. --> */}
           <script src="https://apis.google.com/js/client:platform.js"></script>

@@ -44,6 +44,7 @@
     "react": "^16.8.1",
     "react-disqus-comments": "^1.4.0",
     "react-dom": "^16.8.1",
+    "react-google-login": "^5.2.2",
     "react-helmet": "^5.2.0",
     "react-horizontal-scrolling-menu": "^0.7.8",
     "react-switch": "^5.0.0",
@@ -77,7 +78,7 @@
       "prettier"
     ],
     "parser": "babel-eslint",
-    "rules": {      
+    "rules": {
       "react/jsx-filename-extension": 0,
       "react/jsx-one-expression-per-line": 0,
       "import/no-named-as-default": 0,
@@ -88,7 +89,7 @@
       "no-console": 0,
       "react/forbid-prop-types": 0
     },
-    "env":{
+    "env": {
       "browser": true
     }
   },
