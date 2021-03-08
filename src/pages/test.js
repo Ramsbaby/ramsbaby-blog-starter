@@ -1,42 +1,44 @@
 import React from 'react'
-class Test extends React.Component {
-  render() {
-    // Replace with your view ID. */
-    var VIEW_ID = '229844781'
 
-    // Query the API and print the results to the page. */
-    function queryReports() {
-      gapi.client
-        .request({
-          path: '/v4/reports:batchGet',
-          root: 'https://analyticsreporting.googleapis.com/',
-          method: 'POST',
-          body: {
-            reportRequests: [
+var VIEW_ID = '229844781'
+
+// Query the API and print the results to the page. */
+function queryReports() {
+  gapi.client
+    .request({
+      path: '/v4/reports:batchGet',
+      root: 'https://analyticsreporting.googleapis.com/',
+      method: 'POST',
+      body: {
+        reportRequests: [
+          {
+            viewId: VIEW_ID,
+            dateRanges: [
               {
-                viewId: VIEW_ID,
-                dateRanges: [
-                  {
-                    startDate: '7daysAgo',
-                    endDate: 'today',
-                  },
-                ],
-                metrics: [
-                  {
-                    expression: 'ga:sessions',
-                  },
-                ],
+                startDate: '7daysAgo',
+                endDate: 'today',
+              },
+            ],
+            metrics: [
+              {
+                expression: 'ga:sessions',
               },
             ],
           },
-        })
-        .then(displayResults, console.error.bind(console))
-    }
+        ],
+      },
+    })
+    .then(displayResults, console.error.bind(console))
+}
 
-    function displayResults(response) {
-      var formattedJson = JSON.stringify(response.result, null, 2)
-      document.getElementById('query-output').value = formattedJson
-    }
+function displayResults(response) {
+  var formattedJson = JSON.stringify(response.result, null, 2)
+  document.getElementById('query-output').value = formattedJson
+}
+
+class Test extends React.Component {
+  render() {
+    // Replace with your view ID. */
 
     return (
       <html>
@@ -61,7 +63,7 @@ class Test extends React.Component {
           {/* <!-- The API response will be printed here. --> */}
           <textarea cols="80" rows="20" id="query-output"></textarea>
 
-          <script>queryReports();</script>
+          <script>queryReports()</script>
 
           {/* <!-- Load the JavaScript API client and Sign-in library. --> */}
           <script src="https://apis.google.com/js/client:platform.js"></script>
