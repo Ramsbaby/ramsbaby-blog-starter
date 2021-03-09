@@ -29,11 +29,12 @@ const queryReports = function() {
         ],
       },
     })
-    .then(this.displayResults, location.reload())
+    .then(displayResults, location.reload())
 }
 
 const displayResults = function(response) {
   var formattedJson = JSON.stringify(response.result, null, 2)
+  console.log(formattedJson)
   document.getElementById('query-output').value = formattedJson
 }
 
