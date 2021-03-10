@@ -1,5 +1,5 @@
 ---
-title: '[블로그개발] 블로그를 깃허브에 공식 오픈하였습니다.'
+title: '[블로그개발] 이 블로그는 깃허브에 공식 오픈되었습니다. (경축)'
 date: 2021-02-25 22:05:01
 category: 블로그 개발
 thumbnail: 'thumbnail-images/blog-dev/images/github-main.png'
