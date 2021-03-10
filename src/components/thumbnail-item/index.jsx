@@ -13,11 +13,12 @@ export const ThumbnailItem = ({ node, imagePath }) => {
     display: 'flex',
     boder: '1px solid black',
     flexDirection: 'row',
+    marginTop: '15px',
   }
 
   const inLeftStyle = {
     flexShrink: '1',
-    marginRight: '10px',
+    marginRight: '20px',
     flexBasis: '300px',
     height: '150px',
     overflow: 'hidden',
