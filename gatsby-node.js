@@ -5,7 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
-  const testPage = path.resolve(`./src/pages/test.js`)
+  const adminPage = path.resolve(`./src/pages/admin.js`)
 
   return graphql(
     `
@@ -53,6 +53,15 @@ exports.createPages = ({ graphql, actions }) => {
           next,
         },
       })
+    })
+
+    //route로 admin/dashboard 로 path 변경 후 새로고침 문제 방지 -> admin/dashboard 페이지를 미리 만들어 놓음
+    createPage({
+      path: `/admin/dashboard`,
+      component: adminPage,
+      context: {
+        slug: `/admin/dashboard`,
+      },
     })
   })
 }

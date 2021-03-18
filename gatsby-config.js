@@ -105,8 +105,24 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
-        blog: path.join(__dirname, 'content/blog')
-      }      
+        blog: path.join(__dirname, 'content/blog'),
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-less',
+      options: {
+        lessOptions: {
+          javascriptEnabled: true,
+        },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

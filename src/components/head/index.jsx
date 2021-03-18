@@ -41,13 +41,13 @@ export function Head({ description, lang, meta, keywords, title }) {
                       name: `keywords`,
                       content: keywords.join(`, `),
                     }
-                  : []
+                  : [],
               )
               .concat(meta)}
           >
             <meta
               name="google-site-verification"
-              content="HZflfCKdZvjC8qWB5opaiDcDmA9vTHZa-_uamDrd-Sc"
+              content={data.site.siteMetadata.gsc}
             />
           </Helmet>
         )
@@ -77,6 +77,7 @@ const detailsQuery = graphql`
         title
         description
         author
+        gsc
       }
     }
   }
