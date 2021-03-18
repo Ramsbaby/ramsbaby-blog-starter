@@ -21,7 +21,7 @@ import { createBrowserHistory } from 'history'
 import { Router, Route, Switch, Redirect } from 'react-router-dom'
 
 // core components
-import Admin from './admin.js'
+import Admin from '../utils/material-ui/views/Admin/admin.js'
 
 import '../utils/material-ui/assets/css/material-dashboard-react.css?v=1.9.0'
 

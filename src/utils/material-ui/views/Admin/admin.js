@@ -11,20 +11,22 @@ import 'perfect-scrollbar/css/perfect-scrollbar.css'
 // @material-ui/core components
 import { makeStyles } from '@material-ui/core/styles'
 // core components
-import Navbar from '../utils/material-ui/components/Navbars/Navbar.js'
-import Footer from '../utils/material-ui/components/Footer/Footer.js'
-import Sidebar from '../utils/material-ui/components/Sidebar/Sidebar.js'
-import FixedPlugin from '../utils/material-ui/components/FixedPlugin/FixedPlugin.js'
+import Navbar from '../../components/Navbars/Navbar.js'
+import Footer from '../../components/Footer/Footer.js'
+import Sidebar from '../../components/Sidebar/Sidebar.js'
+import FixedPlugin from '../../components/FixedPlugin/FixedPlugin.js'
 
-import routes from '../utils/material-ui/views/routes.js'
+import routes from '../routes.js'
 
-import styles from '../utils/material-ui/assets/jss/material-dashboard-react/layouts/adminStyle.js'
+import styles from '../../assets/jss/material-dashboard-react/layouts/adminStyle.js'
 
-import bgImage from '../utils/material-ui/assets/img/sidebar-2.jpg'
-import logo from '../utils/material-ui/assets/img/reactlogo.png'
-import '../utils/material-ui/assets/css/material-dashboard-react.css?v=1.9.0'
+import bgImage from '../../assets/img/sidebar-2.jpg'
+import logo from '../..//assets/img/reactlogo.png'
+import '../../assets/css/material-dashboard-react.css?v=1.9.0'
 
-import GlAuthContext, { GlAuthProvider } from '../contexts/googleLoginAuth.js'
+import GlAuthContext, {
+  GlAuthProvider,
+} from '../../../../contexts/googleLoginAuth.js'
 
 let ps
 
