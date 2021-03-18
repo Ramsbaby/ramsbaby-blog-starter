@@ -6,6 +6,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
   const adminPage = path.resolve(`./src/pages/admin.js`)
+  const dashboardPage = path.resolve(`./src/utils/material-ui/views/test2.js`)
 
   return graphql(
     `
@@ -55,14 +56,23 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
+    // route로 admin/dashboard 로 path 변경 후 새로고침 문제 방지 -> admin/dashboard 페이지를 미리 만들어 놓음
+    // createPage({
+    //   path: `/admin/dashboard`,
+    //   component: adminPage,
+    //   context: {
+    //     slug: `/admin/dashboard`,
+    //   },
+    // })
+
     //route로 admin/dashboard 로 path 변경 후 새로고침 문제 방지 -> admin/dashboard 페이지를 미리 만들어 놓음
-    createPage({
-      path: `/admin/dashboard`,
-      component: adminPage,
-      context: {
-        slug: `/admin/dashboard`,
-      },
-    })
+    // createPage({
+    //   path: `/admin/dashboard`,
+    //   component: dashboardPage,
+    //   context: {
+    //     slug: `/admin/dashboard`,
+    //   },
+    // })
   })
 }
 
@@ -93,3 +103,20 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
+
+// exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+//   const adminPage = path.resolve(`./src/pages/admin.js`)
+
+//   if (stage === 'build-html' || stage === 'develop-html') {
+//     actions.setWebpackConfig({
+//       module: {
+//         rules: [
+//           {
+//             test: adminPage,
+//             use: [loaders.null(), ],
+//           },
+//         ],
+//       },
+//     })
+//   }
+// }

@@ -16,7 +16,7 @@ import Footer from '../utils/material-ui/components/Footer/Footer.js'
 import Sidebar from '../utils/material-ui/components/Sidebar/Sidebar.js'
 import FixedPlugin from '../utils/material-ui/components/FixedPlugin/FixedPlugin.js'
 
-import routes from './routes.js'
+import routes from '../utils/material-ui/views/routes.js'
 
 import styles from '../utils/material-ui/assets/jss/material-dashboard-react/layouts/adminStyle.js'
 
@@ -24,8 +24,7 @@ import bgImage from '../utils/material-ui/assets/img/sidebar-2.jpg'
 import logo from '../utils/material-ui/assets/img/reactlogo.png'
 import '../utils/material-ui/assets/css/material-dashboard-react.css?v=1.9.0'
 
-import { GlAuthProvider } from '../contexts/googleLoginAuth.js'
-import GlAuthContext from '../contexts/googleLoginAuth.js'
+import GlAuthContext, { GlAuthProvider } from '../contexts/googleLoginAuth.js'
 
 let ps
 
@@ -34,22 +33,22 @@ let auth = false
 const switchRoutes = (
   // alert(loginCheck)
 
-    <Switch>
-      {routes.map((prop, key) => {
-        if (prop.layout === '/admin') {
-          return (
-            <Route
-              path={prop.layout + prop.path}
-              component={prop.component}
-              key={key}
-            />
-          )
-        }
-        return null
-      })}
-      {/* {auth ? <Redirect from="/admin" to="/admin/dashboard" /> : null} */}
-      {auth ? null : null}
-    </Switch>
+  <Switch>
+    {routes.map((prop, key) => {
+      if (prop.layout === '/admin') {
+        return (
+          <Route
+            path={prop.layout + prop.path}
+            component={prop.component}
+            key={key}
+          />
+        )
+      }
+      return null
+    })}
+    {/* {auth ? <Redirect from="/admin" to="/admin/dashboard" /> : null} */}
+    {auth ? null : null}
+  </Switch>
 )
 
 const useStyles = makeStyles(styles)
@@ -120,8 +119,8 @@ export default function admin({ ...rest }) {
       }
     }
   }, [mainPanel])
-  console.log('here')
-  console.log(rest)
+  // console.log('here')
+  // console.log(rest)
   return (
     <GlAuthProvider>
       <div className={classes.wrapper}>
@@ -142,7 +141,6 @@ export default function admin({ ...rest }) {
             handleDrawerToggle={handleDrawerToggle}
             {...rest}
           />
-          {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
           <div className={classes.content}>
             <div className={classes.container}>{switchRoutes}</div>
           </div>

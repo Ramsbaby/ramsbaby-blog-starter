@@ -25,19 +25,23 @@ import Admin from './admin.js'
 
 import '../utils/material-ui/assets/css/material-dashboard-react.css?v=1.9.0'
 
-const hist = createBrowserHistory()
-
-class Test2 extends React.Component {
-  render() {
-    return (
-      <Router history={hist}>
-        <Switch>
-          <Route path="/admin" component={Admin} />
-          <Redirect from="/" to="/admin/" />
-        </Switch>
-      </Router>
-    )
-  }
+let hist = null
+if (typeof window !== 'undefined') {
+  hist = createBrowserHistory()
 }
 
-export default Test2
+const child =
+  typeof window !== 'undefined' ? (
+    <Router history={createBrowserHistory()}>
+      <Switch>
+        <Route path="/admin" component={Admin} />
+        <Redirect from="/" to="/admin" />
+      </Switch>
+    </Router>
+  ) : (
+    <div></div>
+  )
+
+export default ({ data }) => {
+  return child
+}
