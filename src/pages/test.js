@@ -50,6 +50,11 @@ class Test extends React.Component {
           <head>
             <title>Hello Analytics Reporting API V4</title>
             <meta
+              name="google-signin-client_id"
+              content="1075573877493-1f6ev81d3v2aq4caf22qv3e9h9s78d9i.apps.googleusercontent.com"
+            />
+
+            <meta
               name="google-signin-scope"
               content="https://www.googleapis.com/auth/analytics.readonly"
             />
@@ -61,15 +66,15 @@ class Test extends React.Component {
             <h1>Hello Analytics Reporting API V4</h1>
 
             {/* <!-- The Sign-in button. This will run `queryReports()` on success. --> */}
-            {/* <p class="g-signin2" data-onsuccess="queryReports"></p> */}
+            <p class="g-signin2" data-onsuccess="queryReports"></p>
 
-            <GoogleLogin
+            {/* <GoogleLogin
               clientId="1075573877493-1f6ev81d3v2aq4caf22qv3e9h9s78d9i.apps.googleusercontent.com"
               buttonText="Login"
               onSuccess={queryReports}
               onFailure={responseGoogle}
               cookiePolicy={'single_host_origin'}
-            />
+            /> */}
 
             {/* <!-- The API response will be printed here. --> */}
             <textarea cols="80" rows="20" id="query-output"></textarea>
