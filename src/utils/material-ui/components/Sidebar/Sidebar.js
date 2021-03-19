@@ -113,7 +113,7 @@ export default function Sidebar(props) {
 
   const responseGoogle = () => {
     actions.setLoginCheck(true)
-    alert(state.loginCheck)
+    if (state.loginCheck === true) alert(state.loginCheck)
     // actions.dispatch({ type: 'LOGIN' })
     // actions.dispatch({
     //   type: `LOGIN`
@@ -166,13 +166,19 @@ export default function Sidebar(props) {
           {brand}
 
           <div className={classes.sidebarWrapper}>
-            <GoogleLogin
+            {/* <GoogleLogin
               clientId="1075573877493-1f6ev81d3v2aq4caf22qv3e9h9s78d9i.apps.googleusercontent.com"
               buttonText="Google Login"
               onSuccess={responseGoogle}
               // onFailure={responseGoogle}
               cookiePolicy={'single_host_origin'}
-            />
+            /> */}
+            <div
+              onClick={responseGoogle}
+              className="rounded-lg bg-gray-500 hover:bg-gray-700"
+            >
+              <button>test</button>
+            </div>
             {links}
           </div>
           {image !== undefined ? (
