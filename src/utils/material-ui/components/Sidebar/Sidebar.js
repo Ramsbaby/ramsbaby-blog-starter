@@ -113,7 +113,43 @@ export default function Sidebar(props) {
 
   const responseGoogle = () => {
     actions.setLoginCheck(true)
-    if (state.loginCheck === true) alert(state.loginCheck)
+    queryReports()
+  }
+
+  var VIEW_ID = '229844781'
+
+  const queryReports = function() {
+    gapi.client
+      .request({
+        path: '/v4/reports:batchGet',
+        root: 'https://analyticsreporting.googleapis.com/',
+        method: 'POST',
+        body: {
+          reportRequests: [
+            {
+              viewId: VIEW_ID,
+              dateRanges: [
+                {
+                  startDate: '2020-09-01',
+                  endDate: 'today',
+                },
+              ],
+              metrics: [
+                {
+                  expression: 'ga:users',
+                },
+              ],
+            },
+          ],
+        },
+      })
+      .then(displayResults, console.error.bind(console))
+  }
+
+  const displayResults = function(response) {
+    var formattedJson = JSON.stringify(response.result, null, 2)
+    console.log(formattedJson)
+    // document.getElementById('query-output').value = formattedJson
   }
 
   return (
