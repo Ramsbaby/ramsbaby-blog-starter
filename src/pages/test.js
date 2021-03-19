@@ -77,7 +77,6 @@ class Test extends React.Component {
 
             {/* <!-- The API response will be printed here. --> */}
             <textarea cols="80" rows="20" id="query-output"></textarea>
-            
           </body>
         </html>
       </div>
