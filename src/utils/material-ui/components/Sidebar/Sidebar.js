@@ -113,6 +113,7 @@ export default function Sidebar(props) {
 
   const responseGoogle = () => {
     actions.setLoginCheck(true)
+    alert(state.loginCheck)
     // actions.dispatch({ type: 'LOGIN' })
     // actions.dispatch({
     //   type: `LOGIN`
