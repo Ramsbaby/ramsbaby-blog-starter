@@ -50,10 +50,6 @@ class Test extends React.Component {
           <head>
             <title>Hello Analytics Reporting API V4</title>
             <meta
-              name="google-signin-client_id"
-              content="1075573877493-1f6ev81d3v2aq4caf22qv3e9h9s78d9i.apps.googleusercontent.com"
-            />
-            <meta
               name="google-signin-scope"
               content="https://www.googleapis.com/auth/analytics.readonly"
             />
