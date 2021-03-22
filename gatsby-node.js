@@ -7,6 +7,7 @@ exports.createPages = ({ graphql, actions }) => {
   const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
   const adminPage = path.resolve(`./src/pages/admin.js`)
   const dashboardPage = path.resolve(`./src/utils/material-ui/views/test2.js`)
+  const testPage = path.resolve(`./src/pages/test.js`)
 
   return graphql(
     `
