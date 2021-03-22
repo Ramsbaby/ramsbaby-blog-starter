@@ -73,6 +73,13 @@ exports.createPages = ({ graphql, actions }) => {
     //     slug: `/admin/dashboard`,
     //   },
     // })
+    createPage({
+      path: 'test',
+      component: testPage,
+      context: {
+        slug: 'test',
+      },
+    })
   })
 }
 
