@@ -67,8 +67,8 @@ if (typeof window !== 'undefined') {
 
 export default class HTML extends React.Component {
   render() {
-    return (
-      <html style={{ overflow: 'hidden' }} {...this.props.htmlAttributes}>
+    return typeof window !== 'undefined' ? (
+      <html style={{ overflow: 'hidden' }}>
         <head>
           <meta
             name="google-signin-client_id"
@@ -91,6 +91,8 @@ export default class HTML extends React.Component {
           </Router>
         </body>
       </html>
+    ) : (
+      <div></div>
     )
   }
 }
