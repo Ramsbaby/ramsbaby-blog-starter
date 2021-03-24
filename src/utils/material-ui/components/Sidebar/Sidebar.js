@@ -156,6 +156,11 @@ export default function Sidebar(props) {
 
   return (
     <div>
+      <html>
+        <head>
+          <script src="https://apis.google.com/js/client:platform.js"></script>
+        </head>
+      </html>
       <Hidden mdUp implementation="css">
         <Drawer
           variant="temporary"
