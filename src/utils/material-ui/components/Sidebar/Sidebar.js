@@ -119,6 +119,8 @@ export default function Sidebar(props) {
   var VIEW_ID = '229844781'
 
   const queryReports = function() {
+    console.log(gapi)
+
     gapi.client
       .request({
         path: '/v4/reports:batchGet',
