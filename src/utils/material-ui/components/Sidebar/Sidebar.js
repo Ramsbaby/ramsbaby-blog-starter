@@ -160,72 +160,74 @@ export default function Sidebar(props) {
         <head>
           <script src="https://apis.google.com/js/client:platform.js"></script>
         </head>
-      </html>
-      <Hidden mdUp implementation="css">
-        <Drawer
-          variant="temporary"
-          anchor={props.rtlActive ? 'left' : 'right'}
-          open={props.open}
-          classes={{
-            paper: classNames(classes.drawerPaper, {
-              [classes.drawerPaperRTL]: props.rtlActive,
-            }),
-          }}
-          onClose={props.handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-        >
-          {brand}
-          <div className={classes.sidebarWrapper}>
-            {props.rtlActive ? <RTLNavbarLinks /> : <AdminNavbarLinks />}
-            {links}
-          </div>
-          {image !== undefined ? (
-            <div
-              className={classes.background}
-              style={{ backgroundImage: 'url(' + image + ')' }}
-            />
-          ) : null}
-        </Drawer>
-      </Hidden>
-      <Hidden smDown implementation="css">
-        <Drawer
-          anchor={props.rtlActive ? 'right' : 'left'}
-          variant="permanent"
-          open
-          classes={{
-            paper: classNames(classes.drawerPaper, {
-              [classes.drawerPaperRTL]: props.rtlActive,
-            }),
-          }}
-        >
-          {brand}
+        <body>
+          <Hidden mdUp implementation="css">
+            <Drawer
+              variant="temporary"
+              anchor={props.rtlActive ? 'left' : 'right'}
+              open={props.open}
+              classes={{
+                paper: classNames(classes.drawerPaper, {
+                  [classes.drawerPaperRTL]: props.rtlActive,
+                }),
+              }}
+              onClose={props.handleDrawerToggle}
+              ModalProps={{
+                keepMounted: true, // Better open performance on mobile.
+              }}
+            >
+              {brand}
+              <div className={classes.sidebarWrapper}>
+                {props.rtlActive ? <RTLNavbarLinks /> : <AdminNavbarLinks />}
+                {links}
+              </div>
+              {image !== undefined ? (
+                <div
+                  className={classes.background}
+                  style={{ backgroundImage: 'url(' + image + ')' }}
+                />
+              ) : null}
+            </Drawer>
+          </Hidden>
+          <Hidden smDown implementation="css">
+            <Drawer
+              anchor={props.rtlActive ? 'right' : 'left'}
+              variant="permanent"
+              open
+              classes={{
+                paper: classNames(classes.drawerPaper, {
+                  [classes.drawerPaperRTL]: props.rtlActive,
+                }),
+              }}
+            >
+              {brand}
 
-          <div className={classes.sidebarWrapper}>
-            <GoogleLogin
-              clientId="1075573877493-1f6ev81d3v2aq4caf22qv3e9h9s78d9i.apps.googleusercontent.com"
-              buttonText="Google Login"
-              onSuccess={responseGoogle}
-              // onFailure={responseGoogle}
-              cookiePolicy={'single_host_origin'}
-            />
-            {/* <div
+              <div className={classes.sidebarWrapper}>
+                <GoogleLogin
+                  clientId="1075573877493-1f6ev81d3v2aq4caf22qv3e9h9s78d9i.apps.googleusercontent.com"
+                  buttonText="Google Login"
+                  onSuccess={responseGoogle}
+                  // onFailure={responseGoogle}
+                  cookiePolicy={'single_host_origin'}
+                />
+                {/* <div
               onClick={responseGoogle}
               className="rounded-lg bg-gray-500 hover:bg-gray-700"
             >
               <button>test</button>
             </div> */}
-            {links}
-          </div>
-          {image !== undefined ? (
-            <div
-              className={classes.background}
-              style={{ backgroundImage: 'url(' + image + ')' }}
-            />
-          ) : null}
-        </Drawer>
-      </Hidden>
+                {links}
+              </div>
+              {image !== undefined ? (
+                <div
+                  className={classes.background}
+                  style={{ backgroundImage: 'url(' + image + ')' }}
+                />
+              ) : null}
+            </Drawer>
+          </Hidden>
+        </body>
+      </html>
     </div>
   )
 }
