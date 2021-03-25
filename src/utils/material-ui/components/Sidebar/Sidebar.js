@@ -32,7 +32,7 @@ export default function Sidebar(props) {
 
   const { state, actions } = useContext(GlAuthContext)
 
-  console.log(gapi)
+  // console.log(gapi)
 
   // verifies if routeName is the one active (in browser input)
   function activeRoute(routeName) {
