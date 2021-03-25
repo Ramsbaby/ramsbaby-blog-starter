@@ -32,6 +32,8 @@ if (typeof window !== 'undefined') {
   hist = createBrowserHistory()
 }
 
+console.log(gapi)
+
 // const child =
 //   typeof window !== 'undefined' ? (
 //     <html style={{ overflow: 'hidden' }}>
