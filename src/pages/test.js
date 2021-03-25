@@ -5,6 +5,8 @@ var VIEW_ID = '229844781'
 
 // Query the API and print the results to the page.
 const queryReports = function() {
+  console.log(gapi)
+
   gapi.client
     .request({
       path: '/v4/reports:batchGet',
