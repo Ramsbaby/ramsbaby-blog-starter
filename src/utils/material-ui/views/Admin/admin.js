@@ -32,6 +32,8 @@ let ps
 
 let auth = false
 
+console.log(gapi)
+
 const switchRoutes = (
   // alert(loginCheck)
 
