@@ -106,6 +106,21 @@ export default class Test extends React.Component {
             {/* <textarea cols="80" rows="20" id="query-output"></textarea> */}
 
             <div id="my-signin2"></div>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+              gapi.signin2.render('my-signin2', {
+                scope: 'profile email',
+                width: 240,
+                height: 50,
+                longtitle: true,
+                theme: 'dark',
+                onsuccess: onSuccess,
+                onfailure: onFailure,
+              })
+              `,
+              }}
+            />
           </body>
         </html>
       </div>
