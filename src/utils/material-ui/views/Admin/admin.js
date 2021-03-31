@@ -126,21 +126,6 @@ export default function admin({ ...rest }) {
   // console.log(rest)
   return (
     <GlAuthProvider>
-      <html style={{ overflow: 'hidden' }}>
-        <head>
-          <meta
-            name="google-signin-client_id"
-            content="1075573877493-1f6ev81d3v2aq4caf22qv3e9h9s78d9i.apps.googleusercontent.com"
-          />
-          <meta
-            name="google-signin-scope"
-            content="https://www.googleapis.com/auth/analytics.readonly"
-          />
-
-          {/* <!-- Load the JavaScript API client and Sign-in library. --> */}
-          <script src="https://apis.google.com/js/client:platform.js"></script>
-        </head>
-      </html>
       <div className={classes.wrapper}>
         <Sidebar
           routes={routes}
