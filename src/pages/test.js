@@ -40,7 +40,27 @@ const displayResults = function(response) {
   document.getElementById('query-output').value = formattedJson
 }
 
-class Test extends React.Component {
+const onSuccess = googleUser => {
+  console.log('Logged in as: ' + googleUser.getBasicProfile().getName())
+}
+
+const onFailure = error => {
+  console.log(error)
+}
+
+function renderButton() {
+  gapi.signin2.render('my-signin2', {
+    scope: 'profile email',
+    width: 240,
+    height: 50,
+    longtitle: true,
+    theme: 'dark',
+    onsuccess: onSuccess,
+    onfailure: onFailure,
+  })
+}
+
+export default class Test extends React.Component {
   render() {
     const responseGoogle = response => {
       console.log(response)
@@ -51,19 +71,19 @@ class Test extends React.Component {
         <html>
           <head>
             <title>Hello Analytics Reporting API V4</title>
-            {/* <meta
+            <meta
               name="google-signin-client_id"
               content="1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com"
             />
 
-            <meta
+            {/* <meta
               name="google-signin-scope"
               content="https://www.googleapis.com/auth/analytics.readonly"
             /> */}
 
             {/* <!-- Load the JavaScript API client and Sign-in library. --> */}
             <script
-              src="https://apis.google.com/js/client:platform.js?onload=init"
+              src="https://apis.google.com/js/platform.js?onload=renderButton"
               async
               defer
             ></script>
@@ -74,21 +94,21 @@ class Test extends React.Component {
             {/* <!-- The Sign-in button. This will run `queryReports()` on success. --> */}
             {/* <p class="g-signin2" data-onsuccess="queryReports"></p> */}
 
-            <GoogleLogin
+            {/* <GoogleLogin
               clientId="1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com"
               buttonText="Login"
               onSuccess={queryReports}
               onFailure={responseGoogle}
               cookiePolicy={'none'}
-            />
+            /> */}
 
             {/* <!-- The API response will be printed here. --> */}
-            <textarea cols="80" rows="20" id="query-output"></textarea>
+            {/* <textarea cols="80" rows="20" id="query-output"></textarea> */}
+
+            <div id="my-signin2"></div>
           </body>
         </html>
       </div>
     )
   }
 }
-
-export default Test
