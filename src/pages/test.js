@@ -79,8 +79,7 @@ class Test extends React.Component {
               buttonText="Login"
               onSuccess={queryReports}
               onFailure={responseGoogle}
-              cookiePolicy={'single_host_origin'}
-              isSignedIn={true}
+              cookiePolicy={'none'}
             />
 
             {/* <!-- The API response will be printed here. --> */}
