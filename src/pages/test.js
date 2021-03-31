@@ -62,26 +62,22 @@ class Test extends React.Component {
             />
 
             {/* <!-- Load the JavaScript API client and Sign-in library. --> */}
-            <script
-              src="https://apis.google.com/js/client:platform.js?onload=init"
-              async
-              defer
-            ></script>
+            <script src="https://apis.google.com/js/client:platform.js"></script>
           </head>
           <body>
             <h1>Hello Analytics Reporting API V4</h1>
 
             {/* <!-- The Sign-in button. This will run `queryReports()` on success. --> */}
-            {/* <p class="g-signin2" data-onsuccess="queryReports"></p> */}
+            <p class="g-signin2" data-onsuccess="queryReports"></p>
 
-            <GoogleLogin
+            {/* <GoogleLogin
               clientId="1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com"
               buttonText="Login"
               onSuccess={queryReports}
               onFailure={responseGoogle}
               cookiePolicy={'none'}
               isSignedIn={true}
-            />
+            /> */}
 
             {/* <!-- The API response will be printed here. --> */}
             <textarea cols="80" rows="20" id="query-output"></textarea>
