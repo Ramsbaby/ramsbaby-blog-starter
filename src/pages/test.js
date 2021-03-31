@@ -40,26 +40,6 @@ const displayResults = function(response) {
   document.getElementById('query-output').value = formattedJson
 }
 
-const onSuccess = googleUser => {
-  console.log('Logged in as: ' + googleUser.getBasicProfile().getName())
-}
-
-const onFailure = error => {
-  console.log(error)
-}
-
-function renderButton() {
-  gapi.signin2.render('my-signin2', {
-    scope: 'profile email',
-    width: 240,
-    height: 50,
-    longtitle: true,
-    theme: 'dark',
-    onsuccess: onSuccess,
-    onfailure: onFailure,
-  })
-}
-
 export default class Test extends React.Component {
   render() {
     const responseGoogle = response => {
@@ -93,23 +73,7 @@ export default class Test extends React.Component {
             />
 
             {/* <!-- The API response will be printed here. --> */}
-            {/* <textarea cols="80" rows="20" id="query-output"></textarea> */}
-
-            <div id="my-signin2">
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: `
-              gapi.signin2.render('my-signin2', {
-                scope: 'profile email',
-                width: 240,
-                height: 50,
-                longtitle: true,
-                theme: 'dark'
-              })
-              `,
-                }}
-              />
-            </div>
+            <textarea cols="80" rows="20" id="query-output"></textarea>
           </body>
         </html>
       </div>
