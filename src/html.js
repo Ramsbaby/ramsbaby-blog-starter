@@ -12,11 +12,7 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover"
           />
-          <script
-            src="https://apis.google.com/js/platform.js?onload=renderButton"
-            async
-            defer
-          ></script>
+          <script src="https://apis.google.com/js/platform.js"></script>
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>
