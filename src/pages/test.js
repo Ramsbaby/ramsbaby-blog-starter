@@ -76,10 +76,10 @@ export default class Test extends React.Component {
               content="1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com"
             /> */}
 
-            {/* <meta
+            <meta
               name="google-signin-scope"
               content="https://www.googleapis.com/auth/analytics.readonly"
-            /> */}
+            />
 
             {/* <!-- Load the JavaScript API client and Sign-in library. --> */}
           </head>
