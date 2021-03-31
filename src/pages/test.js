@@ -71,12 +71,10 @@ export default class Test extends React.Component {
         <html>
           <head>
             <title>Hello Analytics Reporting API V4</title>
-            {/* <meta
+            <meta
               name="google-signin-client_id"
               content="1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com"
-            /> */}
-
-            
+            />
 
             {/* <!-- Load the JavaScript API client and Sign-in library. --> */}
           </head>
@@ -91,14 +89,14 @@ export default class Test extends React.Component {
               buttonText="Login"
               onSuccess={queryReports}
               onFailure={responseGoogle}
-              cookiePolicy={'none'}
+              cookiePolicy={'single_host_origin'}
             />
 
             {/* <!-- The API response will be printed here. --> */}
             {/* <textarea cols="80" rows="20" id="query-output"></textarea> */}
 
             <div id="my-signin2">
-              {/* <script
+              <script
                 dangerouslySetInnerHTML={{
                   __html: `
               gapi.signin2.render('my-signin2', {
@@ -106,13 +104,11 @@ export default class Test extends React.Component {
                 width: 240,
                 height: 50,
                 longtitle: true,
-                theme: 'dark',
-                onsuccess: onSuccess,
-                onfailure: onFailure,
+                theme: 'dark'
               })
               `,
                 }}
-              /> */}
+              />
             </div>
           </body>
         </html>

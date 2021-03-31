@@ -12,6 +12,10 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no, minimum-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover"
           />
+          <meta
+            name="google-signin-scope"
+            content="https://www.googleapis.com/auth/analytics.readonly"
+          />
           <script src="https://apis.google.com/js/client:platform.js"></script>
           {this.props.headComponents}
         </head>
