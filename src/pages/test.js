@@ -82,11 +82,7 @@ export default class Test extends React.Component {
             /> */}
 
             {/* <!-- Load the JavaScript API client and Sign-in library. --> */}
-            <script
-              src="https://apis.google.com/js/platform.js?onload=renderButton"
-              async
-              defer
-            ></script>
+            
           </head>
           <body>
             <h1>Hello Analytics Reporting API V4</h1>
