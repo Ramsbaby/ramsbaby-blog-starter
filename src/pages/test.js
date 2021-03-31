@@ -79,7 +79,7 @@ class Test extends React.Component {
               buttonText="Login"
               onSuccess={queryReports}
               onFailure={responseGoogle}
-              cookiePolicy={'single_host_origin'}
+              cookiePolicy={'none'}
               isSignedIn={true}
             />
 
