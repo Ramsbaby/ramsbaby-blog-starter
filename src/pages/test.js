@@ -76,6 +76,7 @@ class Test extends React.Component {
               onSuccess={queryReports}
               onFailure={responseGoogle}
               cookiePolicy={'single_host_origin'}
+              isSignedIn={true}
             />
 
             {/* <!-- The API response will be printed here. --> */}
