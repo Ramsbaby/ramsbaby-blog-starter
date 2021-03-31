@@ -102,7 +102,7 @@ export default class Test extends React.Component {
             {/* <textarea cols="80" rows="20" id="query-output"></textarea> */}
 
             <div id="my-signin2">
-              <script
+              {/* <script
                 dangerouslySetInnerHTML={{
                   __html: `
               gapi.signin2.render('my-signin2', {
@@ -116,7 +116,7 @@ export default class Test extends React.Component {
               })
               `,
                 }}
-              />
+              /> */}
             </div>
           </body>
         </html>
