@@ -71,10 +71,10 @@ export default class Test extends React.Component {
         <html>
           <head>
             <title>Hello Analytics Reporting API V4</title>
-            <meta
+            {/* <meta
               name="google-signin-client_id"
               content="1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com"
-            />
+            /> */}
 
             {/* <meta
               name="google-signin-scope"
