@@ -22,7 +22,7 @@ import styles from '../../assets/jss/material-dashboard-react/layouts/adminStyle
 
 import bgImage from '../../assets/img/sidebar-2.jpg'
 import logo from '../..//assets/img/reactlogo.png'
-import '../../assets/css/material-dashboard-react.css?v=1.9.0'
+// import '../../assets/css/material-dashboard-react.css?v=1.9.0'
 
 import GlAuthContext, {
   GlAuthProvider,
@@ -31,7 +31,6 @@ import GlAuthContext, {
 let ps
 
 let auth = false
-
 
 const switchRoutes = (
   // alert(loginCheck)

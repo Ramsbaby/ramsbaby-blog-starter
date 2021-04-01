@@ -7,7 +7,7 @@ module.exports = {
   siteUrl: `https://ramsbaby.netlify.app`, // Your blog site url
   social: {
     github: `ramsbaby`, // Your GitHub account
-    Portfolio: `https://www.notion.so/Ramsbaby-13eb750380004cab9942867038d7e00f`, // Written by XXX 를 눌렀을때 이동될 주소.
+    portfolio: `https://www.notion.so/Ramsbaby-13eb750380004cab9942867038d7e00f`, // Written by XXX 를 눌렀을때 이동될 주소.
   },
   othersite: [
     //블로그 설명 글 밑에 표시될 타사이트들을 추가해보세요. 예:) name : 표시될이름, url : 연결될 사이트 주소

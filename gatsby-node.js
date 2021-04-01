@@ -5,9 +5,23 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
-  const adminPage = path.resolve(`./src/pages/admin.js`)
-  const dashboardPage = path.resolve(`./src/utils/material-ui/views/test2.js`)
-  const testPage = path.resolve(`./src/pages/test.js`)
+
+  const backdoorPages = []
+  // backdoorPages.push({
+  //   name: 'adminPage',
+  //   slug: '/admin',
+  //   path: path.resolve(`./src/utils/material-ui/views/Admin/admin.js`),
+  // })
+  backdoorPages.push({
+    name: 'dashboardPage',
+    slug: '/admin/dashboard',
+    path: path.resolve(`./src/utils/material-ui/views/Dashboard/Dashboard.js`),
+  })
+  backdoorPages.push({
+    name: 'testPage',
+    slug: '/test',
+    path: path.resolve(`./src/pages/test.js`),
+  })
 
   return graphql(
     `
@@ -57,29 +71,14 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
-    // route로 admin/dashboard 로 path 변경 후 새로고침 문제 방지 -> admin/dashboard 페이지를 미리 만들어 놓음
-    // createPage({
-    //   path: `/admin/dashboard`,
-    //   component: adminPage,
-    //   context: {
-    //     slug: `/admin/dashboard`,
-    //   },
-    // })
-
-    //route로 admin/dashboard 로 path 변경 후 새로고침 문제 방지 -> admin/dashboard 페이지를 미리 만들어 놓음
-    // createPage({
-    //   path: `/admin/dashboard`,
-    //   component: dashboardPage,
-    //   context: {
-    //     slug: `/admin/dashboard`,
-    //   },
-    // })
-    createPage({
-      path: 'test',
-      component: testPage,
-      context: {
-        slug: 'test',
-      },
+    backdoorPages.map((val, idx) => {
+      createPage({
+        path: val.slug,
+        component: val.path,
+        context: {
+          slug: val.slug,
+        },
+      })
     })
   })
 }
