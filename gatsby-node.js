@@ -17,11 +17,11 @@ exports.createPages = ({ graphql, actions }) => {
     slug: '/admin/dashboard',
     path: path.resolve(`./src/utils/material-ui/views/Dashboard/Dashboard.js`),
   })
-  backdoorPages.push({
-    name: 'testPage',
-    slug: '/test',
-    path: path.resolve(`./src/pages/test.js`),
-  })
+  // backdoorPages.push({
+  //   name: 'testPage',
+  //   slug: '/test',
+  //   path: path.resolve(`./src/pages/test.js`),
+  // })
 
   return graphql(
     `
