@@ -201,7 +201,7 @@ export default function Sidebar(props) {
 
           <div className={classes.sidebarWrapper}>
             <GoogleLogin
-              clientId="test"
+              clientId="1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com"
               buttonText="Google Login"
               onSuccess={responseGoogle}
               onFailure={responseGoogle}
