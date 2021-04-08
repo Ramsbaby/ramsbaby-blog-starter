@@ -205,7 +205,7 @@ export default function Sidebar(props) {
               buttonText="Google Login"
               onSuccess={responseGoogle}
               // onFailure={responseGoogle}
-              cookiePolicy={'none'}
+              cookiePolicy={'single_host_origin'}
             />
             {/* <div
               onClick={responseGoogle}
