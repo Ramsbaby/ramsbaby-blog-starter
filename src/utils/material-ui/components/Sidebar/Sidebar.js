@@ -201,10 +201,10 @@ export default function Sidebar(props) {
 
           <div className={classes.sidebarWrapper}>
             <GoogleLogin
-              clientId="1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com"
+              clientId="test"
               buttonText="Google Login"
               onSuccess={responseGoogle}
-              // onFailure={responseGoogle}
+              onFailure={responseGoogle}
               cookiePolicy={'single_host_origin'}
             />
             {/* <div
