@@ -15,11 +15,6 @@ const GlAuthContext = createContext({
     goToDashboard: loginCheck => {
       alert(loginCheck)
 
-      //   <Router>
-      //     <Switch>
-      //       {loginCheck === true ? <Redirect from="/admin" to="/admin/dashboard" /> : null}
-      //     </Switch>
-      // </Router>
     },
   },
 })
@@ -35,7 +30,7 @@ const reducer = (state, action) => {
             ? routes.map((prop, key) => {
                 console.log(prop)
                 console.log(key)
-                if (prop.layout === '/admin') {
+                if (prop.layout === '/manage') {
                   return (
                     <Route
                       path={prop.layout + prop.path}

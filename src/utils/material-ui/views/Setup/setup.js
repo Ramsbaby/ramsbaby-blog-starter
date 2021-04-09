@@ -37,7 +37,7 @@ const switchRoutes = (
 
   <Switch>
     {routes.map((prop, key) => {
-      if (prop.layout === '/admin') {
+      if (prop.layout === '/setup') {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -55,7 +55,7 @@ const switchRoutes = (
 
 const useStyles = makeStyles(styles)
 
-export default function admin({ ...rest }) {
+export default function setup({ ...rest }) {
   //context
   const { state, actions } = useContext(GlAuthContext)
 
@@ -88,7 +88,7 @@ export default function admin({ ...rest }) {
   const getRoute = () => {
     let returnValue = false
     if (typeof window !== 'undefined') {
-      returnValue = window.location.pathname !== '/admin/maps'
+      returnValue = window.location.pathname !== '/setup/maps'
     }
     return returnValue
   }

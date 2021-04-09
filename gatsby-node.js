@@ -14,7 +14,7 @@ exports.createPages = ({ graphql, actions }) => {
   // })
   backdoorPages.push({
     name: 'dashboardPage',
-    slug: '/admin/dashboard',
+    slug: '/setup/dashboard',
     path: path.resolve(`./src/utils/material-ui/views/Dashboard/Dashboard.js`),
   })
   // backdoorPages.push({

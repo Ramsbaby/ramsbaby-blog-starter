@@ -43,7 +43,7 @@ const dashboardRoutes = [
     rtlName: 'لوحة القيادة',
     icon: Dashboard,
     component: DashboardPage,
-    layout: '/admin',
+    layout: '/setup',
   },
   // {
   //   path: "/user",
@@ -75,7 +75,7 @@ const dashboardRoutes = [
     rtlName: 'الرموز',
     icon: BubbleChart,
     component: Icons,
-    layout: '/admin',
+    layout: '/setup',
   },
   // {
   //   path: "/maps",

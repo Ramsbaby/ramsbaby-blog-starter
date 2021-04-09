@@ -23,7 +23,7 @@ import { createBrowserHistory } from 'history'
 import { Router, Route, Switch, Redirect } from 'react-router-dom'
 
 // core components
-import Admin from '../utils/material-ui/views/Admin/admin.js'
+import Setup from '../utils/material-ui/views/Setup/setup.js'
 
 // import '../utils/material-ui/assets/css/material-dashboard-react.css?v=1.9.0'
 
@@ -37,8 +37,8 @@ export default class HTML extends React.Component {
     return typeof window !== 'undefined' ? (
       <Router history={createBrowserHistory()}>
         <Switch>
-          <Route path="/admin" component={Admin} />
-          <Redirect from="/" to="/admin" />
+          <Route path="/setup" component={Setup} />
+          <Redirect from="/" to="/setup" />
         </Switch>
       </Router>
     ) : (
