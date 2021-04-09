@@ -25,10 +25,17 @@ import styles from '../../assets/jss/material-dashboard-react/components/sidebar
 import {GoogleLogin, GoogleLogout} from 'react-google-login'
 import GlAuthContext from '../../../../contexts/googleLoginAuth.js'
 
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
 const useStyles = makeStyles(styles)
 
 export default function Sidebar(props) {
   const classes = useStyles()
+  const [tc, setTC] = React.useState(false);
 
   const { state, actions } = useContext(GlAuthContext)
 
@@ -97,6 +104,7 @@ export default function Sidebar(props) {
       })}
     </List>
   )
+  
   var brand = (
     <div className={classes.logo}>
       <a
@@ -249,6 +257,28 @@ export default function Sidebar(props) {
           ) : null}
         </Drawer>
       </Hidden>
+      <Dialog
+        open={state.loginCheck}
+        // onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Let Google help apps determine location. This means sending anonymous location data to
+            Google, even when no apps are running.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Disagree
+          </Button>
+          <Button onClick={handleClose} color="primary" autoFocus>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   )
 }
