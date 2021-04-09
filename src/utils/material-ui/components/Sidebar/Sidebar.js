@@ -25,6 +25,7 @@ import styles from '../../assets/jss/material-dashboard-react/components/sidebar
 import {GoogleLogin, GoogleLogout} from 'react-google-login'
 import GlAuthContext from '../../../../contexts/googleLoginAuth.js'
 
+import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
