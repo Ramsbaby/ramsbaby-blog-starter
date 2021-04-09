@@ -37,6 +37,7 @@ const useStyles = makeStyles(styles)
 export default function Sidebar(props) {
   const classes = useStyles()
   const [tc, setTC] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
   const { state, actions } = useContext(GlAuthContext)
 
@@ -165,6 +166,10 @@ export default function Sidebar(props) {
     console.log(formattedJson)
     // document.getElementById('query-output').value = formattedJson
   }
+  
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   gapi.load('auth2', function() { 
     var gauth = gapi.auth2.init({
@@ -260,7 +265,7 @@ export default function Sidebar(props) {
       </Hidden>
       <Dialog
         open={state.loginCheck}
-        // onClose={handleClose}
+        onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
