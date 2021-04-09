@@ -114,7 +114,6 @@ export default function Sidebar(props) {
   )
 
   const responseGoogle = () => {
-    actions.setLoginCheck(true)
     queryReports()
   }
 
@@ -152,6 +151,8 @@ export default function Sidebar(props) {
 
   const displayResults = function(response) {
     var formattedJson = JSON.stringify(response.result, null, 2)
+    actions.setLoginCheck(true)
+
     console.log(formattedJson)
     // document.getElementById('query-output').value = formattedJson
   }
