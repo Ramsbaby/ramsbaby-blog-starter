@@ -37,7 +37,7 @@ const useStyles = makeStyles(styles)
 export default function Sidebar(props) {
   const classes = useStyles()
   const [tc, setTC] = React.useState(false);
-  const [open, setOpen] = React.useState(false);
+  const [popupopen, setOpen] = React.useState(false);
 
   const { state, actions } = useContext(GlAuthContext)
 
@@ -162,11 +162,17 @@ export default function Sidebar(props) {
   const displayResults = function(response) {
     var formattedJson = JSON.stringify(response.result, null, 2)
     actions.setLoginCheck(true)
+    setOpen(true);
 
     console.log(formattedJson)
     // document.getElementById('query-output').value = formattedJson
   }
   
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -264,7 +270,7 @@ export default function Sidebar(props) {
         </Drawer>
       </Hidden>
       <Dialog
-        open={state.loginCheck}
+        open={popupopen}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
