@@ -160,10 +160,13 @@ export default function Sidebar(props) {
     var gauth = gapi.auth2.init({
         client_id: '1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com'
     });
+    var isLogined = gauth.isSignedIn.get();
+
     
     gauth.then(function(){
         console.log('init success');
-    }, function(){
+        console.log(isLogined);
+      }, function(){
         console.error('init fail');
     })
 
