@@ -22,7 +22,7 @@ import RTLNavbarLinks from '../../components/Navbars/RTLNavbarLinks.js'
 
 import styles from '../../assets/jss/material-dashboard-react/components/sidebarStyle.js'
 
-import GoogleLogin from 'react-google-login'
+import {GoogleLogin, GoogleLogout} from 'react-google-login'
 import GlAuthContext from '../../../../contexts/googleLoginAuth.js'
 
 const useStyles = makeStyles(styles)
@@ -207,6 +207,12 @@ export default function Sidebar(props) {
               onFailure={responseGoogle}
               cookiePolicy={'single_host_origin'}
             />
+            <GoogleLogout
+              clientId="1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com"
+              buttonText="Logout"
+              // onLogoutSuccess={logout}
+            >
+            </GoogleLogout>
             {/* <div
               onClick={responseGoogle}
               className="rounded-lg bg-gray-500 hover:bg-gray-700"
