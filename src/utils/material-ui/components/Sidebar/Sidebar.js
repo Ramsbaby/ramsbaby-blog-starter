@@ -156,6 +156,22 @@ export default function Sidebar(props) {
     // document.getElementById('query-output').value = formattedJson
   }
 
+  gapi.load('auth2', function() { 
+    var gauth = gapi.auth2.init({
+        client_id: '1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com'
+    });
+    
+    gauth.then(function(){
+        console.log('init success');
+    }, function(){
+        console.error('init fail');
+    })
+
+    var isLogined = gauth.isSignedIn.get();
+    console.log(isLogined);
+});
+
+
   return (
     <div>
       <Hidden mdUp implementation="css">
