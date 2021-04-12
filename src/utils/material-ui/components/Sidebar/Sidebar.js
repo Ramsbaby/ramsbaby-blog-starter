@@ -286,7 +286,7 @@ export default function Sidebar(props) {
           </Button>
         </DialogActions>
       </Dialog>
-      {popupopen === true ? <Redirect push to="/somewhere/else" /> : null}
+      {popupopen === true ? <Redirect push to="/setup/dashboard" /> : null}
 
     </div>
   )
