@@ -175,6 +175,8 @@ export default function Sidebar(props) {
 
   const handleClose = () => {
     setOpen(false);
+
+    <Redirect from="/setup" to="/setup/dashboard" />
   };
 
   gapi.load('auth2', function() { 
