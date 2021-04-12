@@ -175,8 +175,6 @@ export default function Sidebar(props) {
 
   const handleClose = () => {
     setOpen(false);
-
-    document.location.href = '/setup/dashboard'
   };
 
   gapi.load('auth2', function() { 
@@ -288,6 +286,8 @@ export default function Sidebar(props) {
           </Button>
         </DialogActions>
       </Dialog>
+      {popupopen === true ? <Redirect push to="/somewhere/else" /> : null}
+
     </div>
   )
 }
