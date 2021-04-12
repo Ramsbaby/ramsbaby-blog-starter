@@ -278,16 +278,12 @@ export default function Sidebar(props) {
         <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Let Google help apps determine location. This means sending anonymous location data to
-            Google, even when no apps are running.
+            구글로그인에 성공하였습니다.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Disagree
-          </Button>
           <Button onClick={handleClose} color="primary" autoFocus>
-            Agree
+            확인
           </Button>
         </DialogActions>
       </Dialog>
