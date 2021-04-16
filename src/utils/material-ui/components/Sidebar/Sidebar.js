@@ -167,7 +167,7 @@ export default function Sidebar(props) {
     setOpen(true);
 
     console.log(formattedJson)
-    console.log(formattedJson.reports.data.totals)
+    console.log(formattedJson.reports.get(1).totals)
     // document.getElementById('query-output').value = formattedJson
   }
   
