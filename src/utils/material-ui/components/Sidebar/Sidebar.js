@@ -151,6 +151,8 @@ export default function Sidebar(props) {
                 {
                   expression: 'ga:users',
                 },
+                {expression: 'ga:totalevents'},
+                {expression: 'ga:sessions'}
               ],
             },
           ],
@@ -191,8 +193,6 @@ export default function Sidebar(props) {
         console.error('init fail');
     })
 
-    var isLogined = gauth.isSignedIn.get();
-    console.log(isLogined);
 });
 
 
@@ -247,18 +247,12 @@ export default function Sidebar(props) {
               onFailure={responseGoogle}
               cookiePolicy={'single_host_origin'}
             />
-            <GoogleLogout
+            {/* <GoogleLogout
               clientId="1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com"
               buttonText="Logout"
               // onLogoutSuccess={logout}
             >
-            </GoogleLogout>
-            {/* <div
-              onClick={responseGoogle}
-              className="rounded-lg bg-gray-500 hover:bg-gray-700"
-            >
-              <button>test</button>
-            </div> */}
+            </GoogleLogout> */}
             {links}
           </div>
           {image !== undefined ? (
