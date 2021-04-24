@@ -9,9 +9,9 @@ import {
 const GlAuthContext = createContext({
   state: {
     loginCheck: false,
-    users: 0,
-    pageviews: 0,
-    sessions: 0,
+    users: '',
+    pageviews: '',
+    sessions: '',
   },
   actions: {
     setLoginCheck: () => {},
@@ -54,9 +54,9 @@ const reducer = (state, action) => {
 
 const GlAuthProvider = ({ children }) => {
   const [loginCheck, setLoginCheck] = useState('false')
-  const [users, setUsers] = useState(0)
-  const [pageviews, setPageviews] = useState(0)
-  const [sessions, setSessions] = useState(0)
+  const [users, setUsers] = useState('')
+  const [pageviews, setPageviews] = useState('')
+  const [sessions, setSessions] = useState('')
   const [loginVal, dispatch] = useReducer(reducer, false)
 
   const value = {
