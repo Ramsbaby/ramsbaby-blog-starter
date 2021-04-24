@@ -61,7 +61,7 @@ const GlAuthProvider = ({ children }) => {
 
   const value = {
     state: { loginCheck, users, pageviews, sessions },
-    actions: { setLoginCheck, dispatch },
+    actions: { setLoginCheck, setUsers, setPageviews, setSessions, dispatch },
   }
 
   return (
