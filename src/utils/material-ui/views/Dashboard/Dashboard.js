@@ -122,12 +122,46 @@ export default function Dashboard() {
                 <Accessibility />
               </CardIcon>
               <p className={classes.cardCategory}>총 방문자수</p>
-              <h3 className={classes.cardTitle}>+245</h3>
+              <h3 className={classes.cardTitle}>{state.users}</h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
                 <Update />
                 Just Updated
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="danger" stats icon>
+              <CardIcon color="danger">
+                <Icon>FORK</Icon>
+              </CardIcon>
+              <p className={classes.cardCategory}>총 페이지뷰</p>
+              <h3 className={classes.cardTitle}>{state.pageviews}</h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <LocalOffer />
+                Tracked from Github
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={6} md={3}>
+          <Card>
+            <CardHeader color="success" stats icon>
+              <CardIcon color="success">
+                <Store />
+              </CardIcon>
+              <p className={classes.cardCategory}>총 세션수</p>
+              <h3 className={classes.cardTitle}>{state.sessions}</h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <DateRange />
+                Last 24 Hours
               </div>
             </CardFooter>
           </Card>

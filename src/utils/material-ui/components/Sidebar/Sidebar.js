@@ -22,22 +22,22 @@ import RTLNavbarLinks from '../../components/Navbars/RTLNavbarLinks.js'
 
 import styles from '../../assets/jss/material-dashboard-react/components/sidebarStyle.js'
 
-import {GoogleLogin, GoogleLogout} from 'react-google-login'
+import { GoogleLogin, GoogleLogout } from 'react-google-login'
 import GlAuthContext from '../../../../contexts/googleLoginAuth.js'
 
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import Button from '@material-ui/core/Button'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import DialogTitle from '@material-ui/core/DialogTitle'
 
 const useStyles = makeStyles(styles)
 
 export default function Sidebar(props) {
   const classes = useStyles()
-  const [tc, setTC] = React.useState(false);
-  const [popupopen, setOpen] = React.useState(false);
+  const [tc, setTC] = React.useState(false)
+  const [popupopen, setOpen] = React.useState(false)
 
   const { state, actions } = useContext(GlAuthContext)
 
@@ -106,7 +106,7 @@ export default function Sidebar(props) {
       })}
     </List>
   )
-  
+
   var brand = (
     <div className={classes.logo}>
       <a
@@ -148,11 +148,9 @@ export default function Sidebar(props) {
                 },
               ],
               metrics: [
-                {
-                  expression: 'ga:users',
-                },
-                {expression: 'ga:totalevents'},
-                {expression: 'ga:sessions'}
+                { expression: 'ga:users' },
+                { expression: 'ga:pageviews' },
+                { expression: 'ga:sessions' },
               ],
             },
           ],
@@ -164,39 +162,43 @@ export default function Sidebar(props) {
   const displayResults = function(response) {
     var formattedJson = JSON.stringify(response.result, null, 2)
     actions.setLoginCheck(true)
-    setOpen(true);
+    setOpen(true)
 
     console.log(formattedJson)
     console.log(response.result)
     console.log(response.result.reports[0].data.totals[0].values)
+    const resultData = response.result.reports[0].data.totals[0].values
+    actions.setUsers(resultData[0])
+    actions.setPageviews(resultData[1])
+    actions.setSessions(resultData[2])
     // document.getElementById('query-output').value = formattedJson
   }
-  
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
 
+  const handleClickOpen = () => {
+    setOpen(true)
+  }
 
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
-  gapi.load('auth2', function() { 
+  gapi.load('auth2', function() {
     var gauth = gapi.auth2.init({
-        client_id: '1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com'
-    });
-    var isLogined = gauth.isSignedIn.get();
-
-    
-    gauth.then(function(){
-        console.log('init success');
-        console.log(isLogined);
-      }, function(){
-        console.error('init fail');
+      client_id:
+        '1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com',
     })
+    var isLogined = gauth.isSignedIn.get()
 
-});
-
+    gauth.then(
+      function() {
+        console.log('init success')
+        console.log(isLogined)
+      },
+      function() {
+        console.error('init fail')
+      },
+    )
+  })
 
   return (
     <div>
@@ -283,7 +285,6 @@ export default function Sidebar(props) {
         </DialogActions>
       </Dialog>
       {popupopen === true ? <Redirect push to="/setup/dashboard" /> : null}
-
     </div>
   )
 }

@@ -9,12 +9,17 @@ import {
 const GlAuthContext = createContext({
   state: {
     loginCheck: false,
+    users: 0,
+    pageviews: 0,
+    sessions: 0,
   },
   actions: {
     setLoginCheck: () => {},
+    setUsers: () => {},
+    setPageviews: () => {},
+    setSessions: () => {},
     goToDashboard: loginCheck => {
       alert(loginCheck)
-
     },
   },
 })
@@ -49,18 +54,13 @@ const reducer = (state, action) => {
 
 const GlAuthProvider = ({ children }) => {
   const [loginCheck, setLoginCheck] = useState('false')
+  const [users, setUsers] = useState(0)
+  const [pageviews, setPageviews] = useState(0)
+  const [sessions, setSessions] = useState(0)
   const [loginVal, dispatch] = useReducer(reducer, false)
 
-  // const goToDashboard = (loginCheck) => {
-  //   <Router>
-  //     <Switch>
-  //       {loginCheck === true ? <Redirect from="/admin" to="/admin/dashboard" /> : null}
-  //     </Switch>
-  // </Router>
-  // }
-
   const value = {
-    state: { loginCheck },
+    state: { loginCheck, users, pageviews, sessions },
     actions: { setLoginCheck, dispatch },
   }
 
