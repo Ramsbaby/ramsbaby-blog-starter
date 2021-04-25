@@ -127,7 +127,7 @@ export default function Dashboard() {
             <CardFooter stats>
               <div className={classes.stats}>
                 <Update />
-                Just Updated
+                IP기준 모든 사용자의 총 방문횟수
               </div>
             </CardFooter>
           </Card>
@@ -136,15 +136,14 @@ export default function Dashboard() {
           <Card>
             <CardHeader color="danger" stats icon>
               <CardIcon color="danger">
-                <Icon>FORK</Icon>
+                <Icon>PAGE</Icon>
               </CardIcon>
               <p className={classes.cardCategory}>총 페이지뷰</p>
               <h3 className={classes.cardTitle}>{state.pageviews}</h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
-                <LocalOffer />
-                Tracked from Github
+                <LocalOffer />총 페이지 클릭 횟수
               </div>
             </CardFooter>
           </Card>
@@ -161,7 +160,7 @@ export default function Dashboard() {
             <CardFooter stats>
               <div className={classes.stats}>
                 <DateRange />
-                Last 24 Hours
+                동일 IP를 포함한 총 방문 세션 수
               </div>
             </CardFooter>
           </Card>
