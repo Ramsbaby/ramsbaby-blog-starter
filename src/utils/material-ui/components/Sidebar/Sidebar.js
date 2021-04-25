@@ -143,7 +143,7 @@ export default function Sidebar(props) {
               viewId: VIEW_ID,
               dateRanges: [
                 {
-                  startDate: '2020-09-01',
+                  startDate: '2000-01-01',
                   endDate: 'today',
                 },
               ],
