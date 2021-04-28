@@ -52,7 +52,7 @@ export default ({ data, location }) => {
 
   //meta config의 값 context변수에 담기
   const { state, actions } = useContext(GlAuthContext)
-  actions.setLoginCheck(siteMetadata.gci)
+  actions.setGci(siteMetadata.gci)
 
   useIntersectionObserver()
   useScrollEvent(() => {
