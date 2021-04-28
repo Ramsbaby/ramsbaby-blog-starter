@@ -20,7 +20,6 @@ import Sidebar from '../components/Sidebar'
 import { rhythm } from '../utils/typography'
 import './index.scss'
 import Particles from '../components/react-particles-js'
-import GlAuthContext from '../contexts/googleLoginAuth.js'
 
 import * as Dom from '../utils/dom'
 import * as EventManager from '../utils/event-manager'
@@ -49,10 +48,6 @@ export default ({ data, location }) => {
   const [searchWord, inputSearchWord] = useSearchWord()
   const [clickTag, selectTag] = useTag()
   const [exposureGb, selectExposureGb] = useExposureGb()
-
-  //meta config의 값 context변수에 담기
-  const { state, actions } = useContext(GlAuthContext)
-  actions.setGci(siteMetadata.gci)
 
   useIntersectionObserver()
   useScrollEvent(() => {

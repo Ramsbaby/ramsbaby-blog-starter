@@ -1,10 +1,5 @@
 import React, { useMemo, useContext } from 'react'
-import {
-  Switch,
-  Route,
-  Redirect,
-  BrowserRouter as Router,
-} from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 // creates a beautiful scrollbar
 import PerfectScrollbar from 'perfect-scrollbar'
 import 'perfect-scrollbar/css/perfect-scrollbar.css'
@@ -24,9 +19,7 @@ import bgImage from '../../assets/img/sidebar-2.jpg'
 import logo from '../..//assets/img/reactlogo.png'
 // import '../../assets/css/material-dashboard-react.css?v=1.9.0'
 
-import GlAuthContext, {
-  GlAuthProvider,
-} from '../../../../contexts/googleLoginAuth.js'
+import { GlAuthProvider } from '../../../../contexts/googleLoginAuth.js'
 
 let ps
 
@@ -55,9 +48,8 @@ const switchRoutes = (
 
 const useStyles = makeStyles(styles)
 
-export default function setup({ ...rest }) {
+export default function setup({ data, ...rest }) {
   //context
-  const { state, actions } = useContext(GlAuthContext)
 
   // useMemo(() => switchRoutes(state.loginCheck), [state.loginCheck])
   // styles
@@ -121,8 +113,7 @@ export default function setup({ ...rest }) {
       }
     }
   }, [mainPanel])
-  // console.log('here')
-  // console.log(rest)
+
   return (
     <GlAuthProvider>
       <div className={classes.wrapper}>

@@ -44,6 +44,10 @@ module.exports = {
   share: {
     facebookAppId: '', // Add facebookAppId for using facebook share feature v3.2
   },
+
+  //google analytics
   ga: 'UA-179073418-1', // Add your google analytics tracking ID
   gsc: 'HZflfCKdZvjC8qWB5opaiDcDmA9vTHZa-_uamDrd-Sc', // Google Search Console 사이트 소유권 확인용 코드. 구글서치콘솔을 이용하시려면 이곳에 구글에서 제공한 소유권확인용 HTML태그 입력하세요.(google-site-verification)
+  gci:
+    '1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com', // google analytics client_id
 }

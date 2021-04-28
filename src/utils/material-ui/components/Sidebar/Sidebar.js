@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import {
@@ -19,6 +19,8 @@ import Icon from '@material-ui/core/Icon'
 // core components
 import AdminNavbarLinks from '../../components/Navbars/AdminNavbarLinks.js'
 import RTLNavbarLinks from '../../components/Navbars/RTLNavbarLinks.js'
+
+import { graphql, StaticQuery } from 'gatsby'
 
 import styles from '../../assets/jss/material-dashboard-react/components/sidebarStyle.js'
 
@@ -40,8 +42,6 @@ export default function Sidebar(props) {
   const [popupopen, setOpen] = React.useState(false)
 
   const { state, actions } = useContext(GlAuthContext)
-
-  console.log(props)
 
   // verifies if routeName is the one active (in browser input)
   function activeRoute(routeName) {
@@ -198,91 +198,103 @@ export default function Sidebar(props) {
   })
 
   return (
-    <div>
-      <Hidden mdUp implementation="css">
-        <Drawer
-          variant="temporary"
-          anchor={props.rtlActive ? 'left' : 'right'}
-          open={props.open}
-          classes={{
-            paper: classNames(classes.drawerPaper, {
-              [classes.drawerPaperRTL]: props.rtlActive,
-            }),
-          }}
-          onClose={props.handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-        >
-          {brand}
-          <div className={classes.sidebarWrapper}>
-            {props.rtlActive ? <RTLNavbarLinks /> : <AdminNavbarLinks />}
-            {links}
-          </div>
-          {image !== undefined ? (
-            <div
-              className={classes.background}
-              style={{ backgroundImage: 'url(' + image + ')' }}
-            />
-          ) : null}
-        </Drawer>
-      </Hidden>
-      <Hidden smDown implementation="css">
-        <Drawer
-          anchor={props.rtlActive ? 'right' : 'left'}
-          variant="permanent"
-          open
-          classes={{
-            paper: classNames(classes.drawerPaper, {
-              [classes.drawerPaperRTL]: props.rtlActive,
-            }),
-          }}
-        >
-          {brand}
+    <StaticQuery
+      query={gciQuery}
+      render={data => {
+        actions.setGci(data.site.siteMetadata.gci)
+        const gci = data.site.siteMetadata.gci
 
-          <div className={classes.sidebarWrapper}>
-            <GoogleLogin
-              clientId={state.gci}
-              buttonText="Google Login"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
-              cookiePolicy={'single_host_origin'}
-            />
-            {/* <GoogleLogout
+        return (
+          <div>
+            <Hidden mdUp implementation="css">
+              <Drawer
+                variant="temporary"
+                anchor={props.rtlActive ? 'left' : 'right'}
+                open={props.open}
+                classes={{
+                  paper: classNames(classes.drawerPaper, {
+                    [classes.drawerPaperRTL]: props.rtlActive,
+                  }),
+                }}
+                onClose={props.handleDrawerToggle}
+                ModalProps={{
+                  keepMounted: true, // Better open performance on mobile.
+                }}
+              >
+                {brand}
+                <div className={classes.sidebarWrapper}>
+                  {props.rtlActive ? <RTLNavbarLinks /> : <AdminNavbarLinks />}
+                  {links}
+                </div>
+                {image !== undefined ? (
+                  <div
+                    className={classes.background}
+                    style={{ backgroundImage: 'url(' + image + ')' }}
+                  />
+                ) : null}
+              </Drawer>
+            </Hidden>
+            <Hidden smDown implementation="css">
+              <Drawer
+                anchor={props.rtlActive ? 'right' : 'left'}
+                variant="permanent"
+                open
+                classes={{
+                  paper: classNames(classes.drawerPaper, {
+                    [classes.drawerPaperRTL]: props.rtlActive,
+                  }),
+                }}
+              >
+                {brand}
+
+                <div className={classes.sidebarWrapper}>
+                  <GoogleLogin
+                    clientId={gci}
+                    buttonText="Google Login"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                  />
+                  {/* <GoogleLogout
               clientId="1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com"
               buttonText="Logout"
               // onLogoutSuccess={logout}
             >
             </GoogleLogout> */}
-            {links}
+                  {links}
+                </div>
+                {image !== undefined ? (
+                  <div
+                    className={classes.background}
+                    style={{ backgroundImage: 'url(' + image + ')' }}
+                  />
+                ) : null}
+              </Drawer>
+            </Hidden>
+            <Dialog
+              open={popupopen}
+              onClose={handleClose}
+              aria-labelledby="alert-dialog-title"
+              aria-describedby="alert-dialog-description"
+            >
+              <DialogContent>
+                <DialogContentText id="alert-dialog-description">
+                  구글로그인에 성공하였습니다.
+                </DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={handleClose} color="primary" autoFocus>
+                  확인
+                </Button>
+              </DialogActions>
+            </Dialog>
+            {popupopen === true ? (
+              <Redirect push to="/setup/dashboard" />
+            ) : null}
           </div>
-          {image !== undefined ? (
-            <div
-              className={classes.background}
-              style={{ backgroundImage: 'url(' + image + ')' }}
-            />
-          ) : null}
-        </Drawer>
-      </Hidden>
-      <Dialog
-        open={popupopen}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            구글로그인에 성공하였습니다.
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary" autoFocus>
-            확인
-          </Button>
-        </DialogActions>
-      </Dialog>
-      {popupopen === true ? <Redirect push to="/setup/dashboard" /> : null}
-    </div>
+        )
+      }}
+    />
   )
 }
 
@@ -296,3 +308,13 @@ Sidebar.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.object),
   open: PropTypes.bool,
 }
+
+export const gciQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        gci
+      }
+    }
+  }
+`

@@ -15,8 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 
 import { createBrowserHistory } from 'history'
@@ -24,8 +23,6 @@ import { Router, Route, Switch, Redirect } from 'react-router-dom'
 
 // core components
 import Setup from '../utils/material-ui/views/Setup/setup.js'
-
-// import '../utils/material-ui/assets/css/material-dashboard-react.css?v=1.9.0'
 
 let hist = null
 if (typeof window !== 'undefined') {
@@ -40,6 +37,7 @@ export default class HTML extends React.Component {
           <Route path="/setup" component={Setup} />
           <Redirect from="/" to="/setup" />
         </Switch>
+        <script></script>
       </Router>
     ) : (
       <div></div>
