@@ -41,7 +41,7 @@ export default function Sidebar(props) {
 
   const { state, actions } = useContext(GlAuthContext)
 
-  // console.log(gapi)
+  console.log(props)
 
   // verifies if routeName is the one active (in browser input)
   function activeRoute(routeName) {
@@ -164,10 +164,8 @@ export default function Sidebar(props) {
     actions.setLoginCheck(true)
     setOpen(true)
 
-    console.log(formattedJson)
-    console.log(response.result)
-    console.log(response.result.reports[0].data.totals[0].values)
     const resultData = response.result.reports[0].data.totals[0].values
+    //받아온 DATA context 전역변수에 할당.
     actions.setUsers(resultData[0])
     actions.setPageviews(resultData[1])
     actions.setSessions(resultData[2])
@@ -184,8 +182,7 @@ export default function Sidebar(props) {
 
   gapi.load('auth2', function() {
     var gauth = gapi.auth2.init({
-      client_id:
-        '1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com',
+      client_id: state.gci,
     })
     var isLogined = gauth.isSignedIn.get()
 
@@ -245,7 +242,7 @@ export default function Sidebar(props) {
 
           <div className={classes.sidebarWrapper}>
             <GoogleLogin
-              clientId="1075573877493-gh02u2kgns67o6rjttfvaj2q7t24olfr.apps.googleusercontent.com"
+              clientId={state.gci}
               buttonText="Google Login"
               onSuccess={responseGoogle}
               onFailure={responseGoogle}

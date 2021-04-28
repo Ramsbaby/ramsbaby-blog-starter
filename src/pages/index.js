@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
 import _ from 'lodash'
-import React, { useMemo } from 'react'
+import React, { useMemo, useContext } from 'react'
 import { Bio } from '../components/bio'
 import { Category } from '../components/category'
 import { Contents } from '../components/contents'
@@ -20,6 +20,7 @@ import Sidebar from '../components/Sidebar'
 import { rhythm } from '../utils/typography'
 import './index.scss'
 import Particles from '../components/react-particles-js'
+import GlAuthContext from '../contexts/googleLoginAuth.js'
 
 import * as Dom from '../utils/dom'
 import * as EventManager from '../utils/event-manager'
@@ -48,6 +49,10 @@ export default ({ data, location }) => {
   const [searchWord, inputSearchWord] = useSearchWord()
   const [clickTag, selectTag] = useTag()
   const [exposureGb, selectExposureGb] = useExposureGb()
+
+  //meta config의 값 context변수에 담기
+  const { state, actions } = useContext(GlAuthContext)
+  actions.setLoginCheck(siteMetadata.gci)
 
   useIntersectionObserver()
   useScrollEvent(() => {
@@ -79,9 +84,12 @@ export default ({ data, location }) => {
   //   },
   // },
 
-
   return (
-    <Layout location={location} title={siteMetadata.title} siteMetadata={siteMetadata}>
+    <Layout
+      location={location}
+      title={siteMetadata.title}
+      siteMetadata={siteMetadata}
+    >
       <div className="site-wrapper">
         <Particles
           className="snow"
@@ -259,5 +267,5 @@ export const pageQuery = graphql`
         totalCount
       }
     }
-  } 
+  }
 `

@@ -12,12 +12,14 @@ const GlAuthContext = createContext({
     users: '',
     pageviews: '',
     sessions: '',
+    gci: '',
   },
   actions: {
     setLoginCheck: () => {},
     setUsers: () => {},
     setPageviews: () => {},
     setSessions: () => {},
+    setGci: () => {},
     goToDashboard: loginCheck => {
       alert(loginCheck)
     },
@@ -57,11 +59,19 @@ const GlAuthProvider = ({ children }) => {
   const [users, setUsers] = useState('')
   const [pageviews, setPageviews] = useState('')
   const [sessions, setSessions] = useState('')
+  const [gci, setGci] = useState('')
   const [loginVal, dispatch] = useReducer(reducer, false)
 
   const value = {
-    state: { loginCheck, users, pageviews, sessions },
-    actions: { setLoginCheck, setUsers, setPageviews, setSessions, dispatch },
+    state: { loginCheck, users, pageviews, sessions, gci },
+    actions: {
+      setLoginCheck,
+      setUsers,
+      setPageviews,
+      setSessions,
+      setGci,
+      dispatch,
+    },
   }
 
   return (
