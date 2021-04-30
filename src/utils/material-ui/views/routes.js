@@ -29,7 +29,7 @@ import DashboardPage from './Dashboard/Dashboard.js'
 // import UserProfile from 'views/UserProfile/UserProfile.js'
 // import TableList from 'views/TableList/TableList.js'
 // import Typography from 'views/Typography/Typography.js'
-import Icons from './Icons/Icons.js'
+// import Icons from './Icons/Icons.js'
 // import Maps from 'views/Maps/Maps.js'
 // import NotificationsPage from 'views/Notifications/Notifications.js'
 // import UpgradeToPro from 'views/UpgradeToPro/UpgradeToPro.js'
@@ -69,14 +69,14 @@ const dashboardRoutes = [
   //   component: Typography,
   //   layout: "/admin"
   // },
-  {
-    path: '/icons',
-    name: 'Icons',
-    rtlName: 'الرموز',
-    icon: BubbleChart,
-    component: Icons,
-    layout: '/setup',
-  },
+  // {
+  //   path: '/icons',
+  //   name: 'Icons',
+  //   rtlName: 'الرموز',
+  //   icon: BubbleChart,
+  //   component: Icons,
+  //   layout: '/setup',
+  // },
   // {
   //   path: "/maps",
   //   name: "Maps",

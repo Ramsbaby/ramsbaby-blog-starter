@@ -129,15 +129,15 @@ export default function setup({ data, ...rest }) {
         />
 
         <div className={classes.mainPanel} ref={mainPanel}>
-          <Navbar
+          {/* <Navbar
             routes={routes}
             handleDrawerToggle={handleDrawerToggle}
             {...rest}
-          />
+          /> */}
           <div className={classes.content}>
             <div className={classes.container}>{switchRoutes}</div>
           </div>
-          {getRoute() ? <Footer /> : null}
+          {/* {getRoute() ? <Footer /> : null} */}
           <FixedPlugin
             handleImageClick={handleImageClick}
             handleColorClick={handleColorClick}
