@@ -21,7 +21,7 @@ Controller는 요청을 처리 후 응답을 다시 Dispatcher Servlet으로 반
 
 ### Controller-Data
 
-Controller는 View 뿐만이 아니라 Data도 반환할 수 있으며, 이때에 @ResponseBody라는 어노테이션을 사용한다.
+Controller는 View 뿐만이 아니라 Data도 반환할 수 있으며, 이때에 @ResponseBody라는 어노테이션을 사용합니다.
 
 ![](./images/controller2.png)
 
@@ -29,9 +29,9 @@ Controller는 View 뿐만이 아니라 Data도 반환할 수 있으며, 이때�
 
 ### RestController
 
-@RestController는 Spring MVC Controller에 @ResponseBody가 추가된 것이다. 마찬가지로 Json 형태로 객체 데이터를 반환하는것이 주용도이다. Spring boot를 API 서버로 활용할 때 주로 사용한다.
+@RestController는 Spring MVC Controller에 @ResponseBody가 추가된 것입니다. 마찬가지로 Json 형태로 객체 데이터를 반환하는것이 주용도이구요. 개발자들은 보통 Spring boot를 API 서버로 활용할 때 주로 사용합니다.
 
-Spring4.0부터는 @Controller의 데이터반환과정이 @RestController로 더욱 단순화 되었다는 차이점이 있다.
+Spring4.0부터는 @Controller의 데이터반환과정이 @RestController로 더욱 단순화 되었다는 차이점이 있습니다.
 
 ![](./images/controller3.png)
 
@@ -61,7 +61,11 @@ Spring4.0부터는 @Controller의 데이터반환과정이 @RestController로 �
 
 RestAPI만을 사용하는 컨트롤러라면 -> @RestController<br>
 View와 Data 반환을 같이 쓰거나, View만 사용하려면 -> @Controller<br>
-@RestController는 스프링 4.x 이상부터 @Controller와 @ResponseBody를 간단화시킨 로직이다.
+@RestController는 스프링 4.x 이상부터 @Controller와 @ResponseBody를 간단화시킨 로직입니다.
+
+<br>
+<br>
+<br>
 
 참고 :
 
