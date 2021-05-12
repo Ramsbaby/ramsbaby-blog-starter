@@ -7,9 +7,17 @@ draft: false
 tags: ['스프링 정리', 'Spring Framework']
 ---
 
+<br>
+<br>
+<br>
+<br>
+
 ## Controller와 RestController 차이
 
-### Controller-View
+<br>
+<br>
+
+### Controller-View 반환
 
 일반 Spring MVC 에서 Controller는 보통 view를 반환합니다.<br>
 클라이언트의 Request가 들어오면 Dispatcher Servlet이 Request를 인터셉트합니다.<br>
@@ -17,17 +25,23 @@ Controller는 요청을 처리 후 응답을 다시 Dispatcher Servlet으로 반
 
 ![](./images/controller1.png)
 
- <br>
+<br>
+<br>
+<br>
+<br>
 
-### Controller-Data
+### Controller-Data 반환
 
 Controller는 View 뿐만이 아니라 Data도 반환할 수 있으며, 이때에 @ResponseBody라는 어노테이션을 사용합니다.
 
 ![](./images/controller2.png)
 
- <br>
+<br>
+<br>
+<br>
+<br>
 
-### RestController
+### Rest Controller 사용법
 
 @RestController는 Spring MVC Controller에 @ResponseBody가 추가된 것입니다. 마찬가지로 Json 형태로 객체 데이터를 반환하는것이 주용도이구요. 개발자들은 보통 Spring boot를 API 서버로 활용할 때 주로 사용합니다.
 
@@ -35,6 +49,10 @@ Spring4.0부터는 @Controller의 데이터반환과정이 @RestController로 �
 
 ![](./images/controller3.png)
 
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 
@@ -53,6 +71,10 @@ Spring4.0부터는 @Controller의 데이터반환과정이 @RestController로 �
 - @RestController의 실행 흐름 <br>
   `Client -> HTTP Request -> Dispatcher Servlet -> Handler Mapping -> RestController (자동 ResponseBody 추가) -> HTTP Response -> Client`
 
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
