@@ -13,7 +13,7 @@ tags: ['스프링 정리', 'Spring Framework']
 
 일반 Spring MVC 에서 Controller는 보통 view를 반환합니다.<br>
 클라이언트의 Request가 들어오면 Dispatcher Servlet이 Request를 인터셉트합니다.<br>
-Controller는 요청을 처리 후 응답을 다시 Dispatcher Servlet으로 반환하고, Dispatcher Servlet은 View를 클라이언트에게 반환한다.
+Controller는 요청을 처리 후 응답을 다시 Dispatcher Servlet으로 반환하고, Dispatcher Servlet은 View를 클라이언트에게 반환합니다.
 
 ![](./images/controller1.png)
 
@@ -21,7 +21,7 @@ Controller는 요청을 처리 후 응답을 다시 Dispatcher Servlet으로 반
 
 ### Controller-Data
 
-Controller는 View 뿐만이 아니라 Data도 반환할 d수 있으며, 이때에 @ResponseBody라는 어노테이션을 사용한다.
+Controller는 View 뿐만이 아니라 Data도 반환할 수 있으며, 이때에 @ResponseBody라는 어노테이션을 사용한다.
 
 ![](./images/controller2.png)
 
