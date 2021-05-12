@@ -13,8 +13,6 @@ import './index.scss'
 export const Layout = ({ siteMetadata, location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
 
-  console.log(siteMetadata)
-
   const github_Id = siteMetadata.social.github
 
   const renderBackToTop = () => {
