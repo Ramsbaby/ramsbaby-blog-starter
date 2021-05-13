@@ -1,5 +1,5 @@
 ---
-title: '[프로그래머스] 오픈카톡방 - 2Level'
+title: '[JS][프로그래머스] 오픈카톡방 - 2Level'
 date: 2021-05-13 21:08:00
 category: CodingTest
 thumbnail: 'thumbnail-images/Etc/images/programmers.jpg'
