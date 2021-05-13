@@ -49,8 +49,8 @@ tags: ['프로그래머스', 'Coding Test']
 
 ```javascript
 function solution(record) {
-  let answer = []
-  let userList = [],
+  let answer = [],
+    userList = [],
     messageList = []
 
   record.map(d => {
@@ -58,7 +58,6 @@ function solution(record) {
 
     if (item[0] == 'Enter') {
       userList[item[1]] = item[2]
-
       messageList.push({ userId: item[1], type: item[0] })
     } else if (item[0] === 'Leave') {
       messageList.push({ userId: item[1], type: item[0] })
