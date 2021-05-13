@@ -57,12 +57,9 @@ function solution(record) {
     let item = d.split(' ')
 
     if (item[0] == 'Enter') {
-      let obj = { id: item[1], nickname: item[2] }
-      let changeCheck = false
-
       userList[item[1]] = item[2]
 
-      messageList.push({ userId: obj.id, type: item[0] })
+      messageList.push({ userId: item[1], type: item[0] })
     } else if (item[0] === 'Leave') {
       messageList.push({ userId: item[1], type: item[0] })
     } else if (item[0] === 'Change') {
