@@ -1,10 +1,10 @@
 ---
 title: '[Etc] 블로그 개설 취지!'
-date: 2020-09-24 12:09:49
+date: 2020-09-13 21:38:00
 category: Etc
 thumbnail: ''
 draft: false
-tags: ['리액트블로그', 'ReactJs', 'Gatsby', '블로그개설취지']
+tags: ['ReactTechBlog', 'ReactJs', 'Gatsby']
 ---
 
 ### **개발자들의 로망. 나만의 기술 블로그 갖추기.**
