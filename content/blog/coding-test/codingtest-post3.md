@@ -65,7 +65,7 @@ function solution(s) {
 
     arr.map(dd => {
       if (dict[dd] !== undefined) dict[dd]++
-      else if (dict[dd] === undefined) dict[dd] = 1
+      else dict[dd] = 1
     })
   })
 
@@ -74,7 +74,8 @@ function solution(s) {
     answer.push([item, dict[item]])
   }
 
-  //value순으로 sort 후 [0] 요소만 숫자로 변경 후 담기
+  // 1.value순으로 sort 후
+  // 2.첫번째 요소만 숫자타입으로 변경 후 담기
   answer = answer
     .sort(function(a, b) {
       return b[1] - a[1]
