@@ -1,5 +1,5 @@
 ---
-title: '[JS][코딜리티] BinaryGap'
+title: '[JS][코딜리티] BinaryGap - Lesson1'
 date: 2021-05-18 21:50:00
 category: CodingTest
 thumbnail: 'thumbnail-images/Etc/images/CodilityLogo.png'
