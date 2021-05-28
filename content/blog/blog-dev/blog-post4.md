@@ -31,7 +31,7 @@ tags: ['netlify-CMS']
 
 ## 어떻게 도입?
 
-https://www.netlifycms.org/docs/add-to-your-site/
+https://www.netlifycms.org/docs/add-to-your-site/ <br>
 위의 공식사이트에서 quick guide 를 통해 적용해 본 결과, 아주 간단한 설정만으로도 CMS기능을 사용할 수 있게 되었습니다.
 
 <br>
