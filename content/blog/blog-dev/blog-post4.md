@@ -19,10 +19,38 @@ tags: ['netlify-CMS']
 <br>
 <br>
 
-### 서론
+## 서론
 
 문득, 비개발자도 VSC를 거치지 않고 글을 쓸 수 있는 기능이 있어야겠다고 생각이 들었습니다.
-여러가지로 검색해본 결과 몇 줄의 코드만 추가하면 Gatsby에서 Netlify-CMS(Content Management System)을 사용할 수 있다는 것을 발견했습니다.
+여러가지로 검색해본 결과 몇 줄의 코드만 추가하면 Gatsby에서 <br>
+Netlify-CMS(Content Management System)을 사용할 수 있다는 것을 발견했습니다.
+
+<br>
+<br>
+<br>
+<br>
+
+## Netlify-CMS 란?
+
+기존에 저희 Gatsby 블로그에서 글을 배포하는 과정은
+
+1. 작성된 마크다운파일을 커밋하고,
+2. push 를 통해 깃으로 배포 후,
+3. 연동된 netlify가 git에 있는 마크다운파일을 가져감.
+
+이런 방식이었는데요.
+
+`Netlify-CMS`는 이러한 과정없이 웹에서 바로 글을 쓰거나, 이미지를 등록할 수 있도록 도와주는 도구입니다.
+
+이 밖에도 여러가지 CMS 툴이 있는데요. <br>
+`Foresty`나 `Ghost`, `Strapi` 등등이 있으나 Netlify 를 사용하고 있는 블로거 입장에서는 `Netlify-CMS`가 더 매력적으로 느껴졌습니다.
+
+<br>
+
+`Netlify-CMS`는 다른 CMS툴들과는 다르게 백엔드 서버로써 동작하는 것이 아니라, <br>
+`Gatsby` 를 통해 정적 웹페이지(마크다운->HTML파일)로 전환시켜줍니다.<br>
+늘 존재하는 백엔드로 작동하는 CMS가 아니기 때문에 데이터베이스가 없고 git-base인 것이 특징입니다.
+이렇게 `Netlify-CMS`를 통해 작성된 글들은 github에 파일 형태로 저장이 됩니다.
 
 <br>
 <br>
