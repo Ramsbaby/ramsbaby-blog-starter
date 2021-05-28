@@ -118,6 +118,8 @@ MySql을 연동해야하는 프로젝트이지만 Oracle을 나중에 연동해�
 
 > https://mingrammer.com/translation-13-simple-rules-for-good-coding/ <br> https://chodragon9.github.io/blog/easy-code/#%EC%9D%B4%EC%A0%9C-%EB%B3%B8%EB%A1%A0%EC%9C%BC%EB%A1%9C-%EB%93%A4%EC%96%B4%EA%B0%80%EA%B2%A0%EC%8A%B5%EB%8B%88%EB%8B%A4 <br> https://rhange.tistory.com/168 <br> 클린코드(로버트 C.마틴)
 
-# 죄송합니다. 글마무리를 빠른시간안에 짓도록 하겠습니다.
+<br>
+<br>
+<br>
 
-<!-- #### 읽어주셔서 감사합니다.🖐 -->
+#### 읽어주셔서 감사합니다.🖐
