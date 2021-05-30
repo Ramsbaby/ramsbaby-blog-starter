@@ -57,7 +57,7 @@ tags: ['스프링 정리', 'Spring Framework']
 
 <br>
 
-Filter -> DispatcherServlet -> HandlerMapping -> HandlerInterceptor -> Controller -> Service -> Repository -> Controller -> ViewResolver -> DispatcherServlet -> View-> Filter
+> Filter -> DispatcherServlet -> HandlerMapping -> HandlerInterceptor -> Controller -> Service -> Repository -> Controller -> ViewResolver -> DispatcherServlet -> View-> Filter
 
 <br>
 <br>
@@ -95,8 +95,8 @@ Filter -> DispatcherServlet -> HandlerMapping -> HandlerInterceptor -> Controlle
 ### HandlerInterceptor
 
 - Request가 Controller에 매핑되기전 앞단에서 부가적인 로직을 끼워넣습니다.
-- 주로 세션, 쿠키, 권한 인증 로직에 많이 사용된다.
 - Filter와 비슷하지만 다른 점은 **영역**입니다. <br> Filter는 Spring의 권한밖이기 때문에 Spring Context에 접근하기 어렵지만, Interceptor의 경우 Spring의 영역 안이기 때문에 Spring Context에 접근할 수 있습니다.
+- 주로 세션, 쿠키, 권한 인증 로직에 많이 사용됩니다.
 
 <br>
 
@@ -121,7 +121,7 @@ Filter -> DispatcherServlet -> HandlerMapping -> HandlerInterceptor -> Controlle
 ### Repository
 
 - 스프링 구조에서 비즈니스 로직에 해당합니다.
-- DB에 접근하는 객체입니다. DAO(Data Access Object) 라고 부른다. 주로 Mapper 클래스의 어노테이션으로 사용됩니다.
+- DB에 접근하는 객체입니다. DAO(Data Access Object) 라고 부릅니다. 주로 Mapper 클래스의 어노테이션으로 사용됩니다.
 - Service에서 DB에 접근할 수 있게 하여 데이터의 CRUD를 할 수 있게 도와줍니다.
 
 <br>
