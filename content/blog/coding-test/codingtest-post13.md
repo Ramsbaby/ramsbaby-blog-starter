@@ -1,5 +1,5 @@
 ---
-title: '[JS][코딜리티] CountDiv - Lesson4'
+title: '[JS][코딜리티] Triangle - Lesson6'
 date: 2021-06-04 20:56:00
 category: CodingTest
 thumbnail: 'thumbnail-images/Etc/images/CodilityLogo.png'
