@@ -86,7 +86,7 @@ export default ({ data, location }) => {
       siteMetadata={siteMetadata}
     >
       <div className="site-wrapper">
-        <Particles
+        {/* <Particles
           className="snow"
           focusable="true"
           aria-hidden=""
@@ -146,7 +146,7 @@ export default ({ data, location }) => {
               },
             },
           }}
-        ></Particles>
+        ></Particles> */}
         <div>
           <div className={'sidebar-container'}>
             <div className={'sidebar'}>
