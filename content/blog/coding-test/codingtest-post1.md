@@ -1,5 +1,5 @@
 ---
-title: '[JS][프로그래머스] 오픈카톡방 - 2Level'
+title: '[JS,JAVA][프로그래머스] 오픈카톡방 - 2Level'
 date: 2021-05-13 21:08:00
 category: CodingTest
 thumbnail: 'thumbnail-images/Etc/images/programmers.jpg'
@@ -48,6 +48,7 @@ tags: ['프로그래머스', 'Coding Test']
 ## 나의 코드
 
 ```javascript
+//JavaScript
 function solution(record) {
   let answer = [],
     userList = [],
@@ -73,6 +74,50 @@ function solution(record) {
   })
 
   return answer
+}
+```
+
+```JAVA
+//JAVA
+static class Solution{
+  private String[] answer;
+  private HashMap<String, String> userIdMap = new HashMap<String, String>();
+
+  public String[] solution(String[] str){
+      for(String message:str){
+          String[] messageArr = message.split(" ");
+
+          if(messageArr[0].equals("Leave") == false)
+              userIdMap.put(messageArr[1], messageArr[2]);
+      }
+
+      ArrayList<String> arrayList = new ArrayList<>();
+
+      for (int i = 0; i < str.length; i++) {
+          String[] messageArr = str[i].split(" ");
+          String action = "";
+          if(messageArr[0].equals("Enter")){
+              action = "들어왔습니다.";
+          }
+          else if(messageArr[0].equals("Leave")) {
+              action = "나갔습니다.";
+          }
+          else if(messageArr[0].equals("Change")){
+              continue;
+          }
+
+          arrayList.add(userIdMap.get(messageArr[1]) + "님이 " + action);
+      }
+
+      answer = new String[arrayList.size()];
+      answer = arrayList.toArray(new String[arrayList.size()]);
+      return answer;
+  }
+
+  public static void main(String[] args){
+      Solution s = new Solution();
+      s.solution(new String[]{"Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"});
+  }
 }
 ```
 
