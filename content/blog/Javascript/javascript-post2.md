@@ -112,14 +112,30 @@ ECMAScript2015를 줄여서 `ES6`이라고 부르며, 그 이후 버전을 통�
 
   이 원형 또한 객체이기 때문에 이 원형은 또 다른 객체를 참조하게 될 것이며, 아래와 같이 연속된 프로토타입 링크를 통해 자바스크립트 객체의 최초 조상인 Object.prototype 까지 연결되게 됩니다.
 
+  ![](./images/javascript_proto_type.png)
+
   > Object.prototype 객체에는 toString, hasOwnProperty 함수 등과 같이 자바스크립트 객체에서 흔히 사용하던 속성들이 정의되어 있고, 그로 인해 모든 객체에서 해당 속성들을 사용할 수 있다.
 
-  이처럼 자바스크립트에서 생성된 모든 객체는 Object의 자식입니다. 따라서 Object Prototype Object에 있는 모든 속성을 사용할 수 있습니다.
+  이처럼 자바스크립트에서 생성된 모든 객체는 Object의 자식입니다. 따라서 개발자가 생성한 모든 객체는 Object Prototype 에 있는 모든 속성을 사용할 수 있습니다.
 
   <br>
 
-  마무리를 지어보자면, prototype을 통해 개발자는 개발자가 만들고자 하는 자바스크립트 객체의 속성들을 프로토타입 링크를 통해 `불필요한 메`모리낭비 없이``공유`할 수 있습니다.
+  마무리를 지어보자면, prototype을 통해 개발자는 개발자가 만들고자 하는 자바스크립트 객체의 속성들을 프로토타입 링크를 통해 **불필요한 메모리낭비 없이 공유**할 수 있습니다.
 
+  ```javascript
+  function Food() {}
+
+  let apple = new Food()
+  let pineapple = new Food()
+
+  Food.prototype.getType = () => 'FOOD'
+
+  console.log(apple.getType()) // FOOD
+  console.log(pineapple.getType()) // FOOD
+  ```
+
+  <br>
+  <br>
   <br>
 
 - 자바스크립트는 간편하면서도 강력한 텍스트 표기법인 JSON을 가지고 있으며, 이로 인해 구조적으로 비동기 프로그래밍에도 아주
@@ -129,7 +145,7 @@ ECMAScript2015를 줄여서 `ES6`이라고 부르며, 그 이후 버전을 통�
 
 - 자바스크립트는 확장성이 아주 뛰어난 언어입니다.
 
-  자바스크립트만 똑띠 단디 알아도 `React.js`나 `Vue.js`, `Angular.js` 등의 SPA 웹앱개발, `React Native`를 통한 iOS/안드로이드
+  자바스크립트만 학습하더라도 `React.js`나 `Vue.js`, `Angular.js` 등의 SPA 웹앱개발, `React Native`를 통한 iOS/안드로이드
   앱개발, 서버 사이드 애플리케이션 개발이 가능한 `node.js`, 데스크탑 앱 개발이 가능한 `Electron` 등을 쉽게 파악할 수 있습니다.
 
 <br>
@@ -161,7 +177,19 @@ ECMAScript2015를 줄여서 `ES6`이라고 부르며, 그 이후 버전을 통�
   자바스크립트는 `자바`나 `TypeScript`와 달리 private 을 통한 은닉화 기능이 아주 제한적입니다. private 기능이 있긴 하지만 지원하는 브라우저가 많지 않습니다.
   그래서 자바스크립트에서는 `클로저 모듈 패턴`을 통해 private 을 간접적으로 구현하기도 합니다.
 
-  <br>
+  ```javascript
+  var updateClickCount = (function() {
+    var counter = 0
+
+    return function() {
+      ++counter
+    }
+  })() // 즉시 호출
+  ```
+
+  위에서 updateClickCount는 선언과 동시에 딱 한번 실행됩니다. 내부에서 counter 값을 0으로 set하고 익명의 함수를 리턴합니다. 리턴되는 익명의 함수는 Closure를 통해 counter의 값에 접근할 수 있습니다. Closure를 통해 리턴되는 함수가 private 변수 counter를 가지도록 해주는 셈이죠. 변수 counter는 익명 함수의 Scope에서 안전하게 보호되고 함수를 통해서만 값의 변경을 허용합니다.
+
+    <br>
 
 - **추상화의 부재**<br>
   `타입스크립트`에는 interface 기능을 통해 청사진(blueprint)을 미리 설계해 놓을 수 있습니다. 이 클래스는 이 설계서대로 동작할거야 라고 표현할 수 있습니다. 하지만 자바스크립트는 이러한 인터페이스 기능이 없습니다.
@@ -187,11 +215,18 @@ ECMAScript2015를 줄여서 `ES6`이라고 부르며, 그 이후 버전을 통�
 <br>
 <br>
 
-단점을 너무 장황하게 늘어놓아서, 매력이 없는 언어같지만 이러한 단점들을 극복하는 중이며, `자바스크립트`는 여러 통계사이트를 통틀어도 가장 인기있는 언어 1위를 달리고 있습니다.
+단점을 너무 장황하게 늘어놓아서, 매력이 없는 언어처럼 보이지만 자바스크립트 진영은 꾸준히 이러한 단점들을 극복하는 중이며, 더 나은 언어로 성장하고 있습니다.
+또한 자바스크립트는 여러 통계사이트를 통틀어도 웹 개발에서 가장 인기있는 언어 1위를 달리고 있습니다.
 
 다음 포스팅에서는, ES6 이후 달라진 자바스크립트의 매력에 대해 글을 적어보겠습니다.
 
 <br>
+<br>
+
+참고 :
+
+> https://medium.com/sjk5766/javascript-closure%EB%8A%94-%EC%99%9C-%EC%93%B8%EA%B9%8C-81bcdef6352 <br> 위키백과
+
 <br>
 <br>
 
