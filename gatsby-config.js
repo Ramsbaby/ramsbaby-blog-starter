@@ -4,7 +4,6 @@ const path = require('path')
 module.exports = {
   siteMetadata: metaConfig,
   plugins: [
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -55,7 +54,8 @@ module.exports = {
           `gatsby-remark-emoji`,
         ],
       },
-    },    {
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
@@ -141,5 +141,5 @@ module.exports = {
     `gatsby-plugin-lodash`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
-  ]
+  ],
 }

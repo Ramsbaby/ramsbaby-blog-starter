@@ -7,21 +7,12 @@ exports.createPages = ({ graphql, actions }) => {
   const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
 
   const backdoorPages = []
-  // backdoorPages.push({
-  //   name: 'adminPage',
-  //   slug: '/admin',
-  //   path: path.resolve(`./src/utils/material-ui/views/Admin/admin.js`),
-  // })
+  
   backdoorPages.push({
     name: 'dashboardPage',
     slug: '/setup/dashboard',
     path: path.resolve(`./src/utils/material-ui/views/Dashboard/Dashboard.js`),
   })
-  // backdoorPages.push({
-  //   name: 'testPage',
-  //   slug: '/test',
-  //   path: path.resolve(`./src/pages/test.js`),
-  // })
 
   return graphql(
     `
