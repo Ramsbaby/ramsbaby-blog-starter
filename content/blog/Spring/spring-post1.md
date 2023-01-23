@@ -1,10 +1,10 @@
 ---
-title: '[Spring] @Controller와 @RestController 차이 정리'
+title: '[SpringFW] @Controller와 @RestController 차이 정리'
 date: 2021-05-12 20:58:21
 category: SpringFW
 thumbnail: 'thumbnail-images/Spring/images/controller1.png'
 draft: false
-tags: ['스프링 정리', 'Spring Framework']
+tags: ['Spring Framework']
 ---
 
 <br>

@@ -4,7 +4,7 @@ date: 2021-05-13 21:08:53
 category: CodingTest
 thumbnail: 'thumbnail-images/Etc/images/programmers.jpg'
 draft: false
-tags: ['프로그래머스', 'Coding Test']
+tags: ['Coding Test']
 ---
 
 <br>

@@ -4,7 +4,7 @@ date: 2021-05-28 21:33:46
 category: 블로그 개발
 thumbnail: 'thumbnail-images/blog-dev/images/gatsby-with-cms.jpg'
 draft: false
-tags: ['netlify-CMS']
+tags: ['오픈소스']
 ---
 
 <br>

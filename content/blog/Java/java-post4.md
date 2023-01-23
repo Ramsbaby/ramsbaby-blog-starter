@@ -1,10 +1,10 @@
 ---
-title: '자바 메소드 병렬 호출'
+title: '[JAVA] 자바 메소드 병렬 호출'
 date: 2022-04-15 21:10:20
 category: Java
 thumbnail: 'thumbnail-images/Spring/images/JAVA_logo.jpg'
 draft: false
-tags: ['자바 병렬처리']
+tags: ['JAVA']
 ---
 
 <br>

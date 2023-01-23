@@ -4,7 +4,7 @@ date: 2021-05-21 17:46:43
 category: CodingTest
 thumbnail: 'thumbnail-images/Etc/images/CodilityLogo.png'
 draft: false
-tags: ['코딜리티', 'Coding Test']
+tags: ['Coding Test']
 ---
 
 ## 문제간단설명

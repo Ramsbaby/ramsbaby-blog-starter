@@ -1,10 +1,10 @@
 ---
-title: '자바 프로세스 힙메모리 설정 이슈'
+title: '[JAVA] 자바 프로세스 힙메모리 설정 이슈'
 date: 2022-02-23 22:40:15
 category: Java
 thumbnail: 'thumbnail-images/Spring/images/JAVA_logo.jpg'
 draft: false
-tags: ['자바 힙메모리']
+tags: ['JAVA']
 ---
 
 <br>

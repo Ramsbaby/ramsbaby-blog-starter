@@ -1,10 +1,10 @@
 ---
-title: '[혼.자.쉽.알.] 인터페이스와 추상클래스 차이'
+title: '[JAVA] 인터페이스와 추상클래스 차이'
 date: 2021-07-03 18:38:10
 category: Java
 thumbnail: 'thumbnail-images/Spring/images/JAVA_logo.jpg'
 draft: false
-tags: ['혼동되는자바개념쉽게알려드림']
+tags: ['JAVA']
 ---
 
 <br>

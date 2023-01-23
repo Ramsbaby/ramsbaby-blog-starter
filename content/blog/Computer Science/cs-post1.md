@@ -4,7 +4,7 @@ date: 2020-12-10 03:02:23
 category: Computer Science
 thumbnail: ''
 draft: false
-tags: ['컴퓨터사이언스', '운영체제']
+tags: ['CS']
 ---
 
 ### 서론

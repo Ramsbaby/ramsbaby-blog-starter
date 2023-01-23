@@ -4,7 +4,7 @@ date: 2021-03-10 11:35:20
 category: 블로그 개발
 thumbnail: 'thumbnail-images/blog-dev/images/api-test1.gif'
 draft: false
-tags: ['GoogleAnalytics', '갯츠비통계페이지']
+tags: ['오픈소스']
 --- 
 
 ### 1. 서론

@@ -4,7 +4,7 @@ date: 2021-06-15 21:05:39
 category: CodingTest
 thumbnail: 'thumbnail-images/Etc/images/backjoonlogo.png'
 draft: false
-tags: ['백준', 'Coding Test']
+tags: ['Coding Test']
 ---
 
 ## 문제간단설명

@@ -4,7 +4,7 @@ date: 2020-11-10 23:29:49
 category: 책소개
 thumbnail: 'thumbnail-images/책소개/images/book1.jpg'
 draft: false
-tags: ['코딩인터뷰 완전분석', '책리뷰']
+tags: ['책리뷰']
 ---
 
 ![](./images/book1.jpg)
