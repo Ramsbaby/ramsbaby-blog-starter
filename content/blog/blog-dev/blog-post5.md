@@ -1,5 +1,5 @@
 ---
-title: '[Etc] 열린 개발자가 되어보자 !'
+title: '[Blog] 열린 개발자가 되어보자 !'
 date: 2020-10-01 19:43:25
 category: Etc
 thumbnail: ''

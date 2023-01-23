@@ -1,5 +1,5 @@
 ---
-title: '[Etc] (작성중) 자바웹개발자로 성장하게 된 계기'
+title: '[Blog] (작성중) 자바웹개발자로 성장하게 된 계기'
 date: 2020-12-10 01:05:32
 category: Etc
 thumbnail: ''

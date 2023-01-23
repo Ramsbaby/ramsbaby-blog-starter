@@ -1,5 +1,5 @@
 ---
-title: '[Etc] 블로그 개설 취지!'
+title: '[Blog] 블로그 개설 취지!'
 date: 2020-09-13 21:38:58
 category: Etc
 thumbnail: ''
