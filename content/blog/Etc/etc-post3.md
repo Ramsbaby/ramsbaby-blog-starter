@@ -4,7 +4,7 @@ date: 2020-10-01 19:43:25
 category: Etc
 thumbnail: ''
 draft: true
-tags: ['열린개발자']
+tags: ['Blog']
 ---
 
 <style>

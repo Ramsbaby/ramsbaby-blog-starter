@@ -4,7 +4,7 @@ date: 2020-09-24 12:09:49
 category: Javascript
 thumbnail: ''
 draft: false
-tags: ['javascript tip']
+tags: ['javascript']
 ---
 
 ### ES5 이하 버전

@@ -4,7 +4,7 @@ date: 2020-12-10 03:02:23
 category: Etc
 thumbnail: ''
 draft: true
-tags: ['자바주니어', '초간단스프링구조정리']
+tags: ['Spring Framework']
 ---
 
 # 죄송합니다. 글마무리를 빠른시간안에 짓도록 하겠습니다.

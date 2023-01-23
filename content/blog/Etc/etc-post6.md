@@ -4,7 +4,7 @@ date: 2021-05-10 22:19:36
 category: Etc
 thumbnail: 'thumbnail-images/Etc/images/goodcode.png'
 draft: false
-tags: ['좋은코드']
+tags: ['책리뷰']
 ---
 
 <br>

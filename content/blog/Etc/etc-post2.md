@@ -4,7 +4,7 @@ date: 2020-09-19 22:09:15
 category: Etc
 thumbnail: 'thumbnail-images/Etc/images/ramsbaby_github.png'
 draft: false
-tags: ['Github Badge']
+tags: ['Github']
 ---
 
 ### Arctic Code Vault Contributor??

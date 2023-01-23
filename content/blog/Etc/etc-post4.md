@@ -4,7 +4,7 @@ date: 2020-12-10 01:05:32
 category: Etc
 thumbnail: ''
 draft: true
-tags: ['자바웹개발자성장계기']
+tags: ['Blog']
 ---
 
 대학교에서 컴퓨터공학을 전공하던 본인은 JAVA라는 프로그래밍 언어에 아주 큰 흥미를 느꼈다.

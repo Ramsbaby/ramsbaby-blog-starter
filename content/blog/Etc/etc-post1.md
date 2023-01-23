@@ -4,7 +4,7 @@ date: 2020-09-13 21:38:58
 category: Etc
 thumbnail: ''
 draft: false
-tags: ['ReactTechBlog']
+tags: ['Blog']
 ---
 
 ### **개발자들의 로망. 나만의 기술 블로그 갖추기.**

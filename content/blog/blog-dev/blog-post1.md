@@ -4,7 +4,7 @@ date: 2021-02-25 22:05:01
 category: 블로그 개발
 thumbnail: 'thumbnail-images/blog-dev/images/github-main.png'
 draft: false
-tags: ['오픈소스']
+tags: ['Blog']
 ---
 
 ![](./images/github-main.png)
