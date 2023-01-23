@@ -1,6 +1,6 @@
 ---
 title: '[Spring] HTTP 상태코드 정리'
-date: 2021-05-10 18:51:00
+date: 2021-05-10 18:51:54
 category: SpringFW
 thumbnail: 'thumbnail-images/Spring/images/spring_framework.jpg'
 draft: false

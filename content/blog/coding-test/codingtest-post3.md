@@ -1,6 +1,6 @@
 ---
 title: '[JS][프로그래머스] 튜플 - 2Level'
-date: 2021-05-14 20:47:00
+date: 2021-05-14 20:47:47
 category: CodingTest
 thumbnail: 'thumbnail-images/Etc/images/programmers.jpg'
 draft: false

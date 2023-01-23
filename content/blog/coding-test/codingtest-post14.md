@@ -1,6 +1,6 @@
 ---
 title: '[JAVA][백준] 단어 정렬 - 1181'
-date: 2021-06-15 21:05:00
+date: 2021-06-15 21:05:39
 category: CodingTest
 thumbnail: 'thumbnail-images/Etc/images/backjoonlogo.png'
 draft: false

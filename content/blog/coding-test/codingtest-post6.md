@@ -1,6 +1,6 @@
 ---
 title: '[JS][코딜리티] OddOccurrencesInArray - Lesson2'
-date: 2021-05-19 23:43:00
+date: 2021-05-19 23:43:13
 category: CodingTest
 thumbnail: 'thumbnail-images/Etc/images/CodilityLogo.png'
 draft: false

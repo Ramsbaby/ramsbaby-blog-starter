@@ -1,6 +1,6 @@
 ---
 title: '[JS][코딜리티] MissingInteger - Lesson4'
-date: 2021-05-21 01:30:00
+date: 2021-05-21 01:30:52
 category: CodingTest
 thumbnail: 'thumbnail-images/Etc/images/CodilityLogo.png'
 draft: false

@@ -1,6 +1,6 @@
 ---
 title: '[Spring] 스프링 프레임워크란 무엇인가? - 1 (개요편)'
-date: 2021-04-14 23:36:00
+date: 2021-04-14 23:36:08
 category: SpringFW
 thumbnail: 'thumbnail-images/Spring/images/spring_framework.jpg'
 draft: false

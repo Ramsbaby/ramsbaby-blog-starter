@@ -1,6 +1,6 @@
 ---
 title: '[JS][코딜리티] Triangle - Lesson6'
-date: 2021-06-04 20:56:00
+date: 2021-06-04 20:56:41
 category: CodingTest
 thumbnail: 'thumbnail-images/Etc/images/CodilityLogo.png'
 draft: false

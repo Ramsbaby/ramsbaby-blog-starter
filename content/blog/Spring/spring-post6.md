@@ -1,6 +1,6 @@
 ---
 title: '[SpringFW] Spring Batch 간단 정리'
-date: 2022-04-15 21:48:00
+date: 2022-04-21 23:18:22
 category: SpringFW
 thumbnail: 'thumbnail-images/Spring/images/spring_framework.jpg'
 draft: false

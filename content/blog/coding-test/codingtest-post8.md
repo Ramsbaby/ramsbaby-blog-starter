@@ -1,6 +1,6 @@
 ---
 title: '[JS][코딜리티] TapeEquilibrium - Lesson3'
-date: 2021-05-20 01:39:00
+date: 2021-05-20 01:39:46
 category: CodingTest
 thumbnail: 'thumbnail-images/Etc/images/CodilityLogo.png'
 draft: false

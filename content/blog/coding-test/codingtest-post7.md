@@ -1,6 +1,6 @@
 ---
 title: '[JS][코딜리티] PermMissingElem - Lesson3'
-date: 2021-05-20 00:16:00
+date: 2021-05-20 00:16:14
 category: CodingTest
 thumbnail: 'thumbnail-images/Etc/images/CodilityLogo.png'
 draft: false

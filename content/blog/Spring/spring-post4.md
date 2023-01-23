@@ -1,6 +1,6 @@
 ---
 title: '[Spring] RESTful API란? - 1 (설계편)'
-date: 2021-05-09 23:51:00
+date: 2021-05-09 23:51:23
 category: SpringFW
 thumbnail: 'thumbnail-images/Spring/images/spring_framework.jpg'
 draft: false

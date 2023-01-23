@@ -1,6 +1,6 @@
 ---
 title: '[JS][코딜리티] PermCheck - Lesson4'
-date: 2021-05-21 17:46:00
+date: 2021-05-21 17:46:43
 category: CodingTest
 thumbnail: 'thumbnail-images/Etc/images/CodilityLogo.png'
 draft: false

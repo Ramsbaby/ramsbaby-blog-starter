@@ -1,6 +1,6 @@
 ---
 title: '[블로그개발] Netlify-CMS 도입 (웹에서 글 작성하기)'
-date: 2021-05-28 21:33:00
+date: 2021-05-28 21:33:46
 category: 블로그 개발
 thumbnail: 'thumbnail-images/blog-dev/images/gatsby-with-cms.jpg'
 draft: false

@@ -1,6 +1,6 @@
 ---
 title: '[Java] 타입추론, var'
-date: 2021-05-10 19:45:00
+date: 2021-05-10 19:45:42
 category: Java
 thumbnail: 'thumbnail-images/Spring/images/JAVA_logo.jpg'
 draft: false

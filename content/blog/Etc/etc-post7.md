@@ -1,6 +1,6 @@
 ---
 title: '[Etc] 좋은 코드 유지하기 - 2 (코드편)'
-date: 2021-05-13 22:45:00
+date: 2021-05-13 22:45:47
 category: Etc
 thumbnail: 'thumbnail-images/Etc/images/goodcode.png'
 draft: false

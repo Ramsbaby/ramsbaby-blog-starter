@@ -1,6 +1,6 @@
 ---
 title: '[JAVA][Algorithm] Freivalds Algorighm, 최적행렬곱'
-date: 2021-05-14 17:28:00
+date: 2021-05-14 17:28:34
 category: CodingTest
 thumbnail: 'thumbnail-images/Etc/images/programmers.jpg'
 draft: false
