@@ -23,7 +23,10 @@ tags: ['MSA']
 
 ---
 
-API Gateway란?
+<br>
+<br>
+
+## API Gateway란?
 
 ![](./images/msa4.png)
 
@@ -54,12 +57,12 @@ MSA 구조에서 `API 게이트웨이`는 클라이언트에서 백엔드 서버
 - API Gateway + BFF(Backend For Frontend) 방식
   ![](./images/msa7.png)
 
-<br>
-<br>
-
 등의 방식들이 있습니다. [관련글 MSA SCHOOL](https://www.msaschool.io/operation/architecture/architecture-one/)
 
 ---
+
+<br>
+<br>
 
 ## API Gateway의 주요 기능
 
@@ -97,11 +100,24 @@ API 라우팅 기능을 이용해 다음과 같은 서비스가 가능합니다.
 
 ---
 
+<br>
+<br>
+
 ## API Gateway 적용 시 고려해야 할 사항
 
+<br>
+
 1. API Gateway의 Scale-out이 문제가 생길 경우 모든 Reqeust에 대한 병목지점이 될 위험이 있습니다.
+
+<br>
+
 2. API Gateway라는 추가적인 계층이 만들어지는 것이므로 그만큼 네트워크 latency와 SPOF(장애유발지점)가 증가합니다.
-   2-1. API Gateway는 마이크로 서비스들의 최전방에 존재하기 때문에 최대한 가볍게 설계되어야 합니다. 무거워진 API gateway로 인해 모든 서비스들의 Latency가 증가될 수 있기 때문입니다.
+   <br>
+
+   1. API Gateway는 마이크로 서비스들의 최전방에 존재하기 때문에 최대한 가볍게 설계되어야 합니다. 무거워진 API gateway로 인해 모든 서비스들의 Latency가 증가될 수 있기 때문입니다.
+
+<br>
+
 3. API Gateway와 내부 마이크로 서비스들간의 결합도가 증가하게 됩니다.
 
 <br><br>
