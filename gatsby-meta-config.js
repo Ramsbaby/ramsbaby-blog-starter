@@ -1,9 +1,9 @@
 module.exports = {
   hometitle: `Ramsbaby Tech Blog`, // 브라우저 탭에 표시될 블로그 이름.(조금만 길어도 짤리므로, 짧고 강한 이름 추천 ^^;)
-  title: `누구나 할 수 있는 웹개발 with 이정우`, //메인페이지에 표시될 블로그 이름
+  title: `누구나 할 수 있는 웹 개발 with 이정우`, //메인페이지에 표시될 블로그 이름
   description: `Blog posted about ...`,
   author: `Ramsbaby`, // 메인페이지 > Written by 뒤에 들어갈 이름
-  introduction: `자바 웹 개발의 진입장벽이 많이 낮아졌습니다. 아직도 웹개발을 고민하시나요? 한달이면 인문계인 당신도 웹개발자가 될 수 있습니다.`,
+  introduction: `이 블로그는 직접 개발/운영하는 블로그이므로 당신을 불쾌하게 만드는 불필요한 광고가 없습니다.`,
   siteUrl: `https://ramsbaby.netlify.app`, // Your blog site url
   social: {
     github: `ramsbaby`, // Your GitHub account
@@ -17,7 +17,7 @@ module.exports = {
     },
     {
       name: `My Portfolio`,
-      url: `https://www.notion.so/Ramsbaby-13eb750380004cab9942867038d7e00f`,
+      url: `https://www.notion.so/Ramsbaby-13eb750380004cab9942867                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    038d7e00f`,
     },
     {
       name: `Blog OpenSource Github`,
