@@ -17,7 +17,7 @@ module.exports = {
     },
     {
       name: `My Portfolio`,
-      url: `https://www.notion.so/Ramsbaby-13eb750380004cab9942867                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    038d7e00f`,
+      url: `https://www.notion.so/ramsbaby/13eb750380004cab9942867038d7e00f`,
     },
     {
       name: `Blog OpenSource Github`,
