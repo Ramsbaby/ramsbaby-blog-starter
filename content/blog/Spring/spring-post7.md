@@ -118,8 +118,9 @@ tags: ['Spring Framework']
 
    <br>
 
-4. **SERIALIZABLE LEVEL**: 트랜잭션 종료시까지 모든 데이터에 락을 걸어 최고 수준의 정합성을 보장합니다.<br>
+4. **SERIALIZABLE LEVEL** : 트랜잭션 종료시까지 모든 데이터에 락을 걸어 최고 수준의 정합성을 보장합니다.<br>
    _팬텀리드 방지._
+
    <br>
 
 당연히 SERIALIZABLE LEVEL을 사용해야 할 것 같지만, 성능문제로 주로 READ COMMITED, REPEATABLE READ 격리레벨을 주로 사용합니다. 4번으로 갈수록 데이터 정합성은 높지만, 성능이 떨어집니다.
