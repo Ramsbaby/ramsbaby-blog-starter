@@ -2,7 +2,7 @@
 title: '[SpringFW] 스프링 프레임워크란 무엇인가? - 2 (Request Life Cycle)'
 date: 2021-04-20 21:32:43
 category: SpringFW
-thumbnail: 'thumbnail-images/Spring/images/spring_framework.jpg'
+thumbnail: 'thumbnail-images/spring/images/spring_framework.jpg'
 draft: false
 tags: ['Spring Framework']
 ---

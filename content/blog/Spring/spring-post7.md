@@ -1,8 +1,8 @@
 ---
-title: '[SpringFW] 트랜잭션'
+title: '[SpringFW] 트랜잭션 간단정리'
 date: 2022-09-21 23:54:43
 category: SpringFW
-thumbnail: 'thumbnail-images/Spring/images/spring_framework.jpg'
+thumbnail: 'thumbnail-images/spring/images/spring_framework.jpg'
 draft: false
 tags: ['Spring Framework']
 ---

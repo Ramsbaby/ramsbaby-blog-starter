@@ -2,7 +2,7 @@
 title: '[Etc] MSA 적응기 - 1(서론)'
 date: 2022-05-11 22:44:10
 category: Etc
-thumbnail: 'thumbnail-images/Etc/images/msalogo.png'
+thumbnail: 'thumbnail-images/etc/images/msalogo.png'
 draft: false
 tags: ['MSA']
 ---

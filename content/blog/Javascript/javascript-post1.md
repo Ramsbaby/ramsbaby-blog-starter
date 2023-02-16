@@ -1,8 +1,8 @@
 ---
 title: '[Js] 자바스크립트 중복 제거'
 date: 2020-09-24 12:09:49
-category: Javascript
-thumbnail: ''
+category: javascript
+thumbnail: 'thumbnail-images/Etc/images/javascript_logo.png'
 draft: false
 tags: ['javascript']
 ---

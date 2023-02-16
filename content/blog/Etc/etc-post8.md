@@ -2,7 +2,7 @@
 title: '[Etc] 도커로 스프링부트 프로젝트 구동하기'
 date: 2021-08-11 20:49:54
 category: Etc
-thumbnail: 'thumbnail-images/Etc/images/dockericon.png'
+thumbnail: 'thumbnail-images/etc/images/dockericon.png'
 draft: false
 tags: ['Docker']
 ---

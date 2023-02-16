@@ -2,7 +2,7 @@
 title: '[SpringFW] Spring JPA 영속성컨텍스트 간단정리'
 date: 2022-08-15 22:12:54
 category: SpringFW
-thumbnail: 'thumbnail-images/Spring/images/spring_framework.jpg'
+thumbnail: 'thumbnail-images/spring/images/spring_framework.jpg'
 draft: false
 tags: ['Spring Framework']
 ---

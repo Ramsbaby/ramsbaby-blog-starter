@@ -2,7 +2,7 @@
 title: '[Etc] 좋은 코드 유지하기 - 1 (마인드편)'
 date: 2021-05-10 22:19:36
 category: Etc
-thumbnail: 'thumbnail-images/Etc/images/goodcode.png'
+thumbnail: 'thumbnail-images/etc/images/goodcode.png'
 draft: false
 tags: ['책리뷰']
 ---

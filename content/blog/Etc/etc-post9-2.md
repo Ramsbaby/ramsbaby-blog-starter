@@ -2,7 +2,7 @@
 title: '[Etc] MSA 적응기 - 2-1(본론)'
 date: 2022-05-14 23:20:30
 category: Etc
-thumbnail: 'thumbnail-images/Etc/images/msalogo.png'
+thumbnail: 'thumbnail-images/etc/images/msalogo.png'
 draft: false
 tags: ['MSA']
 ---

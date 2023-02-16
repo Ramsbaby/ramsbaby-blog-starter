@@ -1,7 +1,7 @@
 ---
 title: '[Js] 자바개발자가 정리하는 자바스크립트'
 date: 2021-06-22 02:09:49
-category: Javascript
+category: javascript
 thumbnail: 'thumbnail-images/Etc/images/javascript_logo.png'
 draft: false
 tags: ['javascript']
