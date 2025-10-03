@@ -29,6 +29,22 @@ body.dark {
     }
   }
 
+  // search input container overrides
+  .inputContainer {
+    background-color: $dark-background-color;
+  }
+  .inputContainer .search-input-wrapper .search-input {
+    background-color: #1f242d;
+    border: 1px solid $dark-category-border-color;
+    color: $dark-light-font-color;
+  }
+  .inputContainer .search-input-wrapper .search-input::placeholder {
+    color: $dark-middle-font-color;
+  }
+  .inputContainer .search-input-wrapper .search-icon {
+    color: $dark-light-font-color;
+  }
+
   .category-container {
     border-top: 1px solid $dark-category-border-color;
     border-bottom: 1px solid $dark-category-border-color;

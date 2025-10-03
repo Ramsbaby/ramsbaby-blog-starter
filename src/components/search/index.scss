@@ -21,6 +21,10 @@
       outline: none;
       transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
       background-color: white;
+      &:focus-visible {
+        outline: 2px solid #1a73e8;
+        outline-offset: 2px;
+      }
 
       &:focus {
         border-color: #4285f4;

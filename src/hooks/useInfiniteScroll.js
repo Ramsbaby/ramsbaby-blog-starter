@@ -1,4 +1,5 @@
 import { useEffect, useCallback } from 'react'
+// Prefer TS utils if available
 import * as Dom from '../utils/dom'
 import * as EventManager from '../utils/event-manager'
 

@@ -23,6 +23,9 @@ export const Layout = ({ siteMetadata, location, title, children }) => {
 
   return (
     <React.Fragment>
+      <a href="#main-content" className="skip-to-content">
+        Skip to content
+      </a>
       <Top
         title={title}
         location={location}
@@ -34,6 +37,7 @@ export const Layout = ({ siteMetadata, location, title, children }) => {
           <Sidebar />
         </div> */}
       <div
+        id="main-content"
         role="main"
         aria-label="메인 콘텐츠"
         // style={{

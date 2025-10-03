@@ -13,7 +13,7 @@ $light-hover-text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 
 // index
 $dimmed-color: #eef5db;
-$light-link-color: #000080;
+$light-link-color: #0033aa; // 더 높은 대비
 $dark-gray: #333;
 $middle-gray: #7d7d7d;
 $light-gray: #aaa;
@@ -43,7 +43,7 @@ $dark-link-color: #bb72ec;
 
 $dark-lightest-font-color: #fff;
 $dark-light-font-color: #eeeeee;
-$dark-middle-font-color: #d8d7d7;
+$dark-middle-font-color: #e2e2e2; // 가독성 향상
 
 $dark-text-shadow: 0 0 0.1px rgba(255, 255, 255, 0.3);
 $dark-hover-text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);

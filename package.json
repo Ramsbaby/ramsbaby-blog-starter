@@ -48,6 +48,10 @@
     "typography-theme-github": "^0.16.18"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^14.3.1",
+    "babel-jest": "^29.7.0",
+    "babel-preset-gatsby": "^3.14.0",
     "date-fns": "^1.30.1",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.2",
@@ -57,7 +61,10 @@
     "gatsby-plugin-root-import": "^2.0.5",
     "gatsby-post-gen": "^1.0.0",
     "gray-matter": "^4.0.2",
+    "identity-obj-proxy": "^3.0.0",
     "inquirer": "^6.2.2",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^30.2.0",
     "lighthousebot": "git+https://github.com/GoogleChromeLabs/lighthousebot.git",
     "prettier": "^1.14.2",
     "recursive-readdir": "^2.2.2",
@@ -83,6 +90,7 @@
     "start-global": "gatsby develop --host=0.0.0.0",
     "build": "gatsby build",
     "lh": "lighthousebot",
+    "test": "jest --passWithNoTests",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
   }
 }

@@ -9,6 +9,32 @@ body {
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s, color 0.3s;
 }
+
+// Skip to content link (visually hidden until focus)
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-to-content:focus {
+  left: 16px;
+  top: 16px;
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  background: #000;
+  color: #fff;
+  z-index: 10000;
+}
+
+// Focus visibility for keyboard users
+:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+}
 .duration-500 {
   transition-duration: 0.5s;
 }
