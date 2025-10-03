@@ -3,17 +3,21 @@ const path = require('path')
 
 module.exports = {
   siteMetadata: metaConfig,
+  flags: {
+    DEV_SSR: false,
+  },
   plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/static/thumbnail-images`,
+        name: `thumbnails`,
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          {
-            resolve: `gatsby-remark-katex`,
-            options: {
-              strict: `ignore`,
-            },
-          },
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -77,14 +81,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: metaConfig.ga,
-        head: true,
-        anonymize: true,
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: metaConfig.title,
@@ -96,50 +92,10 @@ module.exports = {
         icon: metaConfig.icon,
       },
     },
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        host: 'https://ramsbaby.netlify.app',
-        sitemap: 'https://ramsbaby.netlify.app/sitemap.xml',
-        policy: [{ userAgent: '*', allow: '/' }],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-root-import',
-      options: {
-        blog: path.join(__dirname, 'content/blog'),
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-less',
-      options: {
-        lessOptions: {
-          javascriptEnabled: true,
-        },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-material-ui`,
-      options: {
-        stylesProvider: {
-          injectFirst: true,
-        },
-      },
-    },
+    // robots.txt 및 root-import 플러그인은 임시 제거 (Gatsby 5 정리)
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-feed`,
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
-    `gatsby-plugin-lodash`,
-    `gatsby-plugin-sitemap`,
-    `gatsby-plugin-robots-txt`,
   ],
 }

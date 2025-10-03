@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
 import _ from 'lodash'
-import React, { useMemo, useContext } from 'react'
+import React, { useMemo, useContext, Suspense } from 'react'
 import { Bio } from '../components/bio'
 import { Category } from '../components/category'
 import { Contents } from '../components/contents'
@@ -16,10 +16,10 @@ import { Layout } from '../layout'
 import { Search } from '../components/search'
 import { Tags } from '../components/tags'
 import { Header } from '../components/header'
-import Sidebar from '../components/Sidebar'
+const Sidebar = React.lazy(() => import('../components/Sidebar'))
 import { rhythm } from '../utils/typography'
 import './index.scss'
-import Particles from '../components/react-particles-js'
+// import Particles from 'react-particles' // TODO: Add back particles with react-particles
 
 import * as Dom from '../utils/dom'
 import * as EventManager from '../utils/event-manager'
@@ -33,13 +33,13 @@ function getDistance(currentPos) {
   return Dom.getDocumentHeight() - currentPos
 }
 
-export default ({ data, location }) => {
+const HomePage = ({ data, location }) => {
   const { siteMetadata } = data.site
   const { countOfInitialPost } = siteMetadata.configs
   const posts = data.allMarkdownRemark.edges
   const categories = useMemo(
     () => _.uniq(posts.map(({ node }) => node.frontmatter.category)),
-    [],
+    []
   )
   const tags = data.tagsGroup.group
 
@@ -61,23 +61,6 @@ export default ({ data, location }) => {
       triggerCondition: () => isTriggerPos() && doesNeedMore(),
     })()
   })
-
-  // particles: {
-  //   number: {
-  //     value: 100,
-  //   },
-  //   size: {
-  //     value: 3,
-  //   },
-  // },
-  // interactivity: {
-  //   events: {
-  //     onhover: {
-  //       enable: true,
-  //       mode: 'repulse',
-  //     },
-  //   },
-  // },
 
   return (
     <Layout
@@ -150,31 +133,35 @@ export default ({ data, location }) => {
         <div>
           <div className={'sidebar-container'}>
             <div className={'sidebar'}>
-              <Sidebar>
-                <p>Tag Collection</p>
-                <Tags
-                  tags={tags}
-                  selectTag={selectTag}
-                  selectExposureGb={selectExposureGb}
-                />
-              </Sidebar>
+              <Suspense fallback={null}>
+                <Sidebar>
+                  <p>Tag Collection</p>
+                  <Tags
+                    tags={tags}
+                    selectTag={selectTag}
+                    selectExposureGb={selectExposureGb}
+                  />
+                </Sidebar>
+              </Suspense>
             </div>
           </div>
           <div className={'sidebar-container recently'}>
             <div className={'sidebar right'}>
-              <Sidebar>
-                <p>Recently List</p>
-                {data.allMarkdownRemark.edges.slice(0, 5).map(({ node }) => (
-                  <li
-                    key={`recentlyList_` + node.frontmatter.title}
-                    style={{ display: 'inline-block', width: '100%' }}
-                  >
-                    <Link to={node.fields.slug}>
-                      {'·\t' + node.frontmatter.title}
-                    </Link>
-                  </li>
-                ))}
-              </Sidebar>
+              <Suspense fallback={null}>
+                <Sidebar>
+                  <p>Recently List</p>
+                  {data.allMarkdownRemark.edges.slice(0, 5).map(({ node }) => (
+                    <li
+                      key={`recentlyList_` + node.frontmatter.title}
+                      style={{ display: 'inline-block', width: '100%' }}
+                    >
+                      <Link to={node.fields.slug}>
+                        {'·\t' + node.frontmatter.title}
+                      </Link>
+                    </li>
+                  ))}
+                </Sidebar>
+              </Suspense>
             </div>
           </div>
           <div
@@ -220,6 +207,7 @@ export default ({ data, location }) => {
     </Layout>
   )
 }
+export default HomePage
 export const pageQuery = graphql`
   query {
     site {
@@ -235,7 +223,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { frontmatter: { date: DESC } }
       filter: { frontmatter: { category: { ne: null }, draft: { eq: false } } }
     ) {
       edges {
@@ -257,7 +245,7 @@ export const pageQuery = graphql`
       }
     }
     tagsGroup: allMarkdownRemark(limit: 2000) {
-      group(field: frontmatter___tags) {
+      group(field: { frontmatter: { tags: SELECT } }) {
         fieldValue
         totalCount
       }

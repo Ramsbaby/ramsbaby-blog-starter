@@ -30,7 +30,11 @@ export const ThumbnailItem = ({ node, imagePath }) => {
   }
 
   return (
-    <Link className={`thumbnail ${TARGET_CLASS}`} to={node.fields.slug}>
+    <Link
+      className={`thumbnail ${TARGET_CLASS}`}
+      to={node.fields.slug}
+      aria-label={`포스트로 이동: ${node.frontmatter.title}`}
+    >
       <div key={node.fields.slug}>
         <TagItem tags={node.frontmatter.tags}></TagItem>
         <h3>{node.frontmatter.title || node.fields.slug}</h3>

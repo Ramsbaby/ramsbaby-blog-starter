@@ -34,12 +34,14 @@ export const Layout = ({ siteMetadata, location, title, children }) => {
           <Sidebar />
         </div> */}
       <div
-      // style={{
-      //   marginLeft: `auto`,
-      //   marginRight: `auto`,
-      //   maxWidth: rhythm(75),
-      //   padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-      // }}
+        role="main"
+        aria-label="메인 콘텐츠"
+        // style={{
+        //   marginLeft: `auto`,
+        //   marginRight: `auto`,
+        //   maxWidth: rhythm(75),
+        //   padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+        // }}
       >
         <ThemeSwitch />
         {/* <Header title={title} location={location} rootPath={rootPath} /> */}

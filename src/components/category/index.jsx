@@ -10,8 +10,17 @@ const MenuItem = ({ text, selected, selectExposureGb }) => {
   return (
     <div
       className={`menu-item ${selected ? 'active' : ''}`}
+      role="button"
+      tabIndex={0}
+      aria-pressed={selected ? true : false}
       onClick={function() {
         selectExposureGb('CATE')
+      }}
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          selectExposureGb('CATE')
+        }
       }}
     >
       {text}
@@ -77,7 +86,7 @@ export const Category = ({
   const menu = Menu(list, selected, selectExposureGb)
 
   return (
-    <div className={'ScrollMenu-container'}>
+    <div className={'ScrollMenu-container'} role="navigation" aria-label="카테고리 선택">
       <ScrollMenu
         data={menu}
         arrowLeft={ArrowLeft}

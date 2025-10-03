@@ -1,8 +1,8 @@
-@import '../styles/variables.scss';
-@import '../styles/light-theme.scss';
-@import '../styles/dark-theme.scss';
-@import './_variables.scss';
-@import './_mixins.scss';
+@use '../styles/variables' as *;
+@use '../styles/light-theme' as *;
+@use '../styles/dark-theme' as *;
+@use './_variables' as *;
+@use './_mixins' as *;
 
 @include mobile {
   .sidebar {

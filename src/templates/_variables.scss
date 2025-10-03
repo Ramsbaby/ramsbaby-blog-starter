@@ -1,3 +1,4 @@
+@use 'sass:color';
 /** 
  * Variables
  */
@@ -7,10 +8,10 @@ $color-base: #222;
 $color-primary: #5d93ff;
 $color-secondary: #f7a046;
 
-$color-white: lighten($color-base, 100%);
-$color-gray: lighten($color-base, 40%);
-$color-gray-border: lighten($color-base, 77%);
-$color-gray-bg: lighten($color-base, 79%);
+$color-white: color.adjust($color-base, $lightness: 100%);
+$color-gray: color.adjust($color-base, $lightness: 40%);
+$color-gray-border: color.adjust($color-base, $lightness: 77%);
+$color-gray-bg: color.adjust($color-base, $lightness: 79%);
 
 // Typographic
 // $typographic-font-family: 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial',

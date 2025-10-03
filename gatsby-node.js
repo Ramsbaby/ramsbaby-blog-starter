@@ -6,13 +6,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
 
-  const backdoorPages = []
-  
-  backdoorPages.push({
-    name: 'dashboardPage',
-    slug: '/setup/dashboard',
-    path: path.resolve(`./src/utils/material-ui/views/Dashboard/Dashboard.js`),
-  })
+  // Removed backdoor pages configuration
 
   return graphql(
     `
@@ -21,17 +15,15 @@ exports.createPages = ({ graphql, actions }) => {
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                category
-                draft
-                tags
-              }
+          nodes {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              category
+              draft
+              tags
             }
           }
         }
@@ -43,31 +35,21 @@ exports.createPages = ({ graphql, actions }) => {
     }
 
     // Create blog posts pages.
-    const posts = result.data.allMarkdownRemark.edges.filter(
-      ({ node }) => !node.frontmatter.draft && !!node.frontmatter.category,
+    const posts = result.data.allMarkdownRemark.nodes.filter(
+      node => !node.frontmatter.draft && !!node.frontmatter.category,
     )
 
     posts.forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1].node
-      const next = index === 0 ? null : posts[index - 1].node
+      const previous = index === posts.length - 1 ? null : posts[index + 1]
+      const next = index === 0 ? null : posts[index - 1]
 
       createPage({
-        path: post.node.fields.slug,
+        path: post.fields.slug,
         component: blogPostTemplate,
         context: {
-          slug: post.node.fields.slug,
+          slug: post.fields.slug,
           previous,
           next,
-        },
-      })
-    })
-
-    backdoorPages.map((val, idx) => {
-      createPage({
-        path: val.slug,
-        component: val.path,
-        context: {
-          slug: val.slug,
         },
       })
     })

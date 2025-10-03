@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { rhythm } from '../utils/typography'
 import * as Lang from '../constants'
 
-export default ({ data }) => {
+const AboutPage = ({ data }) => {
   const resumes = data.allMarkdownRemark.edges
 
   const resume = resumes
@@ -18,7 +18,7 @@ export default ({ data }) => {
         marginRight: `auto`,
         maxWidth: rhythm(24),
         padding: `${rhythm(0.5)} ${rhythm(3 / 4)} ${rhythm(1.5)} ${rhythm(
-          3 / 4,
+          3 / 4
         )}`,
       }}
     >
@@ -26,6 +26,8 @@ export default ({ data }) => {
     </div>
   )
 }
+
+export default AboutPage
 
 export const pageQuery = graphql`
   query {

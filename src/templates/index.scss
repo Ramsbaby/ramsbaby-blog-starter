@@ -1,5 +1,6 @@
-@import './variables';
-@import './mixins';
+@use 'sass:color';
+@use './variables' as *;
+@use './mixins' as *;
 .post-single {
   &__inner {
     max-width: $layout-post-single-max-width;
@@ -120,13 +121,13 @@
           text-decoration: none;
           border: 0;
           border-radius: 3px;
-          color: lighten($color-base, 20%);
+          color: color.adjust($color-base, $lightness: 20%);
           line-height: $typographic-base-line-height;
           padding: 8px 16px;
           &:hover,
           &:focus {
             color: $color-base;
-            background: darken($color-gray-bg, 5%);
+            background: color.adjust($color-gray-bg, $lightness: -5%);
             border: 0;
           }
         }
@@ -143,7 +144,7 @@
     height: 35px;
     line-height: 35px;
     text-align: center;
-    color: lighten($color-base, 20%);
+    color: color.adjust($color-base, $lightness: 20%);
     background: $color-gray-bg;
     font-weight: 400;
     border-radius: 3px;
@@ -151,7 +152,7 @@
     &:hover,
     &:focus {
       color: $color-base;
-      background: darken($color-gray-bg, 5%);
+      background: color.adjust($color-gray-bg, $lightness: -5%);
       border: 0;
     }
   }

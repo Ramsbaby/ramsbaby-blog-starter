@@ -1,25 +1,26 @@
+@use "../_variables" as v;
 /**
  * Margin
  */
 
 @mixin margin-top($number) {
-    margin-top: #{ $number * $typographic-leading + "px"};
+    margin-top: #{ $number * v.$typographic-leading + "px"};
 }
 
 @mixin margin-bottom($number) {
-    margin-bottom: #{ $number * $typographic-leading + "px"};
+    margin-bottom: #{ $number * v.$typographic-leading + "px"};
 }
 
 @mixin margin($top, $right, $bottom:null, $left:null) {
     @if $left==null and $bottom==null {
-        margin: #{ $top * $typographic-leading + "px"} #{ $right * $typographic-leading + "px"};
+        margin: #{ $top * v.$typographic-leading + "px"} #{ $right * v.$typographic-leading + "px"};
     }
 
     @else if $left==null or $left==$right {
-        margin: #{ $top * $typographic-leading + "px"} #{ $right * $typographic-leading + "px"} #{ $bottom * $typographic-leading + "px"};
+        margin: #{ $top * v.$typographic-leading + "px"} #{ $right * v.$typographic-leading + "px"} #{ $bottom * v.$typographic-leading + "px"};
     }
     
     @else {
-        margin: #{ $top * $typographic-leading + "px"} #{ $right * $typographic-leading + "px"} #{ $bottom * $typographic-leading + "px"} #{ $left * $typographic-leading + "px"};
+        margin: #{ $top * v.$typographic-leading + "px"} #{ $right * v.$typographic-leading + "px"} #{ $bottom * v.$typographic-leading + "px"} #{ $left * v.$typographic-leading + "px"};
     }
 }

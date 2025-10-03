@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import './variables';
+@use './variables' as *;
 @mixin mobile {
   @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
     @content;

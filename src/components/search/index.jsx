@@ -1,9 +1,4 @@
 import React, { useState, useRef } from 'react'
-import { Input } from 'mdbreact'
-
-import '@fortawesome/fontawesome-free/css/all.min.css'
-import 'bootstrap-css-only/css/bootstrap.min.css'
-// import 'mdbreact/dist/css/mdb.css'
 
 import './index.scss'
 
@@ -14,16 +9,11 @@ export const Search = props => {
   const changeHandler = e => {
     //역슬래시 제거
     if (e.target.value.toString().indexOf('\\') != -1) {
-      e.target.value.toString().replace(/\\/gi, '')
-      setInput({
-        input: '',
-      })(
-        (nameInput.current.state.innerValue = nameInput.current.state.innerValue.replace(
-          /\\/gi,
-          '',
-        )),
-      )
-
+      const cleanValue = e.target.value.toString().replace(/\\/gi, '')
+      setInput(cleanValue)
+      if (nameInput.current) {
+        nameInput.current.value = cleanValue
+      }
       e.preventDefault()
       return false
     }
@@ -34,19 +24,25 @@ export const Search = props => {
 
   const onFormSubmit = e => {
     e.preventDefault()
-    // props.inputSearchWord(input)
   }
 
   return (
-    <form onSubmit={onFormSubmit} className="inputContainer">
-      <div>
-        <Input
+    <form onSubmit={onFormSubmit} className="inputContainer" role="search" aria-label="사이트 검색">
+      <div className="search-input-wrapper">
+        <input
+          type="text"
           name="input"
-          label="검색할 단어를 입력해보세요."
-          icon="search"
+          placeholder="검색할 단어를 입력해보세요."
+          value={input}
           onChange={changeHandler}
           ref={nameInput}
+          className="search-input"
+          role="searchbox"
+          aria-label="검색어 입력"
+          autoComplete="off"
+          spellCheck={false}
         />
+        <span className="search-icon">🔍</span>
       </div>
     </form>
   )

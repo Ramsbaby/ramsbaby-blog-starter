@@ -1,6 +1,6 @@
-@import '../../styles/variables.scss';
-@import './_variables.scss';
-@import './_mixins.scss';
+@use '../../styles/variables' as *;
+@use './_variables' as *;
+@use './_mixins' as *;
 
 .category-container {
   position: sticky;

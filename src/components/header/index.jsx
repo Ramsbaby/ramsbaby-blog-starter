@@ -8,7 +8,7 @@ export const Header = ({ title, location, rootPath }) => {
   return (
     isRoot && (
       <h1 className="home-header">
-        <Link to={`/`} className="link">
+        <Link to={`/`} className="link" aria-label="홈으로 이동">
           {title}
         </Link>
       </h1>

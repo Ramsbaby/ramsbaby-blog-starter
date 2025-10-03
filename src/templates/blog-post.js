@@ -21,13 +21,12 @@ import kebabCase from 'lodash/kebabCase'
 import { rhythm } from '../utils/typography'
 
 import '../styles/code.scss'
-import 'katex/dist/katex.min.css'
+// import 'katex/dist/katex.min.css' // katex 플러그인 제거로 CSS import 비활성화
 
-export default ({ data, pageContext, location }) => {
+const BlogPostTemplate = ({ data, pageContext, location }) => {
   const [currentHeaderUrl, setCurrentHeaderUrl] = useState(undefined)
   useEffect(() => {
     const handleScroll = () => {
-      console.log()
       let aboveHeaderUrl
       const currentOffsetY = window.pageYOffset
       const headerElements = document.querySelectorAll('.anchor-header')
@@ -77,12 +76,12 @@ export default ({ data, pageContext, location }) => {
           >
             <Link
               to={`${location.pathname}#${encodeURI(
-                kebabCase(header.value.replace(regex, '')),
+                kebabCase(header.value.replace(regex, ''))
               )}`}
               className={
                 currentHeaderUrl ==
                 `${location.pathname}#${encodeURI(
-                  kebabCase(header.value.replace(regex, '')),
+                  kebabCase(header.value.replace(regex, ''))
                 )}`
                   ? 'isCurrent'
                   : ''
@@ -130,6 +129,8 @@ export default ({ data, pageContext, location }) => {
     </Layout>
   )
 }
+
+export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {

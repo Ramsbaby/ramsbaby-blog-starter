@@ -16,10 +16,19 @@ export const Tags = ({ tags, selectTag, selectExposureGb }) => {
           lineHeight: '1.5625rem',
           height: '25px',
         }}
+        role="button"
         href="#!"
+        aria-label={`태그 선택: ${tag.fieldValue}`}
         onClick={function() {
           selectTag(tag.fieldValue)
           selectExposureGb('TAG')
+        }}
+        onKeyDown={e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            selectTag(tag.fieldValue)
+            selectExposureGb('TAG')
+          }
         }}
       >
         {tag.fieldValue}({tag.totalCount})
@@ -49,9 +58,17 @@ export const Tags = ({ tags, selectTag, selectExposureGb }) => {
               lineHeight: '1.5625rem',
               height: '25px',
             }}
+            role="button"
             href="#!"
+            aria-label="모든 태그 보기"
             onClick={function() {
               selectExposureGb('TAG-ALL')
+            }}
+            onKeyDown={e => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault()
+                selectExposureGb('TAG-ALL')
+              }
             }}
           >
             ALL
