@@ -4,10 +4,7 @@
     es2021: true,
     node: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-  ],
+  extends: ['eslint:recommended', 'plugin:react/recommended'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -26,6 +23,20 @@
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
   },
+  globals: {
+    __PATH_PREFIX__: 'readonly',
+    FB: 'readonly',
+  },
+  overrides: [
+    {
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      env: { jest: true },
+    },
+    {
+      files: ['gatsby-browser.js'],
+      globals: { FB: 'readonly' },
+    },
+  ],
   settings: {
     react: {
       version: 'detect',
