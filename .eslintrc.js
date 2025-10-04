@@ -7,7 +7,6 @@
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -23,6 +22,9 @@
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/display-name': 'off',
+    // react-hooks recommended 대체 (플러그인 순환 참조 이슈 회피)
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
   settings: {
     react: {
