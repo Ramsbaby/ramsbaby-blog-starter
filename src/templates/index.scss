@@ -1,6 +1,8 @@
 @use 'sass:color';
 @use './variables' as *;
 @use './mixins' as *;
+@use '../styles/_mixins' as mix;
+
 .post-single {
   &__inner {
     max-width: $layout-post-single-max-width;
@@ -264,4 +266,20 @@
       left: 30px;
     }
   }
+}
+
+.post-single__table_of_contents {
+  @include mix.space-y(8px);
+}
+
+h1 {
+  @include mix.heading-scale(1);
+}
+
+h2 {
+  @include mix.heading-scale(2);
+}
+
+h3 {
+  @include mix.heading-scale(3);
 }

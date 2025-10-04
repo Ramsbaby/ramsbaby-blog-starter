@@ -8,27 +8,7 @@ import { useEffect, useState } from 'react'
 
 import './index.scss'
 
-export const ThumbnailItem = ({ node, imagePath }) => {
-  const outStyle = {
-    display: 'flex',
-    boder: '1px solid black',
-    flexDirection: 'row',
-    marginTop: '15px',
-  }
-
-  const inLeftStyle = {
-    flexShrink: '1',
-    marginRight: '20px',
-    flexBasis: '300px',
-    height: '150px',
-    overflow: 'hidden',
-  }
-
-  const inRightStyle = {
-    flexShrink: '1',
-    flexBasis: imagePath ? '600px' : '900px',
-  }
-
+export const ThumbnailItem = ({ node, imagePath, highlightWord }) => {
   return (
     <Link
       className={`thumbnail ${TARGET_CLASS}`}
@@ -38,10 +18,25 @@ export const ThumbnailItem = ({ node, imagePath }) => {
       <div key={node.fields.slug}>
         <TagItem tags={node.frontmatter.tags}></TagItem>
         <h3>{node.frontmatter.title || node.fields.slug}</h3>
-        <div style={outStyle}>
-          <ThumbnailImage path={imagePath} style={inLeftStyle}></ThumbnailImage>
-          <div style={inRightStyle}>
-            <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+        <div className="thumbnail-row">
+          <div className="thumbnail-media">
+            <ThumbnailImage path={imagePath}></ThumbnailImage>
+          </div>
+          <div className="thumbnail-excerpt">
+            <p
+              dangerouslySetInnerHTML={{
+                __html:
+                  highlightWord && highlightWord.trim().length > 0
+                    ? node.excerpt.replace(
+                        new RegExp(
+                          highlightWord.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
+                          'gi'
+                        ),
+                        match => `<mark>${match}</mark>`
+                      )
+                    : node.excerpt,
+              }}
+            />
           </div>
         </div>
       </div>

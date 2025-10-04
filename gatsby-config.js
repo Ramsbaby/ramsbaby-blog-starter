@@ -102,5 +102,39 @@ module.exports = {
     `gatsby-plugin-sass`,
     // PWA & offline support
     `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site { siteMetadata { title description siteUrl } }
+          }
+        `,
+        feeds: [
+          {
+            output: '/rss.xml',
+            title: 'Ramsbaby Blog RSS',
+            query: `
+              {
+                allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
+                  edges { node { excerpt html fields { slug } frontmatter { title date } } }
+                }
+              }
+            `,
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(({ node }) => ({
+                description: node.excerpt,
+                date: node.frontmatter.date,
+                url: site.siteMetadata.siteUrl + node.fields.slug,
+                guid: site.siteMetadata.siteUrl + node.fields.slug,
+                custom_elements: [{ 'content:encoded': node.html }],
+              }))
+            },
+          },
+        ],
+      },
+    },
+    `gatsby-plugin-netlify-cms`,
   ],
 }

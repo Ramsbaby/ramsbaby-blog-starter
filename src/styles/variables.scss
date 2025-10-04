@@ -36,6 +36,19 @@ $light-category-highlight-text-color: #636c6e;
 $light-category-item-color: #fff;
 
 /**
+ * Modern accent palette
+ */
+$accent-primary: #1a73e8; // Google Blue vibe
+$accent-secondary: #7c3aed; // Purple accent
+$accent-success: #16a34a;
+$accent-warning: #f59e0b;
+$accent-danger: #dc2626;
+$accent-info: #0ea5e9;
+
+$surface-elev-1: rgba(0, 0, 0, 0.04);
+$surface-elev-2: rgba(0, 0, 0, 0.08);
+
+/**
  * @dark theme
  */
 $dark-background-color: #282c35;
@@ -56,3 +69,13 @@ $dark-category-text-color: #d8d7d7;
 
 $dark-category-highlight-border-color: #666;
 $dark-category-highlight-text-color: #fff;
+
+// Modern dark accents
+$dark-surface-elev-1: rgba(255, 255, 255, 0.04);
+$dark-surface-elev-2: rgba(255, 255, 255, 0.08);
+$dark-accent-primary: #8ab4f8; // Material dark blue
+$dark-accent-secondary: #c095ff;
+$dark-accent-success: #34d399;
+$dark-accent-warning: #fbbf24;
+$dark-accent-danger: #f87171;
+$dark-accent-info: #67e8f9;

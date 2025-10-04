@@ -1,3 +1,11 @@
 .thumbnail-container {
   min-height: calc(100vh - 3.5rem);
 }
+
+/* 데스크탑에서 2열 카드 느낌으로 간격 조정 (내용은 그대로 세로 흐름) */
+@media (min-width: 1200px) {
+  .thumbnail-container .thumbnail {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}

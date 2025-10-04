@@ -3,3 +3,73 @@ p {
   font-size: 110%;
   line-height: 2;
 }
+
+.code-block-wrapper,
+.gatsby-highlight {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* 래퍼 자체에서도 넘침 방지 */
+}
+
+.code-block-wrapper pre,
+.gatsby-highlight pre,
+.gatsby-highlight code {
+  margin: 0; /* 버튼이 튀어나오지 않게 래퍼에서 관리 */
+  border-radius: 8px;
+  padding-right: 44px; /* 우측 버튼 공간 확보 */
+  position: relative; /* 버튼을 코드 영역 내부로 제한 */
+  overflow: hidden; /* hover 시에도 절대 밖으로 안 나가게 */
+  display: block;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  height: 24px;
+  line-height: 24px;
+  font-size: 11px;
+  padding: 0 10px;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  color: #222;
+  opacity: 0;
+  transition: opacity 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.code-block-wrapper:hover .copy-btn,
+.code-block-wrapper .copy-btn:focus-visible {
+  opacity: 1;
+}
+
+.code-block-wrapper:hover .copy-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+}
+
+.code-block-wrapper .copy-btn:active {
+  transform: translateY(0);
+}
+
+body.dark .copy-btn {
+  background: rgba(36, 39, 44, 0.78);
+  color: #eee;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 600px) {
+  .copy-btn {
+    top: 6px;
+    right: 6px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 10px;
+    padding: 0 8px;
+  }
+}

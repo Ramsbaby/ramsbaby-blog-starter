@@ -47,29 +47,29 @@
 
 @include mobile {
   .inputContainer {
-    position: sticky;
-    top: 132px;
-    background: white;
-    z-index: 9999999;
+    position: static; /* 모바일에서는 sticky 해제 */
+    top: auto;
+    background: transparent;
+    z-index: auto;
     padding: 0 15px;
   }
 }
 
 @include tablet {
   .inputContainer {
-    position: sticky;
-    top: 163px;
-    background: white;
-    z-index: 9999999;
+    position: static; /* 태블릿에서는 sticky 해제 */
+    top: auto;
+    background: transparent;
+    z-index: auto;
     padding: 0 20px;
   }
 }
 
 @include desktop {
   .inputContainer {
-    position: sticky;
+    position: sticky; /* 데스크탑에서만 고정 */
     top: 60px;
     background: white;
-    z-index: 9999999;
+    z-index: 10;
   }
 }

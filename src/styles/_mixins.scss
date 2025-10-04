@@ -1,0 +1,22 @@
+// spacing and typography mixins
+@mixin space-y($size) {
+  & > * + * {
+    margin-top: $size;
+  }
+}
+
+@mixin heading-scale($level) {
+  @if $level == 1 {
+    font-size: clamp(28px, 4.5vw, 40px);
+    line-height: 1.15;
+    font-weight: 800;
+  } @else if $level == 2 {
+    font-size: clamp(22px, 3.5vw, 28px);
+    line-height: 1.2;
+    font-weight: 700;
+  } @else if $level == 3 {
+    font-size: clamp(18px, 2.8vw, 22px);
+    line-height: 1.25;
+    font-weight: 700;
+  }
+}

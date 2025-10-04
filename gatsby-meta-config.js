@@ -37,6 +37,18 @@ module.exports = {
     disqusShortName: process.env.GATSBY_DISQUS_NAME || '', // Your disqus-short-name. check disqus.com.
     utterances:
       process.env.GATSBY_UTTERANCES_REPO || 'Ramsbaby/ramsbaby-blog-starter', // Your repository for archive comment
+    provider: process.env.GATSBY_COMMENT_PROVIDER || 'giscus', // 'giscus' | 'utterances' | 'none'
+    giscus: {
+      repo: process.env.GATSBY_GISCUS_REPO || 'Ramsbaby/ramsbaby-blog-starter',
+      repoId: process.env.GATSBY_GISCUS_REPO_ID || '',
+      category: process.env.GATSBY_GISCUS_CATEGORY || 'Comments',
+      categoryId: process.env.GATSBY_GISCUS_CATEGORY_ID || '',
+      mapping: process.env.GATSBY_GISCUS_MAPPING || 'pathname',
+      reactionsEnabled: process.env.GATSBY_GISCUS_REACTIONS || '1',
+      emitMetadata: process.env.GATSBY_GISCUS_METADATA || '0',
+      themeLight: process.env.GATSBY_GISCUS_THEME_LIGHT || 'light',
+      themeDark: process.env.GATSBY_GISCUS_THEME_DARK || 'dark_dimmed',
+    },
   },
   configs: {
     countOfInitialPost: 10, // Config your initial count of post

@@ -19,3 +19,49 @@
   opacity: 1;
   text-decoration: none;
 }
+
+.thumb-tags {
+  margin-bottom: 6px; /* 태그와 제목 간 간격 축소로 결속감 강화 */
+}
+
+.thumb-tag {
+  display: inline-block;
+  margin-right: 8px;
+  color: #0a63ff;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.thumbnail-row {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px; /* 태그/제목/본문 간 수직 간격 정리 */
+}
+
+.thumbnail-media {
+  flex: 0 0 300px;
+  margin-right: 20px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.thumbnail-excerpt {
+  flex: 1 1 auto;
+}
+
+.thumbnail-excerpt mark {
+  background: rgba(255, 235, 59, 0.4);
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+@media (max-width: 960px) {
+  .thumbnail-row {
+    flex-direction: column;
+  }
+  .thumbnail-media {
+    margin-right: 0;
+    margin-bottom: 12px;
+    width: 100%;
+  }
+}

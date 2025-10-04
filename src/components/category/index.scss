@@ -73,19 +73,17 @@
 
 @include mobile {
   .ScrollMenu-container {
-    position: sticky;
-    position: -webkit-sticky;
-    top: 164px;
-    background: white;
+    position: static; // 모바일에서는 고정 해제로 겹침 방지
+    top: auto;
+    background: transparent;
   }
 }
 
 @include tablet {
   .ScrollMenu-container {
-    position: sticky;
-    position: -webkit-sticky;
-    top: 203px;
-    background: white;
+    position: static; // 태블릿에서도 해제
+    top: auto;
+    background: transparent;
   }
 }
 

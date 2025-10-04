@@ -12,12 +12,11 @@
   }
 
   .sidebar-container {
-    position: sticky;
-    top: 0px;
-    z-index: 9999999;
-    height: 124px;
-    overflow: hidden;
-    overflow-y: scroll;
+    position: static; /* 모바일에서는 sticky 해제 */
+    top: auto;
+    z-index: auto;
+    height: auto;
+    overflow: visible;
   }
 }
 
@@ -27,18 +26,15 @@
   }
 
   .sidebar-container {
-    position: sticky;
-    top: 0px;
-    z-index: 9999999;
-    height: 162px;
-    min-height: 162px;
-    background-color: white;
-    padding: 8px 12px;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-
-    // overflow: hidden;
-    // overflow-y: scroll;
+    position: static; /* 태블릿에서도 sticky 해제 */
+    top: auto;
+    z-index: auto;
+    height: auto;
+    min-height: 0;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .recently {
@@ -76,16 +72,19 @@
 
 .site-wrapper {
   padding: 3vw;
-  // min-height: 100vh;
-  position: sticky;
-  top: 0px;
-  // height: 3000px;
-
-  // background-repeat: repeat;
 }
-@media (max-width: 800px) {
-  .site-wrapper {
-    padding: 6vw;
+
+/* Card look for sidebars on desktop */
+@media (min-width: 1200px) {
+  .sidebar-container .sidebar {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    padding: 12px 14px;
+  }
+  body.dark .sidebar-container .sidebar {
+    background: #24272c;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
   }
 }
 

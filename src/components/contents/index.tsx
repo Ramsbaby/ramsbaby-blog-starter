@@ -71,6 +71,7 @@ export const Contents: React.FC<ContentsProps> = ({
           node={node as any}
           key={`item_${index}`}
           imagePath={node.frontmatter.thumbnail}
+          highlightWord={exposureGb === 'SEARCH' ? (searchWord as any) : ''}
         />
       ))}
     </ThumbnailContainer>

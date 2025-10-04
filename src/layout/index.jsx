@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Top } from '../components/top'
+import { ReadingProgress } from '../components/elements'
 import { Header } from '../components/header'
 import { ThemeSwitch } from '../components/theme-switch'
 import { Footer } from '../components/footer'
@@ -23,6 +24,7 @@ export const Layout = ({ siteMetadata, location, title, children }) => {
 
   return (
     <React.Fragment>
+      <ReadingProgress />
       <a href="#main-content" className="skip-to-content">
         Skip to content
       </a>

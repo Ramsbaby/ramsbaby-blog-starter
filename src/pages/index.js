@@ -182,6 +182,38 @@ const HomePage = ({ data, location }) => {
               keywords={siteMetadata.keywords}
             />
             <Bio />
+            {/* Featured section */}
+            <section
+              aria-label="Featured posts"
+              style={{ marginBottom: '24px' }}
+            >
+              <h2 style={{ fontSize: '20px', margin: '12px 0' }}>Featured</h2>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                  gap: '12px',
+                }}
+              >
+                {posts.slice(0, 2).map(({ node }) => (
+                  <Link
+                    key={`featured_${node.fields.slug}`}
+                    to={node.fields.slug}
+                    style={{
+                      display: 'block',
+                      padding: '12px',
+                      borderRadius: 8,
+                      background: '#fff',
+                      boxShadow: '0 1px 3px rgba(0,0,0,0.08)',
+                    }}
+                    aria-label={`포스트로 이동: ${node.frontmatter.title}`}
+                  >
+                    <strong>{node.frontmatter.title}</strong>
+                    <p style={{ marginTop: 8 }}>{node.excerpt}</p>
+                  </Link>
+                ))}
+              </div>
+            </section>
             <Search
               inputSearchWord={inputSearchWord}
               selectExposureGb={selectExposureGb}
