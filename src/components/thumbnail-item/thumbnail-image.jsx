@@ -14,6 +14,7 @@ export const ThumbnailImage = ({ path, style }) => {
               height: 150
               layout: FIXED
               placeholder: BLURRED
+              transformOptions: { fit: COVER, cropFocus: CENTER }
             )
           }
         }
@@ -24,22 +25,43 @@ export const ThumbnailImage = ({ path, style }) => {
   const normalizePath = input => {
     if (!input) return ''
     let p = input.replace(/\\/g, '/').replace(/^\//, '')
+    // remove common prefixes so it matches sourceInstanceName "thumbnails" relativePath
     p = p.replace(/^static\//, '')
+    p = p.replace(/^thumbnail-images\//, '')
     return p
   }
 
   const normalized = normalizePath(path)
-  const match = data.allFile.nodes.find(
+  let match = data.allFile.nodes.find(
     n => n.relativePath.replace(/\\/g, '/') === normalized
   )
+  if (!match) {
+    const target = normalized.toLowerCase()
+    match = data.allFile.nodes.find(
+      n => n.relativePath.replace(/\\/g, '/').toLowerCase() === target
+    )
+  }
   const img = match ? getImage(match.childImageSharp) : null
 
   return (
     <div style={path ? style : null}>
       {img ? (
-        <GatsbyImage image={img} alt="thumbnail" />
+        <GatsbyImage
+          image={img}
+          alt="thumbnail"
+          imgStyle={{ objectFit: 'cover', objectPosition: '50% 50%' }}
+        />
       ) : normalized ? (
-        <img src={`/${normalized}`} alt="thumbnail" />
+        <img
+          src={`/${normalized}`}
+          alt="thumbnail"
+          style={{
+            width: '300px',
+            height: '150px',
+            objectFit: 'cover',
+            objectPosition: '50% 50%',
+          }}
+        />
       ) : null}
     </div>
   )
