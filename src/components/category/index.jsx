@@ -1,4 +1,5 @@
 import React, { useCallback, useRef, Component } from 'react'
+import PropTypes from 'prop-types'
 import { rhythm } from '../../utils/typography'
 import './index.scss'
 import { Item } from './item'
@@ -77,7 +78,7 @@ export const Category = ({
         behavior: 'smooth',
       })
     },
-    [containerRef],
+    [containerRef]
   )
 
   let list = categories.map((title, idx) => ({ name: title, key: idx }))
@@ -86,7 +87,11 @@ export const Category = ({
   const menu = Menu(list, selected, selectExposureGb)
 
   return (
-    <div className={'ScrollMenu-container'} role="navigation" aria-label="카테고리 선택">
+    <div
+      className={'ScrollMenu-container'}
+      role="navigation"
+      aria-label="카테고리 선택"
+    >
       <ScrollMenu
         data={menu}
         arrowLeft={ArrowLeft}
@@ -96,4 +101,11 @@ export const Category = ({
       />
     </div>
   )
+}
+
+Category.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  category: PropTypes.string.isRequired,
+  selectCategory: PropTypes.func.isRequired,
+  selectExposureGb: PropTypes.func.isRequired,
 }

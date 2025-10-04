@@ -12,5 +12,6 @@ module.exports = {
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testPathIgnorePatterns: ['node_modules', '.cache', 'public'],
-  collectCoverageFrom: ['src/**/*.{js,jsx}'],
+  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json'],
 };

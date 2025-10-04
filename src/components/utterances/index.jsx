@@ -33,3 +33,5 @@ export const Utterances = ({ repo }) => {
 
   return <div className="utterances" ref={rootElm} />
 }
+
+export default Utterances

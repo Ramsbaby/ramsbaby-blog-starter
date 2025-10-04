@@ -1,6 +1,6 @@
 export function toFit(
   cb,
-  { dismissCondition = () => false, triggerCondition = () => true }
+  { dismissCondition = () => false, triggerCondition = () => true } = {}
 ) {
   if (!cb) {
     throw Error('Invalid required arguments')

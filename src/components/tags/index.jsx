@@ -1,5 +1,6 @@
 // @flow
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export const Tags = ({ tags, selectTag, selectExposureGb }) => {
   let tagList = tags.map((tag, index) => (
@@ -78,4 +79,15 @@ export const Tags = ({ tags, selectTag, selectExposureGb }) => {
       </ul>
     </div>
   )
+}
+
+Tags.propTypes = {
+  tags: PropTypes.arrayOf(
+    PropTypes.shape({
+      fieldValue: PropTypes.string,
+      totalCount: PropTypes.number,
+    })
+  ).isRequired,
+  selectTag: PropTypes.func.isRequired,
+  selectExposureGb: PropTypes.func.isRequired,
 }

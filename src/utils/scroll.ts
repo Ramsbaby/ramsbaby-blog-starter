@@ -1,7 +1,7 @@
 import SmoothScroll from 'smooth-scroll/dist/smooth-scroll.min'
-import smoothscroll from 'smoothscroll-polyfill';
+import smoothscroll from 'smoothscroll-polyfill'
 
-let scroll
+let scroll: any
 
 export function init() {
   smoothscroll.polyfill()
@@ -14,17 +14,14 @@ export function init() {
 
 export function destroy() {
   if (!scroll) throw Error('Not founded SmoothScroll instance')
-
   scroll.destroy()
   scroll = null
-
   return scroll
 }
 
-export function go(dest) {
+export function go(dest: string | Element) {
   if (!scroll) throw Error('Not founded SmoothScroll instance')
-
   scroll.animateScroll(dest)
-
   return scroll
 }
+

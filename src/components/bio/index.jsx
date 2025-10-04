@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
@@ -43,6 +44,8 @@ export const Bio = () => (
     }}
   />
 )
+
+Bio.propTypes = {}
 
 const bioQuery = graphql`
   query BioQuery {

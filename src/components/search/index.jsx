@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import PropTypes from 'prop-types'
 
 import './index.scss'
 
@@ -27,7 +28,12 @@ export const Search = props => {
   }
 
   return (
-    <form onSubmit={onFormSubmit} className="inputContainer" role="search" aria-label="사이트 검색">
+    <form
+      onSubmit={onFormSubmit}
+      className="inputContainer"
+      role="search"
+      aria-label="사이트 검색"
+    >
       <div className="search-input-wrapper">
         <input
           type="text"
@@ -49,3 +55,8 @@ export const Search = props => {
 }
 
 export default Search
+
+Search.propTypes = {
+  inputSearchWord: PropTypes.func.isRequired,
+  selectExposureGb: PropTypes.func.isRequired,
+}

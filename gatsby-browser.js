@@ -6,6 +6,8 @@ require('typeface-catamaran')
 require('intersection-observer')
 
 const metaConfig = require('./gatsby-meta-config')
+const React = require('react')
+const { Spinner } = require('./src/components/Loading/Spinner')
 
 exports.onInitialClientRender = () => {
   if (metaConfig.share.facebookAppId) {
@@ -29,4 +31,12 @@ exports.onInitialClientRender = () => {
       fjs.parentNode.insertBefore(js, fjs)
     })(document, 'script', 'facebook-jssdk')
   }
+}
+
+exports.wrapPageElement = ({ element }) => {
+  return React.createElement(
+    React.Suspense,
+    { fallback: React.createElement(Spinner) },
+    element
+  )
 }

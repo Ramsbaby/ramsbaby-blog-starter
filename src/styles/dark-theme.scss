@@ -76,6 +76,9 @@ body.dark {
     p {
       color: $dark-middle-font-color;
     }
+    a {
+      color: $dark-link-color;
+    }
     &:hover {
       text-shadow: $dark-hover-text-shadow;
     }
@@ -96,6 +99,15 @@ body.dark {
   h1,
   h2 {
     border-bottom-color: rgba(255, 255, 255, 0.3);
+  }
+
+  // cards and containers
+  .sidebar-container,
+  .post-single__table_of_contents,
+  .post-single__table_of_contents-list {
+    background-color: #1f242d;
+    border: 1px solid $dark-category-border-color;
+    border-radius: 8px;
   }
 
   .navigator {

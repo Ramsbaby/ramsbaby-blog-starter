@@ -1,5 +1,5 @@
-import React, { useCallback, useState } from 'react'
-import ReactDisqusComments from 'react-disqus-comments'
+import React, { useCallback, useState, lazy, Suspense } from 'react'
+const ReactDisqusComments = lazy(() => import('react-disqus-comments'))
 
 export const Disqus = ({ post, shortName, siteUrl, slug }) => {
   const [toasts, setToasts] = useState([])
@@ -11,13 +11,15 @@ export const Disqus = ({ post, shortName, siteUrl, slug }) => {
   const url = siteUrl + slug
 
   return (
-    <ReactDisqusComments
-      shortname={shortName}
-      identifier={post.frontmatter.title}
-      title={post.frontmatter.title}
-      url={url}
-      category_id={post.frontmatter.category_id}
-      onNewComment={notifyAboutComment}
-    />
+    <Suspense fallback={null}>
+      <ReactDisqusComments
+        shortname={shortName}
+        identifier={post.frontmatter.title}
+        title={post.frontmatter.title}
+        url={url}
+        category_id={post.frontmatter.category_id}
+        onNewComment={notifyAboutComment}
+      />
+    </Suspense>
   )
 }

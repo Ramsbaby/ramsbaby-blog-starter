@@ -86,10 +86,12 @@ module.exports = {
       options: {
         name: metaConfig.title,
         short_name: metaConfig.title,
-        start_url: `/`,
+        start_url: `/?source=pwa`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
+        display: `standalone`,
+        lang: `ko`,
+        icon_options: { purpose: `any maskable` },
         icon: metaConfig.icon,
       },
     },
@@ -98,5 +100,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
+    // PWA & offline support
+    `gatsby-plugin-offline`,
   ],
 }
