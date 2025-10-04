@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: ['**']
+    branches: ['master']
   pull_request:
-    branches: ['**']
+    branches: ['master']
 
 permissions:
   contents: read
@@ -26,8 +26,12 @@ jobs:
           node-version: '18'
           cache: 'npm'
 
-      - name: Install dependencies (clean)
+      - name: Install dependencies (ci if lockfile)
+        if: hashFiles('package-lock.json') != ''
         run: npm ci
+      - name: Install dependencies (no lockfile)
+        if: hashFiles('package-lock.json') == ''
+        run: npm install
 
       - name: Lint
         run: npm run lint
