@@ -1,4 +1,5 @@
 import React from 'react'
+import './index.scss'
 import { Link } from 'gatsby'
 
 type HeaderProps = {
@@ -14,13 +15,21 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const isRoot = location.pathname === rootPath
   return (
-    isRoot && (
-      <h1 className="home-header">
+    <header className="home-header" role="banner">
+      <h1 className="home-header__title">
         <Link to={`/`} className="link" aria-label="홈으로 이동">
           {title}
         </Link>
       </h1>
-    )
+      <nav className="home-header__nav" aria-label="Primary">
+        <Link to="/" className="home-header__nav-link">
+          Home
+        </Link>
+        <a href="#search" className="home-header__nav-link">
+          Search
+        </a>
+      </nav>
+    </header>
   )
 }
 

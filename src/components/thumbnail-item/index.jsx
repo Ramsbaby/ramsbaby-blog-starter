@@ -8,7 +8,12 @@ import { useEffect, useState } from 'react'
 
 import './index.scss'
 
-export const ThumbnailItem = ({ node, imagePath, highlightWord }) => {
+export const ThumbnailItem = ({
+  node,
+  imagePath,
+  highlightWord,
+  priority = false,
+}) => {
   return (
     <Link
       className={`thumbnail ${TARGET_CLASS}`}
@@ -20,7 +25,10 @@ export const ThumbnailItem = ({ node, imagePath, highlightWord }) => {
         <h3>{node.frontmatter.title || node.fields.slug}</h3>
         <div className="thumbnail-row">
           <div className="thumbnail-media">
-            <ThumbnailImage path={imagePath}></ThumbnailImage>
+            <ThumbnailImage
+              path={imagePath}
+              priority={priority}
+            ></ThumbnailImage>
           </div>
           <div className="thumbnail-excerpt">
             <p

@@ -31,6 +31,7 @@ export const Search = props => {
     <form
       onSubmit={onFormSubmit}
       className="inputContainer"
+      id="search"
       role="search"
       aria-label="사이트 검색"
     >

@@ -79,6 +79,11 @@ body.dark {
     a {
       color: $dark-link-color;
     }
+    .thumb-tag {
+      color: $dark-accent-primary;
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
     &:hover {
       text-shadow: $dark-hover-text-shadow;
     }

@@ -62,8 +62,20 @@ export const ThemeSwitch: React.FC = () => {
   }
 
   useEffect(() => {
-    const initial = Storage.getTheme(Dom.hasClassOfBody(THEME.DARK))
+    // 시스템 프리퍼런스 반영
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    const initial = Storage.getTheme(prefersDark)
     handleChange(initial)
+    // 프리퍼런스 변경 시 동기화
+    const mq = window.matchMedia('(prefers-color-scheme: dark)')
+    const listener = (e: MediaQueryListEvent) => {
+      const next = Storage.getTheme(e.matches)
+      handleChange(next)
+    }
+    mq.addEventListener?.('change', listener)
+    return () => mq.removeEventListener?.('change', listener)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

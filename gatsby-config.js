@@ -1,3 +1,6 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV || 'development'}`,
+})
 const metaConfig = require('./gatsby-meta-config')
 const path = require('path')
 

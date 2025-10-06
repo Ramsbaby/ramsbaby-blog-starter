@@ -72,6 +72,7 @@ export const Contents: React.FC<ContentsProps> = ({
           key={`item_${index}`}
           imagePath={node.frontmatter.thumbnail}
           highlightWord={exposureGb === 'SEARCH' ? (searchWord as any) : ''}
+          priority={index === 0}
         />
       ))}
     </ThumbnailContainer>

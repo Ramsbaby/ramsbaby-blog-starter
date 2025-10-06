@@ -63,6 +63,16 @@ jobs:
         env:
           CI: true
 
+      - name: Type Check
+        run: npm run typecheck
+        env:
+          CI: true
+
+      - name: Prettier (format check)
+        run: npm run format:check
+        env:
+          CI: true
+
       - name: Test
         run: npm test --silent
         env:

@@ -10,11 +10,15 @@
   "dependencies": {
     "ajv": "^8.12.0",
     "ajv-keywords": "^5.1.0",
+    "dotenv": "^17.2.3",
     "gatsby": "^5.15.0",
+    "gatsby-plugin-feed": "^5.12.0",
     "gatsby-plugin-image": "^3.15.0",
     "gatsby-plugin-manifest": "^5.15.0",
+    "gatsby-plugin-netlify-cms": "^6.5.1",
     "gatsby-plugin-sass": "^6.15.0",
     "gatsby-plugin-sharp": "^5.15.0",
+    "gatsby-plugin-sitemap": "^6.15.0",
     "gatsby-remark-autolink-headers": "^6.0.0",
     "gatsby-remark-copy-linked-files": "^6.0.0",
     "gatsby-remark-emoji": "0.0.2",
@@ -28,6 +32,7 @@
     "gatsby-transformer-sharp": "^5.15.0",
     "intersection-observer": "^0.5.1",
     "lodash": "^4.17.19",
+    "netlify-cms-app": "^2.15.72",
     "postcss": "^8.5.6",
     "postcss-loader": "^7.3.4",
     "prismjs": "^1.23.0",
@@ -47,13 +52,10 @@
     "typeface-montserrat": "0.0.54",
     "typeface-noto-sans-kr": "0.0.63",
     "typography": "^0.16.24",
-    "typography-theme-github": "^0.16.18",
-    "gatsby-plugin-sitemap": "^6.15.0",
-    "gatsby-plugin-feed": "^5.12.0",
-    "gatsby-plugin-netlify-cms": "^6.5.1",
-    "netlify-cms-app": "^2.15.72"
+    "typography-theme-github": "^0.16.18"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^14.3.1",
     "babel-jest": "^29.7.0",
@@ -75,7 +77,10 @@
     "lighthousebot": "git+https://github.com/GoogleChromeLabs/lighthousebot.git",
     "prettier": "^1.14.2",
     "recursive-readdir": "^2.2.2",
-    "signale": "^1.3.0"
+    "satori": "^0.18.3",
+    "signale": "^1.3.0",
+    "typescript": "^5.9.3",
+    "yoga-wasm-web": "^0.3.3"
   },
   "homepage": "https://github.com/Ramsbaby/ramsbaby-blog-starter",
   "keywords": [
@@ -98,6 +103,8 @@
     "build": "gatsby build",
     "lh": "lighthousebot",
     "test": "jest --passWithNoTests",
+    "typecheck": "tsc --noEmit",
+    "format:check": "prettier -c \"src/**/*.{js,jsx,ts,tsx,md,scss}\"",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
   }
 }

@@ -158,6 +158,11 @@ pre[class*='language-'] {
   color: #f00;
 }
 
+// Accessible current section highlight
+.post-single__table_of_contents-list li a[aria-current='location'] {
+  color: #f00;
+}
+
 .fixed-plugin {
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   font-weight: 300;

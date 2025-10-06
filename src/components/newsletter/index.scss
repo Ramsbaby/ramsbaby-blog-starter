@@ -1,0 +1,60 @@
+.newsletter {
+  margin: 24px 0;
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  background: #fff;
+  &__title {
+    margin: 0 0 8px;
+    font-size: 18px;
+  }
+  &__desc {
+    margin: 0 0 12px;
+    color: #475569;
+  }
+  &__form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  &__label {
+    position: absolute;
+    left: -10000px;
+  }
+  &__input {
+    flex: 1 1 260px;
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+  }
+  &__button {
+    height: 40px;
+    padding: 0 14px;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  &__hint {
+    display: block;
+    margin-top: 8px;
+    color: #64748b;
+  }
+}
+
+body.dark .newsletter {
+  background: #1f242d;
+  border-color: rgba(255, 255, 255, 0.12);
+  &__desc,
+  &__hint {
+    color: #cbd5e1;
+  }
+  &__input {
+    background: #0b1220;
+    color: #e5e7eb;
+    border-color: #334155;
+  }
+}

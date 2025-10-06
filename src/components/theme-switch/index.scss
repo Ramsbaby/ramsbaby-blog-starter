@@ -1,10 +1,16 @@
 .switch-container {
   text-align: right;
-
   .icon {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #222;
     font-size: 14px;
     font-weight: 900;
   }
+}
+
+/* 전환 애니메이션: 색/배경 페이드 */
+body {
+  transition: background-color 200ms ease, color 200ms ease;
 }

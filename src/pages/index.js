@@ -16,8 +16,10 @@ import { Layout } from '../layout'
 import { Search } from '../components/search'
 import { Tags } from '../components/tags'
 import { Header } from '../components/header'
+import { Newsletter } from '../components/newsletter'
 const Sidebar = React.lazy(() => import('../components/Sidebar'))
 import { rhythm } from '../utils/typography'
+import Helmet from 'react-helmet'
 import './index.scss'
 // import Particles from 'react-particles' // TODO: Add back particles with react-particles
 
@@ -61,6 +63,24 @@ const HomePage = ({ data, location }) => {
       triggerCondition: () => isTriggerPos() && doesNeedMore(),
     })()
   })
+
+  // LCP 우선 이미지 프리로드: 초기 상단 노출 썸네일 추정 2개
+  const preloadThumbs = posts
+    .slice(0, 2)
+    .map(({ node }) => node.frontmatter.thumbnail)
+    .filter(Boolean)
+    .map(p => {
+      let s = p.replace(/\\/g, '/').replace(/^\//, '')
+      s = s.replace(/^static\//, '')
+      return '/' + s
+    })
+
+  const newsletterProvider =
+    process.env.GATSBY_NEWSLETTER_PROVIDER || 'buttondown'
+  const newsletterAction =
+    process.env.GATSBY_BUTTONDOWN_ACTION ||
+    process.env.GATSBY_MAILCHIMP_ACTION ||
+    ''
 
   return (
     <Layout
@@ -160,6 +180,10 @@ const HomePage = ({ data, location }) => {
                       </Link>
                     </li>
                   ))}
+                  <Newsletter
+                    provider={newsletterProvider}
+                    actionUrl={newsletterAction}
+                  />
                 </Sidebar>
               </Suspense>
             </div>
@@ -172,6 +196,11 @@ const HomePage = ({ data, location }) => {
               padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
             }}
           >
+            <Helmet>
+              {preloadThumbs.map(src => (
+                <link key={src} rel="preload" as="image" href={src} />
+              ))}
+            </Helmet>
             <Header
               title={siteMetadata.title}
               location={location}
@@ -195,7 +224,7 @@ const HomePage = ({ data, location }) => {
                   gap: '12px',
                 }}
               >
-                {posts.slice(0, 2).map(({ node }) => (
+                {posts.slice(0, 2).map(({ node }, idx) => (
                   <Link
                     key={`featured_${node.fields.slug}`}
                     to={node.fields.slug}
@@ -224,6 +253,7 @@ const HomePage = ({ data, location }) => {
               selectCategory={selectCategory}
               selectExposureGb={selectExposureGb}
             />
+            {/* 메인 영역에 노출하던 뉴스레터 폼은 사이드바로 이동 */}
             <Contents
               posts={posts}
               countOfInitialPost={countOfInitialPost}
