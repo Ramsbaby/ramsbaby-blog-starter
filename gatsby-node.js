@@ -67,6 +67,10 @@ exports.createSchemaCustomization = ({ actions }) => {
     type Frontmatter {
       thumbnail : String!
     }
+    type SettingsJson implements Node {
+      newsletterProvider: String
+      newsletterAction: String
+    }
   `
 
   createTypes(typeDefs)
