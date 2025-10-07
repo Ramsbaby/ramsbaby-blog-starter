@@ -41,24 +41,43 @@ jobs:
         with:
           project_id: ${{ env.PROJECT_ID }}
 
-      - name: Configure Docker auth for gcr.io
+      - name: Enable Artifact Registry API
         run: |
-          gcloud auth configure-docker gcr.io --quiet
+          gcloud services enable artifactregistry.googleapis.com
+
+      - name: Ensure Artifact Registry repository exists
+        run: |
+          REPO=newsletter
+          REGION=${{ env.REGION }}
+          PROJECT=${{ env.PROJECT_ID }}
+          if ! gcloud artifacts repositories describe $REPO --location=$REGION >/dev/null 2>&1; then
+            gcloud artifacts repositories create $REPO --repository-format=docker --location=$REGION --description="Newsletter images"
+          fi
+
+      - name: Configure Docker auth for Artifact Registry
+        run: |
+          gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
 
       - name: Build container image (Docker on runner)
         run: |
-          docker build -t gcr.io/${PROJECT_ID}/${SERVICE}:${GITHUB_SHA} newsletter-service
-          docker tag gcr.io/${PROJECT_ID}/${SERVICE}:${GITHUB_SHA} gcr.io/${PROJECT_ID}/${SERVICE}:latest
+          REGISTRY=${{ env.REGION }}-docker.pkg.dev
+          REPO=newsletter
+          docker build -t $REGISTRY/${PROJECT_ID}/$REPO/${SERVICE}:${GITHUB_SHA} newsletter-service
+          docker tag $REGISTRY/${PROJECT_ID}/$REPO/${SERVICE}:${GITHUB_SHA} $REGISTRY/${PROJECT_ID}/$REPO/${SERVICE}:latest
 
       - name: Push container image
         run: |
-          docker push gcr.io/${PROJECT_ID}/${SERVICE}:${GITHUB_SHA}
-          docker push gcr.io/${PROJECT_ID}/${SERVICE}:latest
+          REGISTRY=${{ env.REGION }}-docker.pkg.dev
+          REPO=newsletter
+          docker push $REGISTRY/${PROJECT_ID}/$REPO/${SERVICE}:${GITHUB_SHA}
+          docker push $REGISTRY/${PROJECT_ID}/$REPO/${SERVICE}:latest
 
       - name: Deploy to Cloud Run
         run: |
+          REGISTRY=${{ env.REGION }}-docker.pkg.dev
+          REPO=newsletter
           gcloud run deploy ${SERVICE} \
-            --image gcr.io/${PROJECT_ID}/${SERVICE}:${GITHUB_SHA} \
+            --image $REGISTRY/${PROJECT_ID}/$REPO/${SERVICE}:${GITHUB_SHA} \
             --platform managed --region ${REGION} --allow-unauthenticated \
             --set-env-vars SPRING_MAIL_HOST=smtp.sendgrid.net \
             --set-env-vars SPRING_MAIL_PORT=587 \
