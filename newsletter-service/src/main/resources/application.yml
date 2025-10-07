@@ -8,6 +8,10 @@ spring:
   flyway:
     enabled: true
     locations: classpath:db/migration
+  data:
+    jdbc:
+      repositories:
+        enabled: false
   thymeleaf:
     enabled: true
 

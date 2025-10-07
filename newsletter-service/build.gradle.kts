@@ -32,7 +32,7 @@ dependencies {
     implementation("org.xerial:sqlite-jdbc:3.47.1.0")
     implementation("org.flywaydb:flyway-core:9.22.3")
 
-    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+    implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("com.zaxxer:HikariCP")
     implementation("com.rometools:rome:2.1.0")
 
