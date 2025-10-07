@@ -35,6 +35,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/content/settings`,
+        name: `settings`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/static/thumbnail-images`,
         name: `thumbnails`,
       },
@@ -102,6 +109,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-json`,
     `gatsby-plugin-sass`,
     // PWA & offline support
     `gatsby-plugin-offline`,

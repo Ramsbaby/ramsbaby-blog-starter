@@ -6,3 +6,7 @@
   NODE_VERSION = "18"
 
 
+[functions]
+  directory = "netlify/functions"
+
+

@@ -24,3 +24,23 @@ collections:
       - { label: Thumbnail, name: thumbnail, widget: image, required: false }
       - { label: Draft, name: draft, widget: boolean, default: false }
       - { label: Body, name: body, widget: markdown }
+  - name: settings
+    label: Settings
+    files:
+      - file: content/settings/site.json
+        label: Site
+        name: site
+        fields:
+          - {
+              label: Newsletter Provider,
+              name: newsletterProvider,
+              widget: select,
+              options: [buttondown, mailchimp],
+              default: buttondown,
+            }
+          - {
+              label: Newsletter Action URL,
+              name: newsletterAction,
+              widget: string,
+              required: false,
+            }

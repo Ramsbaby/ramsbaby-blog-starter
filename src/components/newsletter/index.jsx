@@ -14,14 +14,13 @@ export const Newsletter = ({ provider = 'buttondown', actionUrl = '' }) => {
       </p>
       <form
         className="newsletter__form"
-        action={enabled ? actionUrl : undefined}
-        method={enabled ? 'post' : undefined}
-        target={enabled ? '_blank' : undefined}
-        rel={enabled ? 'noopener noreferrer' : undefined}
-        onSubmit={e => {
-          if (!enabled) e.preventDefault()
-        }}
+        action={enabled ? actionUrl : '/.netlify/functions/newsletter-submit'}
+        method="post"
+        name="newsletter"
       >
+        {!enabled && (
+          <input type="hidden" name="form-name" value="newsletter" />
+        )}
         <label htmlFor="newsletter-email" className="newsletter__label">
           이메일 주소
         </label>
@@ -35,12 +34,8 @@ export const Newsletter = ({ provider = 'buttondown', actionUrl = '' }) => {
           className="newsletter__input"
           autoComplete="email"
         />
-        <button
-          type="submit"
-          className="newsletter__button"
-          disabled={!enabled}
-        >
-          {enabled ? '구독하기' : '준비중'}
+        <button type="submit" className="newsletter__button">
+          구독하기
         </button>
       </form>
       {enabled && provider === 'buttondown' && (
@@ -50,7 +45,8 @@ export const Newsletter = ({ provider = 'buttondown', actionUrl = '' }) => {
       )}
       {!enabled && (
         <small className="newsletter__hint">
-          구독 기능 준비중입니다. 관리자 설정 완료 후 활성화됩니다.
+          기본 구독이 Netlify Forms에 저장됩니다. 관리자 설정 후 공급사로
+          변경됩니다.
         </small>
       )}
     </section>

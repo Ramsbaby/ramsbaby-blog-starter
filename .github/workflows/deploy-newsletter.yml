@@ -1,0 +1,72 @@
+name: Deploy newsletter-service to Cloud Run
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'newsletter-service/**'
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: deploy-newsletter
+  cancel-in-progress: false
+
+env:
+  PROJECT_ID: ${{ vars.GCP_PROJECT_ID || 'peppy-coda-471714-p7' }}
+  REGION: ${{ vars.GCP_REGION || 'asia-northeast3' }}
+  SERVICE: ${{ vars.CLOUD_RUN_SERVICE || 'newsletter-service' }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Auth to Google Cloud (OIDC)
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WIF_PROVIDER }}
+          service_account: ${{ secrets.GCP_SA_EMAIL }}
+
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ env.PROJECT_ID }}
+
+      - name: Build container with Cloud Build
+        run: |
+          gcloud builds submit newsletter-service --tag gcr.io/${PROJECT_ID}/${SERVICE}
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy ${SERVICE} \
+            --image gcr.io/${PROJECT_ID}/${SERVICE} \
+            --platform managed --region ${REGION} --allow-unauthenticated \
+            --set-env-vars SPRING_MAIL_HOST=smtp.sendgrid.net \
+            --set-env-vars SPRING_MAIL_PORT=587 \
+            --set-env-vars SPRING_MAIL_USERNAME=apikey \
+            --set-env-vars SPRING_MAIL_PASSWORD=${{ secrets.SENDGRID_API_KEY }} \
+            --set-env-vars app.mail.from=${{ vars.MAIL_FROM || 'no-reply@example.com' }} \
+            --set-env-vars app.siteUrl=${{ vars.SITE_URL || 'https://ramsbaby.netlify.app' }} \
+            --set-env-vars app.rssUrl=${{ vars.RSS_URL || 'https://ramsbaby.netlify.app/rss.xml' }}
+
+      - name: Fetch Service URL
+        id: run_url
+        run: |
+          URL=$(gcloud run services describe ${SERVICE} --region ${REGION} --format='value(status.url)')
+          echo "url=${URL}" >> $GITHUB_OUTPUT
+
+      - name: Set app.apiBaseUrl to Service URL
+        run: |
+          gcloud run services update ${SERVICE} --region ${REGION} \
+            --set-env-vars app.apiBaseUrl=${{ steps.run_url.outputs.url }}
+
+      - name: Summary
+        run: |
+          echo "Deployed to: ${{ steps.run_url.outputs.url }}" >> $GITHUB_STEP_SUMMARY
+
+

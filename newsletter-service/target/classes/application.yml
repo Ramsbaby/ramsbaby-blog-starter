@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:./data/newsletter.db
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  thymeleaf:
+    enabled: true
+
+app:
+  siteUrl: https://ramsbaby.netlify.app
+  apiBaseUrl: http://localhost:8080
+  rssUrl: https://ramsbaby.netlify.app/rss.xml
+  mail:
+    from: ms6698@naver.com
+
