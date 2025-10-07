@@ -41,28 +41,57 @@ jobs:
         with:
           project_id: ${{ env.PROJECT_ID }}
 
-      - name: Build container with Cloud Build (async, no log streaming)
+      - name: Build container with Cloud Build (async, robust polling)
         id: build
         run: |
           set -euo pipefail
-          BUILD_ID=$(gcloud builds submit newsletter-service \
+          # Submit build asynchronously; try to capture id first, then name
+          OUT=$(gcloud builds submit newsletter-service \
             --tag gcr.io/${PROJECT_ID}/${SERVICE} \
-            --async --format='value(metadata.name)')
+            --async --format='json(id,name,logUrl)') || true
+
+          BUILD_ID=$(echo "$OUT" | jq -r 'try .id // empty')
+          BUILD_NAME=$(echo "$OUT" | jq -r 'try .name // empty')
+          LOG_URL=$(echo "$OUT" | jq -r 'try .logUrl // empty')
+
+          if [ -z "$BUILD_ID" ] && [ -n "$BUILD_NAME" ]; then
+            # name looks like projects/PROJ/locations/global/builds/UUID
+            BUILD_ID=${BUILD_NAME##*/}
+          fi
+
+          if [ -z "$BUILD_ID" ]; then
+            echo "Could not capture BUILD_ID from submit output; falling back to latest ongoing build..."
+            BUILD_ID=$(gcloud builds list --ongoing --format='value(id)' --limit=1)
+          fi
+
+          if [ -z "$BUILD_ID" ]; then
+            echo "ERROR: Unable to determine Cloud Build ID." >&2
+            exit 1
+          fi
+
           echo "build_id=${BUILD_ID}" >> $GITHUB_OUTPUT
           echo "Queued Cloud Build: ${BUILD_ID}"
+          if [ -n "$LOG_URL" ]; then
+            echo "Log URL: ${LOG_URL}"
+          fi
 
-          echo "Attempting to stream logs (will ignore permission errors)..."
-          gcloud builds log --stream ${BUILD_ID} || echo "Streaming not permitted; falling back to polling."
+          echo "Attempting to stream logs (permission errors will be ignored)..."
+          gcloud builds log --stream ${BUILD_ID} || echo "Streaming not permitted; using polling."
 
           echo "Waiting for build to finish..."
           STATUS="PENDING"
           until [ "${STATUS}" = "SUCCESS" ]; do
             STATUS=$(gcloud builds describe ${BUILD_ID} --format='value(status)') || STATUS="UNKNOWN"
             echo "Current status: ${STATUS}"
-            if [ "${STATUS}" = "FAILURE" ] || [ "${STATUS}" = "CANCELLED" ] || [ "${STATUS}" = "EXPIRED" ]; then
-              echo "Build finished with status ${STATUS}" >&2
-              exit 1
-            fi
+            case "$STATUS" in
+              FAILURE|CANCELLED|EXPIRED)
+                echo "Build finished with status ${STATUS}" >&2
+                exit 1
+                ;;
+              SUCCESS)
+                break
+                ;;
+            esac
             sleep 5
           done
           echo "Build succeeded: ${BUILD_ID}"
