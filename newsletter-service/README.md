@@ -9,17 +9,17 @@ Spring Boot 3 (Java 21) 기반 자가 호스팅 뉴스레터 서비스 템플릿
 - 구독/확인/해제 API 뼈대
 - Dockerfile (Cloud Run 배포용)
 
-## 빌드
+## 빌드 (Gradle)
 
 ```bash
 cd newsletter-service
-mvn -q -DskipTests package
+./gradlew clean bootJar
 ```
 
 ## 실행
 
 ```bash
-java -jar target/newsletter-service-0.0.1-SNAPSHOT.jar
+java -jar build/libs/newsletter-service-0.0.1-SNAPSHOT.jar
 ```
 
 ## API
@@ -35,9 +35,10 @@ PROJECT_ID=peppy-coda-471714-p7
 REGION=asia-northeast3
 SERVICE=newsletter-service
 
-gcloud builds submit --tag gcr.io/$PROJECT_ID/$SERVICE
+docker build -t gcr.io/$PROJECT_ID/$SERVICE:latest .
+docker push gcr.io/$PROJECT_ID/$SERVICE:latest
 gcloud run deploy $SERVICE \
-  --image gcr.io/$PROJECT_ID/$SERVICE \
+  --image gcr.io/$PROJECT_ID/$SERVICE:latest \
   --platform managed --region $REGION --allow-unauthenticated \
   --set-env-vars SPRING_MAIL_HOST=smtp.sendgrid.net \
   --set-env-vars SPRING_MAIL_PORT=587 \
