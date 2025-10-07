@@ -18,6 +18,10 @@ repositories {
     maven {
         name = "redgate-public"
         url = uri("https://repo.red-gate.com/artifactory/libs-releases")
+        metadataSources {
+            mavenPom()
+            artifact()
+        }
     }
 }
 
