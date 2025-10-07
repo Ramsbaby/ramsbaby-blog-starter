@@ -1,5 +1,5 @@
 function isEmpty(storage) {
-  return !storage || storage === {}
+  return !storage
 }
 
 export function getValueFrom(storage, key) {

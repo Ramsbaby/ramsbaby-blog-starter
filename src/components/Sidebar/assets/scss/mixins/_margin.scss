@@ -4,23 +4,43 @@
  */
 
 @mixin margin-top($number) {
-    margin-top: #{ $number * v.$typographic-leading + "px"};
+  margin-top: #{$number * v.$typographic-leading + 'px'};
 }
 
 @mixin margin-bottom($number) {
-    margin-bottom: #{ $number * v.$typographic-leading + "px"};
+  margin-bottom: #{$number * v.$typographic-leading + 'px'};
 }
 
-@mixin margin($top, $right, $bottom:null, $left:null) {
-    @if $left==null and $bottom==null {
-        margin: #{ $top * v.$typographic-leading + "px"} #{ $right * v.$typographic-leading + "px"};
-    }
-
-    @else if $left==null or $left==$right {
-        margin: #{ $top * v.$typographic-leading + "px"} #{ $right * v.$typographic-leading + "px"} #{ $bottom * v.$typographic-leading + "px"};
-    }
-    
-    @else {
-        margin: #{ $top * v.$typographic-leading + "px"} #{ $right * v.$typographic-leading + "px"} #{ $bottom * v.$typographic-leading + "px"} #{ $left * v.$typographic-leading + "px"};
-    }
+@mixin margin($top, $right, $bottom: null, $left: null) {
+  @if $left==null and $bottom==null {
+    margin: #{$top *
+      v.$typographic-leading +
+      'px'}
+      #{$right *
+      v.$typographic-leading +
+      'px'};
+  } @else if $left==null or $left==$right {
+    margin: #{$top *
+      v.$typographic-leading +
+      'px'}
+      #{$right *
+      v.$typographic-leading +
+      'px'}
+      #{$bottom *
+      v.$typographic-leading +
+      'px'};
+  } @else {
+    margin: #{$top *
+      v.$typographic-leading +
+      'px'}
+      #{$right *
+      v.$typographic-leading +
+      'px'}
+      #{$bottom *
+      v.$typographic-leading +
+      'px'}
+      #{$left *
+      v.$typographic-leading +
+      'px'};
+  }
 }

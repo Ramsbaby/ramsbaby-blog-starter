@@ -1,3 +1,4 @@
 {
-  "newsletterProvider": "mailchimp"
+  "newsletterProvider": "selfhosted",
+  "newsletterAction": "https://newsletter-service-702429978439.asia-northeast3.run.app/api/subscribers"
 }

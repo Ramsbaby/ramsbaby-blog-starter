@@ -1,7 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const HTML = ({ htmlAttributes, headComponents, bodyAttributes, preBodyComponents, body, postBodyComponents }) => {
+const HTML = ({
+  htmlAttributes,
+  headComponents,
+  bodyAttributes,
+  preBodyComponents,
+  body,
+  postBodyComponents,
+}) => {
   return (
     <html {...htmlAttributes}>
       <head>
@@ -21,7 +28,11 @@ const HTML = ({ htmlAttributes, headComponents, bodyAttributes, preBodyComponent
       <body {...bodyAttributes}>
         {preBodyComponents}
         <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div key={`body`} id="___gatsby" dangerouslySetInnerHTML={{ __html: body }} />
+        <div
+          key={`body`}
+          id="___gatsby"
+          dangerouslySetInnerHTML={{ __html: body }}
+        />
         {postBodyComponents}
       </body>
     </html>

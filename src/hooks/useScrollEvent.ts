@@ -24,9 +24,10 @@ export function useScrollEvent(onScroll: () => void, wait = 150): void {
         savedCallback.current()
       }
     }
-    window.addEventListener(`scroll`, handler, { passive: true })
+    const opts: AddEventListenerOptions = { passive: true }
+    window.addEventListener('scroll', handler, opts)
     return () => {
-      window.removeEventListener(`scroll`, handler, { passive: true })
+      window.removeEventListener('scroll', handler, opts)
     }
   }, [wait])
 }

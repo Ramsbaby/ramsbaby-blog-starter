@@ -3,18 +3,40 @@
  * Padding
  */
 
-@mixin padding($top, $right, $bottom:null, $left:null) {
-    @if $left==null and $bottom==null {
-        padding: #{ $top * v.$typographic-leading + "px"} #{ $right * v.$typographic-leading + "px"};
-    }
-    @else if $left==null or $left==$right {
-        padding: #{ $top * v.$typographic-leading + "px"} #{ $right * v.$typographic-leading + "px"} #{ $bottom * v.$typographic-leading + "px"};
-    }
-    @else {
-        padding: #{ $top * v.$typographic-leading + "px"} #{ $right * v.$typographic-leading + "px"} #{ $bottom * v.$typographic-leading + "px"} #{ $left * v.$typographic-leading + "px"};
-    }
+@mixin padding($top, $right, $bottom: null, $left: null) {
+  @if $left==null and $bottom==null {
+    padding: #{$top *
+      v.$typographic-leading +
+      'px'}
+      #{$right *
+      v.$typographic-leading +
+      'px'};
+  } @else if $left==null or $left==$right {
+    padding: #{$top *
+      v.$typographic-leading +
+      'px'}
+      #{$right *
+      v.$typographic-leading +
+      'px'}
+      #{$bottom *
+      v.$typographic-leading +
+      'px'};
+  } @else {
+    padding: #{$top *
+      v.$typographic-leading +
+      'px'}
+      #{$right *
+      v.$typographic-leading +
+      'px'}
+      #{$bottom *
+      v.$typographic-leading +
+      'px'}
+      #{$left *
+      v.$typographic-leading +
+      'px'};
+  }
 }
 
 @mixin padding-equal($number) {
-    padding: #{ $number * v.$typographic-leading + "px"};
+  padding: #{$number * v.$typographic-leading + 'px'};
 }

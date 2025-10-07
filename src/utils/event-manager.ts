@@ -30,7 +30,7 @@ export function toFit<T = unknown>(
     }
 
     tick = true
-    return requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
       if (dismissCondition()) {
         tick = false
         return
@@ -38,8 +38,9 @@ export function toFit<T = unknown>(
 
       if (triggerCondition()) {
         tick = false
-        return cb()
+        cb()
       }
     })
+    return
   }
 }

@@ -20,9 +20,15 @@ export const Giscus = ({ config }) => {
     if (config.categoryId)
       script.setAttribute('data-category-id', config.categoryId)
     script.setAttribute('data-mapping', config.mapping || 'pathname')
-    script.setAttribute('data-reactions-enabled', config.reactionsEnabled || '1')
+    script.setAttribute(
+      'data-reactions-enabled',
+      config.reactionsEnabled || '1'
+    )
     script.setAttribute('data-emit-metadata', config.emitMetadata || '0')
-    script.setAttribute('data-theme', isDark ? config.themeDark || 'dark_dimmed' : config.themeLight || 'light')
+    script.setAttribute(
+      'data-theme',
+      isDark ? config.themeDark || 'dark_dimmed' : config.themeLight || 'light'
+    )
     script.crossOrigin = 'anonymous'
 
     rootRef.current.appendChild(script)
@@ -32,5 +38,3 @@ export const Giscus = ({ config }) => {
 }
 
 export default Giscus
-
-

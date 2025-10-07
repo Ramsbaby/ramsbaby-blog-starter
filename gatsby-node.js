@@ -67,6 +67,10 @@ exports.createSchemaCustomization = ({ actions }) => {
     type Frontmatter {
       thumbnail : String!
     }
+    type SettingsJson implements Node {
+      newsletterProvider: String
+      newsletterAction: String
+    }
   `
 
   createTypes(typeDefs)
@@ -135,7 +139,7 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
     await fs.promises.mkdir(ogDir, { recursive: true })
 
     // Load Noto Sans KR font from installed package
-    async function loadNotoFonts() {
+    const loadNotoFonts = async () => {
       try {
         const pkgDir = path.dirname(
           require.resolve('typeface-noto-sans-kr/package.json')
@@ -176,12 +180,12 @@ exports.onPostBuild = async ({ graphql, reporter }) => {
 
     const fonts = await loadNotoFonts()
 
-    function normalizeSlugToFile(slug) {
+    const normalizeSlugToFile = slug => {
       const clean = (slug || '').replace(/^\/+|\/+$/g, '')
       return (clean ? clean.replace(/\/+|\s+/g, '_') : 'home') + '.png'
     }
 
-    function OgComponent({ title }) {
+    const OgComponent = ({ title }) => {
       return React.createElement(
         'div',
         {

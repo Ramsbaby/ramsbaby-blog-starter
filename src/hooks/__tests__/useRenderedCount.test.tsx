@@ -28,5 +28,3 @@ describe('useRenderedCount', () => {
     expect(screen.getByTestId('count').textContent).toBe('3')
   })
 })
-
-

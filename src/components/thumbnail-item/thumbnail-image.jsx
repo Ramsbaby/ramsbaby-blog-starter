@@ -61,7 +61,7 @@ export const ThumbnailImage = ({ path, style, priority = false }) => {
           image={img}
           alt="thumbnail"
           loading={priority ? 'eager' : 'lazy'}
-          fetchpriority={priority ? 'high' : 'auto'}
+          fetchPriority={priority ? 'high' : 'auto'}
           decoding="async"
           imgStyle={{ objectFit: 'cover', objectPosition: '50% 50%' }}
         />
@@ -74,7 +74,7 @@ export const ThumbnailImage = ({ path, style, priority = false }) => {
           }
           alt="thumbnail"
           loading={priority ? 'eager' : 'lazy'}
-          fetchpriority={priority ? 'high' : 'auto'}
+          fetchPriority={priority ? 'high' : 'auto'}
           decoding="async"
           style={{
             width: '300px',

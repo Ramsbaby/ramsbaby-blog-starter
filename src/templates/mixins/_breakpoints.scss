@@ -4,23 +4,23 @@
  */
 
 @mixin breakpoint-xs {
-    @content;
+  @content;
 }
 
 @mixin breakpoint-sm {
-    @media screen and (min-width: v.$layout-breakpoint-sm) {
-        @content;
-    }
+  @media screen and (min-width: v.$layout-breakpoint-sm) {
+    @content;
+  }
 }
 
 @mixin breakpoint-md {
-    @media screen and (min-width: v.$layout-breakpoint-md) {
-        @content;
-    }
+  @media screen and (min-width: v.$layout-breakpoint-md) {
+    @content;
+  }
 }
 
 @mixin breakpoint-lg {
-    @media screen and (min-width: v.$layout-breakpoint-lg) {
-        @content
-    }
+  @media screen and (min-width: v.$layout-breakpoint-lg) {
+    @content;
+  }
 }

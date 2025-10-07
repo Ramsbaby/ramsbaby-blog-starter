@@ -75,9 +75,13 @@ const HomePage = ({ data, location }) => {
       return '/' + s
     })
 
+  const settingsNode = data.settings?.nodes?.[0]
   const newsletterProvider =
-    process.env.GATSBY_NEWSLETTER_PROVIDER || 'buttondown'
+    settingsNode?.newsletterProvider ||
+    process.env.GATSBY_NEWSLETTER_PROVIDER ||
+    'buttondown'
   const newsletterAction =
+    settingsNode?.newsletterAction ||
     process.env.GATSBY_BUTTONDOWN_ACTION ||
     process.env.GATSBY_MAILCHIMP_ACTION ||
     ''
@@ -184,6 +188,11 @@ const HomePage = ({ data, location }) => {
                     provider={newsletterProvider}
                     actionUrl={newsletterAction}
                   />
+                  <li style={{ listStyle: 'none', marginTop: '8px' }}>
+                    <a href="/success/" style={{ opacity: 0.75 }}>
+                      구독 안내/성공 페이지
+                    </a>
+                  </li>
                 </Sidebar>
               </Suspense>
             </div>
@@ -310,6 +319,12 @@ export const pageQuery = graphql`
       group(field: { frontmatter: { tags: SELECT } }) {
         fieldValue
         totalCount
+      }
+    }
+    settings: allSettingsJson {
+      nodes {
+        newsletterProvider
+        newsletterAction
       }
     }
   }

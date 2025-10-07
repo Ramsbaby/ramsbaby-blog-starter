@@ -14,7 +14,12 @@ type TopProps = {
 /**
  * 상단 헤더/깃허브 영역 컴포넌트
  */
-export const Top: React.FC<TopProps> = ({ title, location, rootPath, github_Id }) => {
+export const Top: React.FC<TopProps> = ({
+  title,
+  location,
+  rootPath,
+  github_Id,
+}) => {
   const isRoot = location.pathname === rootPath
   const githubId = github_Id
 
@@ -31,5 +36,3 @@ export const Top: React.FC<TopProps> = ({ title, location, rootPath, github_Id }
 }
 
 export default Top
-
-
