@@ -4,7 +4,9 @@
 FROM gradle:8.10.2-jdk21-alpine AS build
 WORKDIR /src
 COPY . .
-RUN ./gradlew -q clean bootJar
+RUN gradle -q wrapper && \
+    chmod +x ./gradlew && \
+    ./gradlew -q clean bootJar
 
 # Runtime stage
 FROM eclipse-temurin:21-jre
