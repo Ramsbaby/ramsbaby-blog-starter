@@ -23,9 +23,10 @@ export function useInfiniteScroll(
   }, [condition, callback])
 
   useEffect(() => {
-    window.addEventListener(`scroll`, onScroll, { passive: false })
+    const opts: AddEventListenerOptions = { passive: false }
+    window.addEventListener('scroll', onScroll, opts)
     return () => {
-      window.removeEventListener(`scroll`, onScroll, { passive: false })
+      window.removeEventListener('scroll', onScroll, opts)
     }
   }, [onScroll])
 }

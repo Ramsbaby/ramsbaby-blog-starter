@@ -1,21 +1,24 @@
 {
   "compilerOptions": {
     "target": "ES2020",
+    "lib": ["ES2020", "DOM"],
     "module": "ESNext",
     "jsx": "react-jsx",
     "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
     "allowJs": true,
+    "checkJs": false,
     "noEmit": true,
-    "resolveJsonModule": true,
     "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node", "jest"],
     "baseUrl": ".",
     "paths": {
       "*": ["src/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "src/**/*.d.ts"],
   "exclude": ["node_modules", "public", ".cache"]
 }
