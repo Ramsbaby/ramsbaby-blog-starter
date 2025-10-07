@@ -39,7 +39,6 @@ dependencies {
 
     implementation("org.xerial:sqlite-jdbc:3.47.1.0")
     implementation("org.flywaydb:flyway-core")
-    implementation("org.flywaydb:flyway-database-sqlite:10.19.0")
 
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
     implementation("com.zaxxer:HikariCP")
