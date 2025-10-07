@@ -13,7 +13,7 @@ spring:
 
 app:
   siteUrl: https://ramsbaby.netlify.app
-  apiBaseUrl: http://localhost:8080
+  apiBaseUrl: https://newsletter-service-702429978439.asia-northeast3.run.app
   rssUrl: https://ramsbaby.netlify.app/rss.xml
   mail:
     from: ms6698@naver.com
