@@ -1,4 +1,3 @@
-export * as Dom from './dom'
-export * as EventManager from './event-manager'
-export * as ScrollManager from './scroll'
-
+export * from './dom'
+export * from './event-manager'
+export * from './scroll'

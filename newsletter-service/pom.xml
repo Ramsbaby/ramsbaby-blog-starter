@@ -54,6 +54,11 @@
       <artifactId>flyway-core</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.flywaydb</groupId>
+      <artifactId>flyway-database-sqlite</artifactId>
+      <version>10.19.0</version>
+    </dependency>
+    <dependency>
       <groupId>com.rometools</groupId>
       <artifactId>rome</artifactId>
       <version>2.1.0</version>

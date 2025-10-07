@@ -24,5 +24,3 @@ export const Footer: React.FC<FooterProps> = ({ siteMetadata }) => {
 }
 
 export default Footer
-
-

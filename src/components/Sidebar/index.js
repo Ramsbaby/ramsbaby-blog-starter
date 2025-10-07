@@ -1,2 +1,2 @@
 // @flow
-export { default } from './Sidebar';
+export { default } from './Sidebar'

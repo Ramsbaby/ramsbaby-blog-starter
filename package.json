@@ -101,7 +101,7 @@
     "post": "gatsby-post-gen",
     "dev": "gatsby develop",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.{js,jsx,ts,tsx,md,scss}\"",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "start-global": "gatsby develop --host=0.0.0.0",

@@ -7,7 +7,10 @@ describe('Search', () => {
     const inputSearchWord = jest.fn()
     const selectExposureGb = jest.fn()
     render(
-      <Search inputSearchWord={inputSearchWord} selectExposureGb={selectExposureGb} />
+      <Search
+        inputSearchWord={inputSearchWord}
+        selectExposureGb={selectExposureGb}
+      />
     )
     const input = screen.getByRole('searchbox', { name: '검색어 입력' })
     fireEvent.change(input, { target: { value: 'test' } })

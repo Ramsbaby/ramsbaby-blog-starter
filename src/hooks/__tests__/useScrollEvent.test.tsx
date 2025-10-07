@@ -38,5 +38,3 @@ describe('useScrollEvent', () => {
     expect(onScroll).toHaveBeenCalledTimes(2)
   })
 })
-
-

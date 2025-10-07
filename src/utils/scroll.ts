@@ -24,4 +24,3 @@ export function go(dest: string | Element) {
   scroll.animateScroll(dest)
   return scroll
 }
-
