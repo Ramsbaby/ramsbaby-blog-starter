@@ -15,14 +15,6 @@ java {
 
 repositories {
     mavenCentral()
-    maven {
-        name = "redgate-public"
-        url = uri("https://repo.red-gate.com/artifactory/libs-releases")
-        metadataSources {
-            mavenPom()
-            artifact()
-        }
-    }
 }
 
 configurations {
@@ -38,7 +30,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-mail")
 
     implementation("org.xerial:sqlite-jdbc:3.47.1.0")
-    implementation("org.flywaydb:flyway-core")
+    implementation("org.flywaydb:flyway-core:9.22.3")
 
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
     implementation("com.zaxxer:HikariCP")

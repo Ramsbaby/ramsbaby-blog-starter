@@ -41,19 +41,6 @@ jobs:
         with:
           project_id: ${{ env.PROJECT_ID }}
 
-      - name: Enable Artifact Registry API
-        run: |
-          gcloud services enable artifactregistry.googleapis.com
-
-      - name: Ensure Artifact Registry repository exists
-        run: |
-          REPO=newsletter
-          REGION=${{ env.REGION }}
-          PROJECT=${{ env.PROJECT_ID }}
-          if ! gcloud artifacts repositories describe $REPO --location=$REGION >/dev/null 2>&1; then
-            gcloud artifacts repositories create $REPO --repository-format=docker --location=$REGION --description="Newsletter images"
-          fi
-
       - name: Configure Docker auth for Artifact Registry
         run: |
           gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
