@@ -41,9 +41,31 @@ jobs:
         with:
           project_id: ${{ env.PROJECT_ID }}
 
-      - name: Build container with Cloud Build
+      - name: Build container with Cloud Build (async, no log streaming)
+        id: build
         run: |
-          gcloud builds submit newsletter-service --tag gcr.io/${PROJECT_ID}/${SERVICE}
+          set -euo pipefail
+          BUILD_ID=$(gcloud builds submit newsletter-service \
+            --tag gcr.io/${PROJECT_ID}/${SERVICE} \
+            --async --format='value(metadata.name)')
+          echo "build_id=${BUILD_ID}" >> $GITHUB_OUTPUT
+          echo "Queued Cloud Build: ${BUILD_ID}"
+
+          echo "Attempting to stream logs (will ignore permission errors)..."
+          gcloud builds log --stream ${BUILD_ID} || echo "Streaming not permitted; falling back to polling."
+
+          echo "Waiting for build to finish..."
+          STATUS="PENDING"
+          until [ "${STATUS}" = "SUCCESS" ]; do
+            STATUS=$(gcloud builds describe ${BUILD_ID} --format='value(status)') || STATUS="UNKNOWN"
+            echo "Current status: ${STATUS}"
+            if [ "${STATUS}" = "FAILURE" ] || [ "${STATUS}" = "CANCELLED" ] || [ "${STATUS}" = "EXPIRED" ]; then
+              echo "Build finished with status ${STATUS}" >&2
+              exit 1
+            fi
+            sleep 5
+          done
+          echo "Build succeeded: ${BUILD_ID}"
 
       - name: Deploy to Cloud Run
         run: |
