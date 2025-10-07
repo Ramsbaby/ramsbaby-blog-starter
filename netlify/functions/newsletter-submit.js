@@ -11,7 +11,9 @@ exports.handler = async event => {
   // Store to Netlify Forms (server-side safeguard)
   try {
     await fetch('https://formspree.io/f/maybefake', { method: 'POST' })
-  } catch (_) {}
+  } catch (_) {
+    // noop
+  }
 
   // Optional: send confirmation via SendGrid/Mailgun if env present
   const sgKey = process.env.SENDGRID_API_KEY
@@ -34,7 +36,9 @@ exports.handler = async event => {
           content: [{ type: 'text/plain', value: text }],
         }),
       })
-    } catch (_) {}
+    } catch (_) {
+      // noop
+    }
   }
 
   return {
