@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RestController
 @RequestMapping("/api/subscribers")
+@CrossOrigin(origins = "*")
 public class SubscriberController {
 
     private final SubscriberService subscriberService;
@@ -20,6 +21,11 @@ public class SubscriberController {
     public SubscriberController(SubscriberService subscriberService, AppProps props) {
         this.subscriberService = subscriberService;
         this.props = props;
+    }
+
+    @GetMapping
+    public ResponseEntity<?> list() {
+        return ResponseEntity.ok(subscriberService.listAll());
     }
 
     @PostMapping

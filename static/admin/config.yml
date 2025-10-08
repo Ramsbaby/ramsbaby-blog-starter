@@ -44,3 +44,18 @@ collections:
               widget: string,
               required: false,
             }
+  - name: subscribers
+    label: Subscribers
+    editor:
+      preview: false
+    files:
+      - file: content/settings/subscribers.json
+        label: Subscribers
+        name: list
+        fields:
+          - {
+              label: Viewer,
+              name: viewer,
+              widget: subscribers,
+              required: false,
+            }

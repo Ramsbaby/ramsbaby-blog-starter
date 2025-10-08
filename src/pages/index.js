@@ -188,11 +188,6 @@ const HomePage = ({ data, location }) => {
                     provider={newsletterProvider}
                     actionUrl={newsletterAction}
                   />
-                  <li style={{ listStyle: 'none', marginTop: '8px' }}>
-                    <a href="/success/" style={{ opacity: 0.75 }}>
-                      구독 안내/성공 페이지
-                    </a>
-                  </li>
                 </Sidebar>
               </Suspense>
             </div>

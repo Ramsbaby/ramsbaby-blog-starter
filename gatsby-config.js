@@ -9,6 +9,21 @@ module.exports = {
   flags: {
     DEV_SSR: false,
   },
+  developMiddleware: app => {
+    try {
+      const { createProxyMiddleware } = require('http-proxy-middleware')
+      app.use(
+        '/.proxy/newsletter',
+        createProxyMiddleware({
+          target: process.env.NEWSLETTER_BASE_URL || 'http://localhost:8080',
+          changeOrigin: true,
+          pathRewrite: { '^/.proxy/newsletter': '' },
+        })
+      )
+    } catch (e) {
+      // dev server에서만 사용. 빌드 시 무시
+    }
+  },
   plugins: [
     // Source filesystem first so remark plugins can resolve relative images
     {
@@ -146,6 +161,11 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
   ],
 }

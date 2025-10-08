@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <!-- 오션 블루 그라데이션: 시원한 바다 느낌 -->
+    <linearGradient id="ocean" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00C6FF"/>
+      <stop offset="100%" stop-color="#0072FF"/>
+    </linearGradient>
+  </defs>
+  <!-- 넉넉한 라운드 + 오션 그라데이션 배경 -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#ocean)"/>
+  <!-- J: 중앙 정렬, 굵은 화이트 스트로크 -->
+  <path d="M36 10 v28 a14 14 0 0 1 -14 14" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+</svg>
+

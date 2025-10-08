@@ -4,10 +4,38 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Content Manager</title>
+    <link rel="icon" href="/admin/favicon-admin.svg" type="image/svg+xml" />
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
     <script src="https://unpkg.com/netlify-cms@^2.10.192/dist/netlify-cms.js"></script>
-    <script src="/admin/cms.js"></script>
+    <script>
+      // 간단한 위젯 등록: CMS 내부에 /admin/subscribers 를 iframe으로 임베드
+      ;(function() {
+        var SubscribersControl = window.createClass({
+          render: function() {
+            var origin = window.location.origin
+            var url = origin + '/admin/subscribers'
+            return window.h(
+              'div',
+              { style: { padding: '8px 0' } },
+              window.h('iframe', {
+                title: 'Subscribers',
+                src: url,
+                style: {
+                  width: '100%',
+                  minHeight: '72vh',
+                  border: 0,
+                  background: 'transparent',
+                },
+              })
+            )
+          },
+        })
+        if (window.CMS && window.CMS.registerWidget) {
+          window.CMS.registerWidget('subscribers', SubscribersControl)
+        }
+      })()
+    </script>
   </body>
 </html>

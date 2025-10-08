@@ -31,7 +31,7 @@ module.exports = {
       url: `https://l-j-gatsby-blog-starter.netlify.app/`,
     },
   ],
-  icon: `content/assets/React.js_logo-512.png`, // Add your favicon
+  icon: `content/assets/ramsbaby-j-512.png`, // Add your favicon
   keywords: [`blog`, `ramsbaby`, `gatsby-blog`],
   comment: {
     disqusShortName: process.env.GATSBY_DISQUS_NAME || '', // Your disqus-short-name. check disqus.com.
