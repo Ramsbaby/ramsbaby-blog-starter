@@ -7,6 +7,7 @@ export default function AdminSubscribers({ location, data }) {
   const [rows, setRows] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [tried, setTried] = useState([])
   const newsletterAction =
     data?.settings?.nodes?.[0]?.newsletterAction ||
     process.env.GATSBY_NEWSLETTER_API ||
@@ -16,13 +17,7 @@ export default function AdminSubscribers({ location, data }) {
     async function load() {
       try {
         const candidates = []
-        if (newsletterAction) {
-          candidates.push(newsletterAction)
-        }
-        candidates.push('/.proxy/newsletter/api/subscribers')
-        // 마지막 폴백: 동일 오리진 api (배포 시 역프록시 구성된 경우)
-        candidates.push('/api/subscribers')
-        // 개발 편의: 로컬 백엔드 직접 호출
+        // 1) 개발 중 로컬 백엔드 우선 시도
         if (typeof window !== 'undefined') {
           const host = window.location.hostname
           const isLocal = host === 'localhost' || host === '127.0.0.1'
@@ -30,20 +25,35 @@ export default function AdminSubscribers({ location, data }) {
             candidates.push('http://localhost:8080/api/subscribers')
           }
         }
+        // 2) 개발 프록시
+        candidates.push('/.proxy/newsletter/api/subscribers')
+        // 3) 동일 오리진(배포시 역프록시)
+        candidates.push('/api/subscribers')
+        // 4) 설정값(원격 API)
+        if (newsletterAction) {
+          candidates.push(newsletterAction)
+        }
 
         let resp
         let lastErr
+        const triedList = []
         for (const url of candidates) {
           try {
-            resp = await fetch(url, { credentials: 'omit', mode: 'cors' })
+            triedList.push(url)
+            resp = await fetch(url, {
+              credentials: 'omit',
+              mode: 'cors',
+              headers: { Accept: 'application/json' },
+              cache: 'no-store',
+            })
             if (resp.ok) break
             lastErr = new Error(`HTTP ${resp.status}`)
           } catch (e) {
             lastErr = e
           }
         }
+        setTried(triedList)
         if (!resp || !resp.ok) throw lastErr || new Error('failed to fetch')
-        if (!resp.ok) throw new Error('failed to fetch')
         const data = await resp.json()
         setRows(data)
       } catch (e) {
@@ -62,9 +72,45 @@ export default function AdminSubscribers({ location, data }) {
       <div style={{ maxWidth: 960, margin: '40px auto', padding: '0 16px' }}>
         <h1>구독자 목록</h1>
         {loading && <p>불러오는 중…</p>}
-        {error && <p style={{ color: 'crimson' }}>{error}</p>}
+        {error && (
+          <div>
+            <p style={{ color: 'crimson' }}>{error}</p>
+            {tried.length > 0 && (
+              <details style={{ marginTop: 8 }}>
+                <summary>시도한 엔드포인트 보기</summary>
+                <ul>
+                  {tried.map(u => (
+                    <li key={u}>
+                      <a href={u} target="_blank" rel="noreferrer">
+                        {u}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            )}
+          </div>
+        )}
         {!loading && !error && (
           <div style={{ overflowX: 'auto' }}>
+            <div style={{ margin: '6px 0 10px', display: 'flex', gap: 12 }}>
+              <Badge rows={rows} label="전체" filter={() => true} />
+              <Badge
+                rows={rows}
+                label="활성"
+                filter={r => r.status === 'active'}
+              />
+              <Badge
+                rows={rows}
+                label="대기"
+                filter={r => r.status === 'pending'}
+              />
+              <Badge
+                rows={rows}
+                label="해지"
+                filter={r => r.status === 'unsubscribed'}
+              />
+            </div>
             <table
               style={{
                 width: '100%',
@@ -186,6 +232,23 @@ export default function AdminSubscribers({ location, data }) {
         </p>
       </div>
     </Layout>
+  )
+}
+
+function Badge({ rows, label, filter }) {
+  const n = rows.filter(filter).length
+  return (
+    <span
+      style={{
+        background: '#eef2ff',
+        color: '#1e40af',
+        borderRadius: 999,
+        padding: '4px 10px',
+        fontSize: 12,
+      }}
+    >
+      {label}: {n}
+    </span>
   )
 }
 
