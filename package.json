@@ -105,7 +105,7 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "start-global": "gatsby develop --host=0.0.0.0",
-    "build": "gatsby build",
+    "build": "node scripts/gen-favicon.js && gatsby build",
     "lh": "lighthousebot",
     "test": "jest --passWithNoTests",
     "typecheck": "tsc --noEmit",

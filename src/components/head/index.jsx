@@ -49,11 +49,6 @@ export function Head({ description, lang, meta, keywords, title }) {
               name="google-site-verification"
               content={data.site.siteMetadata.gsc}
             />
-            <link
-              rel="icon"
-              href="/admin/favicon-admin.svg"
-              type="image/svg+xml"
-            />
           </Helmet>
         )
       }}
